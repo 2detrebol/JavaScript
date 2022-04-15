@@ -9,4 +9,4 @@ console.log (resultadoA);
 let ingreseNombre = prompt ("Ingrese su Nombre");
 let ingreseApellido = prompt ("Ingrese su Apellido");
 
-alert ("Bienvenido" + espacio + ingreseNombre + " " + ingreseApellido);
+alert ("Bienvenido/a" + espacio + ingreseNombre + " " + ingreseApellido);
