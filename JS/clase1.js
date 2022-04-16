@@ -1,12 +1,12 @@
 let nombre = "Mauro";
 let apellido = "Brandi"
-const espacio = " ";
+const ESPACIO = " ";
 
-let resultadoA = "Bienvenido" + espacio + nombre + espacio + apellido;
+let resultadoA = "Bienvenido" + ESPACIO + nombre + ESPACIO + apellido;
 
 console.log (resultadoA);
 
 let ingreseNombre = prompt ("Ingrese su Nombre");
 let ingreseApellido = prompt ("Ingrese su Apellido");
 
-alert ("Bienvenido/a" + espacio + ingreseNombre + " " + ingreseApellido);
+alert ("Bienvenido/a" + ESPACIO + ingreseNombre + " " + ingreseApellido);
