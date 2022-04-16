@@ -10,7 +10,7 @@ if (((nombre == "Mauro") || (nombre == "MAURO") && (apellido == "Brandi") || (ap
     alert("Error! No ha ingresado todos los datos. Por favor intente nuevamente.")
 }
 
-/*FOR CON WHILE*/
+/*FOR*/
 for (let a = 1; a <= 5; a++) {    
     let ingresaNombre = prompt ("Ingresa tu Nombre");    
     alert ("Turno Nº "+a+" - Nombre: "+ingresaNombre);       
