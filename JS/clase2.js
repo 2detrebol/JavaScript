@@ -12,9 +12,9 @@ if (((nombre == "Mauro") || (nombre == "MAURO") && (apellido == "Brandi") || (ap
 }
 
 /*FOR*/
-for (let a = 1; a <= 5; a++) {    
-    let ingresaNombre = prompt ("Ingresa tu Nombre");    
-    alert ("Turno Nº "+a+" - Nombre: "+ingresaNombre);       
+for (let i = 1; i <= 5; i++) {    
+    let ingresaNombre = prompt ("Ingresa tu Nombre para obtener un turno");    
+    alert ("Turno Nº "+i+" - Nombre: "+ingresaNombre);       
 }
 
 /*WHILE*/
