@@ -2,6 +2,7 @@ let nombre = prompt("Ingrese su Nombre");
 let apellido = prompt("Ingrese su Apellido");
 const ESPACIO = " ";
 
+/*IF*/
 if (((nombre == "Mauro") || (nombre == "MAURO") && (apellido == "Brandi") || (apellido == "BRANDI"))) {
     alert("Bienvenido Admin!")
 } else if ((nombre != "") && (apellido != "")) {
