@@ -23,3 +23,17 @@ while (entrada != "EXIT") {
     alert("Usted ingreso el Número "+entrada);
     entrada = prompt ("Ingresa otro número");
 }
+
+/*
+let nota = 7;
+
+if (nota <= 6) {
+    console.log("No aprobado");
+} else if 
+    (nota >= 7 && nota <= 9) {
+        console.log("Bien ahí");        
+    }
+    else {
+        console.log("Felicidades 10");
+    }
+*/
