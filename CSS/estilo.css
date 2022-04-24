@@ -129,7 +129,7 @@ body {
     }
 
     .dibujo {
-        width: 70%;
+        width: 45%;
         margin-top: -1rem;
         margin-left: 1rem;
     }
@@ -137,6 +137,30 @@ body {
     .containerCarousel {
         margin-top: 1.8rem;
         margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
     }
 
+    .carousel-inner {
+        max-width: 70%;
+    }
+
+    .carousel-indicators button {
+        width: 1.5rem;
+    }
+
+    .neon-button {
+        font-size: 1rem;
+        padding: 0.25em 0.5em;
+        margin-bottom: 1.5rem;
+    }
+
+    .neon-button::after {
+        box-shadow: 0 0 1rem 0.2rem greenyellow;
+    }
+
+    .slickBrands div img {
+        width: 45%;
+        filter: drop-shadow(0 0 0.3rem greenyellow);
+    }
 }
