@@ -11,13 +11,14 @@ if (((nombre === "Mauro") || (nombre === "MAURO") || (nombre === "mauro")) && ((
     alert("Error! No ha ingresado todos los datos.")
 }
 
+
 /*FOR*/
 for (let i = 1; i <= 5; i++) {
     let ingresaNombre = prompt("Ingresa tu Nombre para obtener un turno");
     if (isNaN(ingresaNombre)) {
         alert("Turno Nº " + i + " - Nombre: " + ingresaNombre);
     } else {
-        alert("Usted no ingresó un Nombre válido. \nComo este turno no pudo ser asignado, se continuará con la asignación del siguiente turno.")
+        alert("Usted no ingresó un Nombre válido. \nComo este turno no pudo ser asignado, quedará vacante y se continuará con la asignación del siguiente turno.")
     }
 }
 

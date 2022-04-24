@@ -122,3 +122,21 @@ body {
     margin: 0.5rem 1rem;
     border-radius: 10px;
 }
+
+@media (min-width: 576px) {
+    .titulo h1 {
+        font-size: 1.5rem;
+    }
+
+    .dibujo {
+        width: 70%;
+        margin-top: -1rem;
+        margin-left: 1rem;
+    }
+
+    .containerCarousel {
+        margin-top: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+}
