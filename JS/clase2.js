@@ -3,12 +3,12 @@ let apellido = prompt("Ingrese su Apellido");
 const ESPACIO = " ";
 
 /*IF*/
-if (((nombre == "Mauro") || (nombre == "MAURO") && (apellido == "Brandi") || (apellido == "BRANDI"))) {
+if (((nombre === "Mauro") || (nombre === "MAURO")) && ((apellido === "Brandi") || (apellido === "BRANDI"))) {
     alert("Bienvenido Admin!")
-} else if ((nombre != "") && (apellido != "")) {
+} else if ((nombre !== "") && (apellido !== "")) {
     alert("Bienvenido/a" + ESPACIO + nombre + ESPACIO + apellido)
 } else {
-    alert("Error! No ha ingresado todos los datos. Por favor intente nuevamente.")
+    alert("Error! No ha ingresado todos los datos.")
 }
 
 /*FOR*/
@@ -18,13 +18,21 @@ for (let i = 1; i <= 5; i++) {
 }
 
 /*WHILE*/
-let entrada = prompt ("Ahora ingresa un número");
-while (entrada != "EXIT") {
-    alert("Usted ingreso el Número "+entrada);
-    entrada = prompt ("Ingresa otro número");
+let entrada = parseInt(prompt ("Ahora ingresa un número"));
+while (entrada !== 9999) {
+    /*DECLARACIÓN NEGATIVA - IF NO ES UN NAN/STRING ES UN NUM, SIN EL ! ANTES DEL isNaN funcionaria al reves*/
+    if (!isNaN (entrada)) {
+        alert ("Usted ingreso el Número "+entrada);        
+    }
+    else { 
+        alert("Usted no ingresó un número válido");        
+    }
+    entrada = parseInt(prompt ("Ingresa otro número"));
 }
 
 /*
+EJERCICIO DE NOTAS
+
 let nota = 7;
 
 if (nota <= 6) {
