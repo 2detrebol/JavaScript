@@ -126,23 +126,24 @@ body {
 @media (min-width: 576px) {
     .titulo h1 {
         font-size: 1.5rem;
+        margin-top: .5rem;
     }
 
     .dibujo {
-        width: 45%;
+        width: 60%;
         margin-top: -1rem;
         margin-left: 1rem;
     }
 
     .containerCarousel {
-        margin-top: 1.8rem;
-        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
         display: flex;
         justify-content: center;
     }
 
     .carousel-inner {
-        max-width: 70%;
+        max-width: 75%;
     }
 
     .carousel-indicators button {
@@ -150,9 +151,9 @@ body {
     }
 
     .neon-button {
-        font-size: 1rem;
+        font-size: .8rem;
         padding: 0.25em 0.5em;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .neon-button::after {
@@ -160,7 +161,7 @@ body {
     }
 
     .slickBrands div img {
-        width: 45%;
+        width: 30%;
         filter: drop-shadow(0 0 0.3rem greenyellow);
     }
 }
