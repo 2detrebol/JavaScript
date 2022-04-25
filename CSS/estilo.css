@@ -118,7 +118,7 @@ body {
 
 .slickBrands div img {
     width: 60%;
-    filter: drop-shadow(0 0 0.5rem greenyellow);
+    filter: drop-shadow(0 0 0.4rem greenyellow);
     margin: 0.5rem 1rem;
     border-radius: 10px;
 }
@@ -130,7 +130,7 @@ body {
     }
 
     .dibujo {
-        width: 60%;
+        width: 70%;
         margin-top: -1rem;
         margin-left: 1rem;
     }
@@ -162,6 +162,104 @@ body {
 
     .slickBrands div img {
         width: 30%;
-        filter: drop-shadow(0 0 0.3rem greenyellow);
+        filter: drop-shadow(0 0 0.2rem greenyellow);
+    }
+}
+
+@media (min-width: 768px) {
+    .titulo h1 {
+        font-size: 2.5rem;
+    }
+
+    .dibujo {
+        width: 35%;
+        margin: 0.5rem 0 1rem 1rem;
+    }
+
+    .containerCarousel {
+        margin: 2rem .5rem 2rem 0.5rem;
+    }
+
+    .carousel-inner {
+        max-width: 100%;
+    }
+
+    .carousel-indicators button {
+        width: 3rem !important;
+    }
+
+    .neon-button {
+        font-size: 2rem;
+        padding: 0.25em 0.5em;
+        margin-bottom: 2rem;
+    }
+
+    .slickBrands div img {
+        width: 75%;
+    }
+}
+
+@media (min-width: 992px) {
+    .titulo h1 {
+        font-size: 3.5rem;
+    }
+
+    .dibujo {
+        width: 90%;
+    }
+
+    .containerCarousel {
+        margin-top: 3rem;
+    }
+
+    .neon-button {
+        font-size: 2.3rem;
+        padding: 0.25em 0.5em;
+        margin-top: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .dibujo {
+        width: 100%;
+    }
+
+    .carousel-inner {
+        max-width: 90%;
+    }
+
+    .neon-button {
+        font-size: 2rem;
+    }
+
+    .slickBrands div img {
+        width: 65%;
+    }
+}
+
+@media (min-width: 1366px) {
+    .dibujo {
+        width: 80%;
+        margin-top: -1rem;
+        margin-left: 3rem;
+
+    }
+
+    .containerCarousel {
+        margin-top: 1.8rem;
+    }
+
+    .carousel-inner {
+        max-width: 90%;
+    }
+
+    .neon-button {
+        margin-top: -.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .slickBrands div img {
+        width: 38%;
     }
 }
