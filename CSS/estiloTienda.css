@@ -94,6 +94,16 @@ body {
     text-align: center;
 }
 
+.productPrice {
+    color: #fff;
+    font-family: 'Audiowide', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
 .botonAgregar {
     background-color: greenyellow;
     color: #000;
