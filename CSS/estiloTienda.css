@@ -129,3 +129,47 @@ body {
     }
 
 }
+
+@media (min-width: 1366px) {
+    .dibujo {
+        max-width: 12vw;
+    }
+
+    .accordion-item {
+        max-width: 70vw;
+        margin-bottom: 1rem;
+    }
+
+    .accordion-button p,
+    .accordion-button i {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        width: 20% !important;
+    }
+
+    .productTittle {
+        font-size: 1.1rem;
+    }
+
+    .product {
+        font-size: .7rem;
+    }
+
+    .productPrice {
+        font-size: .95rem;
+    }
+
+    .botonAgregar {
+        font-size: .65rem;
+    }
+
+    .slickBrands {
+        margin-top: 1.5rem;
+    }
+
+    .slickBrands div img {
+        width: 30%;
+    }
+}

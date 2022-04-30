@@ -30,7 +30,7 @@ restar (20,30)
 /*
 const suma = (a, b) => {return a + b};
 const resta = function (a, b) {return a - b};
-//Se puede escribir tanto con flecha como con function si son simples, atajo//
+//Se puede escribir tanto con flecha como con function si son simples (una solo línea de código), atajo//
 const iva = x => x * 0.21;
 //También se pueden omitir los () para las variables y el return entre {}, si es function de 1 sola línea con retorno//
 let valor = 110;
@@ -100,13 +100,21 @@ const producto1 = new ProductoD (1,"i7","60000");
 const producto2 = new ProductoD (2,"i9","80000");
 const producto3 = new ProductoD (3,"R7","55000");
 const producto4 = new ProductoD (4,"R9","75000");
+const producto5 = new ProductoD (5,"3080","300000");
+const producto6 = new ProductoD (6,"3090","600000");
+const producto7 = new ProductoD (7,"6800","260000");
+const producto8 = new ProductoD (8,"6900","320000");
 
 console.log (producto1)
 console.log (producto2)
 console.log (producto3)
 console.log (producto4)
+console.log (producto5)
+console.log (producto6)
+console.log (producto7)
+console.log (producto8)
 
-let comprarProducto = prompt ("Ingresa el nombre del producto que quieres comprar. \nSi deseas salir ingresa EXIT.");
+let comprarProducto = prompt ("Ingresa el nombre del producto que quieres comprar. \nSi deseas salir ingresa EXIT. \n(Info para tutor... Opciones: i7, i9, R7, R9, 3080, 3090, 6800, 6900 o EXIT)");
 while (comprarProducto != "EXIT") {
     switch (comprarProducto){
         case "i7":
@@ -141,10 +149,41 @@ while (comprarProducto != "EXIT") {
         console.log (producto4.vendido)
         break;
 
+        case "3080":
+        producto5.sumaIVA();
+        alert("Usted seleccionó una Placa de Video RTX3080 \nTiene un valor de $"+ producto5.precio+ " con IVA incluído");
+        producto5.vender();
+        console.log (producto5.tittle+" fue vendido por un valor de $ "+ producto5.precio+" (IVA incl.)")
+        console.log (producto5.vendido)
+        break;
+
+        case "3090":
+        producto6.sumaIVA();
+        alert("Usted seleccionó una Placa de Video RTX3090 \nTiene un valor de $"+ producto6.precio+ " con IVA incluído");
+        producto6.vender();
+        console.log (producto6.tittle+" fue vendido por un valor de $ "+ producto6.precio+" (IVA incl.)")
+        console.log (producto6.vendido)
+        break;
+
+        case "6800":
+        producto7.sumaIVA();
+        alert("Usted seleccionó una Placa de Video RX6800 \nTiene un valor de $"+ producto7.precio+ " con IVA incluído");
+        producto7.vender();
+        console.log (producto7.tittle+" fue vendido por un valor de $ "+ producto7.precio+" (IVA incl.)")
+        console.log (producto7.vendido)
+        break;
+
+        case "6900":
+        producto8.sumaIVA();
+        alert("Usted seleccionó una Placa de Video RX6900 \nTiene un valor de $"+ producto8.precio+ " con IVA incluído");
+        producto8.vender();
+        console.log (producto8.tittle+" fue vendido por un valor de $ "+ producto8.precio+" (IVA incl.)")
+        console.log (producto8.vendido)
+        break;
+
         default:
             alert("Usted no ingresó un producto válido.\nPor favor intente nuevamente");
             break;
     }   
     comprarProducto = prompt ("Ingresa el nombre del producto que quieras agregar. \nO ingresa EXIT para salir."); 
 }    
-
