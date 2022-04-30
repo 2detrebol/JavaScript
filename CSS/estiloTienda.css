@@ -111,6 +111,18 @@ body {
     font-weight: 600;
 }
 
+/* CAROUSEL PARA BRANDS */
+.slickBrands div {
+    background-color: #000;
+}
+
+.slickBrands div img {
+    width: 60%;
+    filter: drop-shadow(0 0 0.4rem greenyellow);
+    margin: 0.5rem 1rem;
+    border-radius: 10px;
+}
+
 @media (min-width: 768px) {
     .card {
         margin-left: 1.5rem;

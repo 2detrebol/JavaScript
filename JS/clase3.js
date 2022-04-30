@@ -1,11 +1,14 @@
 /*FUNCION GLOBAL*/
+/*
 function sumar (precio1, precio2) {
         return precio1 + precio2;    
 }
 let resultado = sumar (8,3);
 console.log (resultado)
+*/
 
 /*FUNCIONES LOCALES*/
+/*
 function sumar1 (precio1, precio2) {
     let resultado = precio1 + precio2;
     console.log (resultado);
@@ -21,9 +24,10 @@ function restar (precio1, precio2) {
 restar (10,3);
 restar (15,4);
 restar (20,30)
+*/
 
 /*FUNCIONES FLECHA*/
-
+/*
 const suma = (a, b) => {return a + b};
 const resta = function (a, b) {return a - b};
 //Se puede escribir tanto con flecha como con function si son simples, atajo//
@@ -39,9 +43,10 @@ console.log (valorConIva);
 //También se podría hacer todo junto en una línea como aquí abajo//
 let valorFinal = suma (resta (valor, descuento), iva(valor - descuento)) //y en () del iva podría ir valorFinalSinIva//
 console.log(valorFinal)
-
+*/
 
 /*OBJETO*/
+/*
 const productoA = {
 id: 1,
 tittle: "i7",
@@ -59,9 +64,10 @@ productoA["precio"]= "$ 80000";
 productoA["id"]= 2;
 
 console.log (productoA)
+*/
 
 /*CONSTRUCTORES DE OBJETOS - ES UNA FUNCIÓN PARA CREAR NUEVO OBJETO CUANDO HAGA FALTA (SUERTE DE PLANTILLA DE OBJETO)*/
-
+/*
 function producto (id, tittle, precio) {
     this.id = id;
     this.tittle = tittle;
@@ -72,6 +78,7 @@ const productoB = new producto(1, "R7", "$ 55000")
 const productoC = new producto(2, "R9", "$ 75000")
 
 console.log (productoB, productoC)
+*/
 
 /*CLASES  Y MÉTODOS (SON FUNCIONES QUE SOLO SE USAN DENTRO DEL OBJETO QUE LOS CONTIENE)*/
 
@@ -80,21 +87,64 @@ class ProductoD {
         this.id = id;
         this.tittle = tittle;
         this.precio = parseFloat (precio);
-        this.vendido = false;
+        this.vendido = false + " - producto en stock";
     }
     sumaIVA () {
         this.precio = this.precio * 1.21;
     }
     vender () {
-        this.vendido = true;
+        this.vendido = true + " - producto vendido - sin stock";
     }
 }
-
-const producto1 = new ProductoD (10,"i7","60000");
-const producto2 = new ProductoD (11,"i9","80000");
+const producto1 = new ProductoD (1,"i7","60000");
+const producto2 = new ProductoD (2,"i9","80000");
+const producto3 = new ProductoD (3,"R7","55000");
+const producto4 = new ProductoD (4,"R9","75000");
 producto1.sumaIVA();
 producto2.sumaIVA();
-producto1.vender ();
+producto3.sumaIVA();
+producto4.sumaIVA();
 
 console.log (producto1)
 console.log (producto2)
+console.log (producto3)
+console.log (producto4)
+
+let comprarProducto = prompt ("Ingresa el nombre del producto que quieres comprar. \nSi deseas salir ingresa EXIT.");
+while (comprarProducto != "EXIT") {
+    switch (comprarProducto){
+        case "i7":
+        alert("Usted seleccionó un Microprocesador Intel i7 \nTiene un valor de $ "+ producto1.precio+ " con IVA incluído");
+        producto1.vender();
+        console.log (producto1.tittle+" fue vendido por un valor de $ "+ producto1.precio+" (IVA incl.)")
+        console.log (producto1.vendido)
+        break;
+
+        case "i9":
+        alert("Usted seleccionó un Microprocesador Intel i9 \nTiene un valor de $"+ producto2.precio+ " con IVA incluído");
+        producto2.vender();
+        console.log (producto2.tittle+" fue vendido por un valor de $ "+ producto2.precio+" (IVA incl.)")
+        console.log (producto2.vendido)
+        break;
+
+        case "R7":
+        alert("Usted seleccionó un Microprocesador AMD Ryzen 7 \nTiene un valor de $"+ producto3.precio+ " con IVA incluído");
+        producto3.vender();
+        console.log (producto3.tittle+" fue vendido por un valor de $ "+ producto3.precio+" (IVA incl.)")
+        console.log (producto3.vendido)
+        break;
+
+        case "R9":
+        alert("Usted seleccionó un Microprocesador AMD Ryzen 9 \nTiene un valor de $"+ producto4.precio+ " con IVA incluído");
+        producto4.vender();
+        console.log (producto4.tittle+" fue vendido por un valor de $ "+ producto4.precio+" (IVA incl.)")
+        console.log (producto4.vendido)
+        break;
+
+        default:
+            alert("Usted no ingresó un producto válido.\nPor favor intente nuevamente");
+            break;
+    }   
+    comprarProducto = prompt ("Ingresa el nombre del producto que quieras agregar. \nO ingresa EXIT para salir."); 
+}    
+
