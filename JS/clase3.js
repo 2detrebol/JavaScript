@@ -100,10 +100,6 @@ const producto1 = new ProductoD (1,"i7","60000");
 const producto2 = new ProductoD (2,"i9","80000");
 const producto3 = new ProductoD (3,"R7","55000");
 const producto4 = new ProductoD (4,"R9","75000");
-producto1.sumaIVA();
-producto2.sumaIVA();
-producto3.sumaIVA();
-producto4.sumaIVA();
 
 console.log (producto1)
 console.log (producto2)
@@ -114,6 +110,7 @@ let comprarProducto = prompt ("Ingresa el nombre del producto que quieres compra
 while (comprarProducto != "EXIT") {
     switch (comprarProducto){
         case "i7":
+        producto1.sumaIVA();
         alert("Usted seleccionó un Microprocesador Intel i7 \nTiene un valor de $ "+ producto1.precio+ " con IVA incluído");
         producto1.vender();
         console.log (producto1.tittle+" fue vendido por un valor de $ "+ producto1.precio+" (IVA incl.)")
@@ -121,6 +118,7 @@ while (comprarProducto != "EXIT") {
         break;
 
         case "i9":
+        producto2.sumaIVA();
         alert("Usted seleccionó un Microprocesador Intel i9 \nTiene un valor de $"+ producto2.precio+ " con IVA incluído");
         producto2.vender();
         console.log (producto2.tittle+" fue vendido por un valor de $ "+ producto2.precio+" (IVA incl.)")
@@ -128,6 +126,7 @@ while (comprarProducto != "EXIT") {
         break;
 
         case "R7":
+        producto3.sumaIVA();
         alert("Usted seleccionó un Microprocesador AMD Ryzen 7 \nTiene un valor de $"+ producto3.precio+ " con IVA incluído");
         producto3.vender();
         console.log (producto3.tittle+" fue vendido por un valor de $ "+ producto3.precio+" (IVA incl.)")
@@ -135,6 +134,7 @@ while (comprarProducto != "EXIT") {
         break;
 
         case "R9":
+        producto4.sumaIVA();
         alert("Usted seleccionó un Microprocesador AMD Ryzen 9 \nTiene un valor de $"+ producto4.precio+ " con IVA incluído");
         producto4.vender();
         console.log (producto4.tittle+" fue vendido por un valor de $ "+ producto4.precio+" (IVA incl.)")
