@@ -194,7 +194,7 @@ while (comprarProducto != "EXIT") {
             alert("Usted no ingresó un producto válido.\nPor favor intente nuevamente");
             break;
     }   
-    comprarProducto = prompt ("Ingresa el nombre del producto que quieras agregar. \nO ingresa EXIT para salir."); 
+    comprarProducto = prompt ("Ingresa el nombre del producto que quieras agregar. \nO ingresa EXIT para salir. \n(Info para tutor... Opciones: i7, i9, R7, R9, 3080, 3090, 6800, 6900 o EXIT)"); 
 }    
 
 console.log ("La compra realizada suma un total de $ " + totalCompra + " con IVA incluído")
