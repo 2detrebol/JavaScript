@@ -115,7 +115,8 @@ console.log (producto7)
 console.log (producto8)
 
 let comprarProducto = prompt ("Ingresa el nombre del producto que quieres comprar. \nSi deseas salir ingresa EXIT. \n(Info para tutor... Opciones: i7, i9, R7, R9, 3080, 3090, 6800, 6900 o EXIT)");
-while (comprarProducto != "EXIT") {
+let totalCompra = 0;
+while (comprarProducto != "EXIT") {    
     switch (comprarProducto){
         case "i7":
         producto1.sumaIVA();
@@ -123,6 +124,7 @@ while (comprarProducto != "EXIT") {
         producto1.vender();
         console.log (producto1.tittle+" fue vendido por un valor de $ "+ producto1.precio+" (IVA incl.)")
         console.log (producto1.vendido)
+        totalCompra+=producto1.precio;
         break;
 
         case "i9":
@@ -131,6 +133,7 @@ while (comprarProducto != "EXIT") {
         producto2.vender();
         console.log (producto2.tittle+" fue vendido por un valor de $ "+ producto2.precio+" (IVA incl.)")
         console.log (producto2.vendido)
+        totalCompra+=producto2.precio;
         break;
 
         case "R7":
@@ -139,6 +142,7 @@ while (comprarProducto != "EXIT") {
         producto3.vender();
         console.log (producto3.tittle+" fue vendido por un valor de $ "+ producto3.precio+" (IVA incl.)")
         console.log (producto3.vendido)
+        totalCompra+=producto3.precio;
         break;
 
         case "R9":
@@ -147,6 +151,7 @@ while (comprarProducto != "EXIT") {
         producto4.vender();
         console.log (producto4.tittle+" fue vendido por un valor de $ "+ producto4.precio+" (IVA incl.)")
         console.log (producto4.vendido)
+        totalCompra+=producto4.precio;
         break;
 
         case "3080":
@@ -155,6 +160,7 @@ while (comprarProducto != "EXIT") {
         producto5.vender();
         console.log (producto5.tittle+" fue vendido por un valor de $ "+ producto5.precio+" (IVA incl.)")
         console.log (producto5.vendido)
+        totalCompra+=producto5.precio;
         break;
 
         case "3090":
@@ -163,6 +169,7 @@ while (comprarProducto != "EXIT") {
         producto6.vender();
         console.log (producto6.tittle+" fue vendido por un valor de $ "+ producto6.precio+" (IVA incl.)")
         console.log (producto6.vendido)
+        totalCompra+=producto6.precio;
         break;
 
         case "6800":
@@ -171,6 +178,7 @@ while (comprarProducto != "EXIT") {
         producto7.vender();
         console.log (producto7.tittle+" fue vendido por un valor de $ "+ producto7.precio+" (IVA incl.)")
         console.log (producto7.vendido)
+        totalCompra+=producto7.precio;
         break;
 
         case "6900":
@@ -179,6 +187,7 @@ while (comprarProducto != "EXIT") {
         producto8.vender();
         console.log (producto8.tittle+" fue vendido por un valor de $ "+ producto8.precio+" (IVA incl.)")
         console.log (producto8.vendido)
+        totalCompra+=producto8.precio;
         break;
 
         default:
@@ -187,3 +196,5 @@ while (comprarProducto != "EXIT") {
     }   
     comprarProducto = prompt ("Ingresa el nombre del producto que quieras agregar. \nO ingresa EXIT para salir."); 
 }    
+
+console.log ("La compra realizada suma un total de $ " + totalCompra + " con IVA incluído")
