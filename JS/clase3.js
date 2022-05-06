@@ -96,6 +96,7 @@ class ProductoD {
         this.vendido = true + " - producto vendido - sin stock";
     }
 }
+
 const producto1 = new ProductoD (1,"i7","60000");
 const producto2 = new ProductoD (2,"i9","80000");
 const producto3 = new ProductoD (3,"R7","55000");
@@ -187,3 +188,4 @@ while (comprarProducto != "EXIT") {
     }   
     comprarProducto = prompt ("Ingresa el nombre del producto que quieras agregar. \nO ingresa EXIT para salir."); 
 }    
+

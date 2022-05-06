@@ -20,6 +20,12 @@ body {
     cursor: pointer;
 }
 
+.bi-cart4 {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000;
+}
+
 .dibujo {
     margin-top: 1.5rem;
     max-width: 35%;
