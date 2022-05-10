@@ -1,6 +1,5 @@
 let comprarProducto = prompt("Ingresa el nombre del producto que quieres comprar. \nSi deseas salir ingresa EXIT. \n(Opciones: \n 1 = i7, \n 2 = i9, \n 3 = R7, \n 4 = R9, \n 5 = 3080, \n 6 = 3090, \n 7 = 6800, \n 8 = 6900, \n 9 = Z690, \n 10 = X570S, \n 11 = Z690PLUS, \n 12 = B550, \n EXIT = Salir)");
 
-
 function Producto(id, tittle, precio, stock) {
     this.id = id;
     this.tittle = tittle;
@@ -16,16 +15,8 @@ function Producto(id, tittle, precio, stock) {
             this.precio * cantidad;
         }
     }
-
-    //Calcular Stock
-    /*    this.calcularStock = function () {
-            if (this.stock <= 0) {
-                return this.disponible = false;
-            } else {
-                return this.stock;
-            }
-        };*/
 }
+
 let producto1 = new Producto(1, "i7", "60000", 5);
 let producto2 = new Producto(2, "i9", "80000", 20);
 let producto3 = new Producto(3, "R7", "55000", 15);
@@ -83,10 +74,10 @@ while (comprarProducto != "EXIT") {
             break;
 
         case "2":
+            producto2.vendido(cantidadProducto);
             carrito.push(producto2);
             alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es Intel i9 \nDeberá abonar un total de $ " + producto2.precio * cantidadProducto);
             console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto2.tittle + " por un valor total de $ " + producto2.precio * cantidadProducto);
-            producto2.vendido(cantidadProducto);
             totalCompra += producto2.precio * cantidadProducto;
             totalCantidad += parseFloat(cantidadProducto);
             break;
@@ -112,7 +103,7 @@ for (const {} of carrito) {
     console.log("En el carrito hay un total de " + totalCantidad + " productos y suman un total de $ " + totalCompra);
 }
 console.log("La compra realizada suma un total de $ " + totalCompra)
-
+console.log(producto1.stock);
 
 
 /*
