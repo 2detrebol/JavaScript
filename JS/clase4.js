@@ -10,9 +10,7 @@ function Producto(id, tittle, precio, stock) {
     //vender
     this.vendido = function (cantidad) {
         if (cantidad > this.stock) {
-            alert("No hay suficiente stock. Actualmente disponemos de " + this.stock + " unidades de este producto.");
-        } else if (this.stock < 0) {
-            alert("No hay suficiente stock. Actualmente disponemos de " + this.stock + " unidades de este producto.");
+            alert("No hay suficiente stock. Actualmente disponemos de " + this.stock + " unidad/es de este producto.");
         } else {
             this.stock -= cantidad;
             this.precio * cantidad;
@@ -77,15 +75,11 @@ while (comprarProducto != "EXIT") {
     switch (comprarProducto) {
         case "1":
             producto1.vendido(cantidadProducto);
-            if (cantidadProducto <= producto1.stock) {
-                carrito.push(producto1);
-                alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es Intel i7 \nDeberá abonar un total de $ " + producto1.precio * cantidadProducto);
-                console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto1.tittle + " por un valor total de $ " + producto1.precio * cantidadProducto);
-                totalCompra += producto1.precio * cantidadProducto;
-                totalCantidad += parseFloat(cantidadProducto);
-            } else {
-                "No hay suficiente stock. Actualmente tenemos " + this.stock + " unidades de este producto."
-            }
+            carrito.push(producto1);
+            alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es Intel i7 \nDeberá abonar un total de $ " + producto1.precio * cantidadProducto);
+            console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto1.tittle + " por un valor total de $ " + producto1.precio * cantidadProducto);
+            totalCompra += producto1.precio * cantidadProducto;
+            totalCantidad += parseFloat(cantidadProducto);
             break;
 
         case "2":
