@@ -8,14 +8,12 @@ function Producto(id, tittle, precio, stock) {
 
     //vender
     this.vendido = function (cantidad) {
-        if (cantidad > this.stock) {
-            alert("No hay suficiente stock. Actualmente disponemos de " + this.stock + " unidad/es de este producto.");
-        } else {
-            this.stock -= cantidad;
-            this.precio * cantidad;
+        if (cantidad <= this.stock) {
+            return this.stock -= cantidad;
         }
-    }
+    };
 }
+
 
 let producto1 = new Producto(1, "i7", "60000", 5);
 let producto2 = new Producto(2, "i9", "80000", 20);
@@ -39,21 +37,6 @@ placaVideo.push(producto5, producto6, producto7, producto8);
 const motherboards = [];
 motherboards.push(producto9, producto10, producto11, producto12);
 
-console.log(microprocesador);
-console.log(placaVideo);
-console.log(motherboards);
-
-
-for (const micros of microprocesador)
-    console.log(micros.tittle + " = $ " + micros.precio);
-
-for (const video of placaVideo)
-    console.log(video.tittle + " = $ " + video.precio);
-
-for (const mothers of motherboards)
-    console.log(mothers.tittle + " = $ " + mothers.precio);
-
-
 const listaProductos = []
 listaProductos.push(microprocesador, placaVideo, motherboards);
 
@@ -65,32 +48,62 @@ while (comprarProducto != "EXIT") {
     let cantidadProducto = parseFloat(prompt("Ahora ingresa la cantidad de unidades que quieres agregar a tu compra"));
     switch (comprarProducto) {
         case "1":
-            producto1.vendido(cantidadProducto);
-            carrito.push(producto1);
-            alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es Intel i7 \nDeberá abonar un total de $ " + producto1.precio * cantidadProducto);
-            console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto1.tittle + " por un valor total de $ " + producto1.precio * cantidadProducto);
-            totalCompra += producto1.precio * cantidadProducto;
-            totalCantidad += parseFloat(cantidadProducto);
+            if (producto1.stock == 0) {
+                alert("Actualmente no tenemos disponibilidad de este producto.");
+            } else if (cantidadProducto > producto1.stock) {
+                alert("No hay suficiente stock. Actualmente disponemos de " + producto1.stock + " unidad/es de este producto.");
+            } else {
+                producto1.vendido(cantidadProducto);
+                carrito.push(producto1);
+                alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es Intel i7 \nDeberá abonar un total de $ " + producto1.precio * cantidadProducto);
+                console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto1.tittle + " por un valor total de $ " + producto1.precio * cantidadProducto);
+                totalCompra += producto1.precio * cantidadProducto;
+                totalCantidad += parseFloat(cantidadProducto);
+            }
             break;
 
         case "2":
-            producto2.vendido(cantidadProducto);
-            carrito.push(producto2);
-            alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es Intel i9 \nDeberá abonar un total de $ " + producto2.precio * cantidadProducto);
-            console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto2.tittle + " por un valor total de $ " + producto2.precio * cantidadProducto);
-            totalCompra += producto2.precio * cantidadProducto;
-            totalCantidad += parseFloat(cantidadProducto);
-            break;
-            /*carrito.push(Producto);
-            let seguir = confirm("Deseas agregar otro producto ?");
-            if (seguir === true) {
-                comprarProducto();
-                agregarAlCarrito = (Producto);
+            if (producto2.stock == 0) {
+                alert("Actualmente no tenemos disponibilidad de este producto.");
+            } else if (cantidadProducto > producto2.stock) {
+                alert("No hay suficiente stock. Actualmente disponemos de " + producto2.stock + " unidad/es de este producto.");
             } else {
-                // entra por el else cuando le das a Cancelar
-                alert("Gracias por su visita! ");
-                console.log(carrito);
-            }*/
+                producto2.vendido(cantidadProducto);
+                carrito.push(producto2);
+                alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es Intel i9 \nDeberá abonar un total de $ " + producto2.precio * cantidadProducto);
+                console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto2.tittle + " por un valor total de $ " + producto2.precio * cantidadProducto);
+                totalCompra += producto2.precio * cantidadProducto;
+                totalCantidad += parseFloat(cantidadProducto);
+            }
+            break;
+        case "3":
+            if (producto3.stock == 0) {
+                alert("Actualmente no tenemos disponibilidad de este producto.");
+            } else if (cantidadProducto > producto3.stock) {
+                alert("No hay suficiente stock. Actualmente disponemos de " + producto3.stock + " unidad/es de este producto.");
+            } else {
+                producto3.vendido(cantidadProducto);
+                carrito.push(producto3);
+                alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es AMD Ryzen 7 \nDeberá abonar un total de $ " + producto3.precio * cantidadProducto);
+                console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto3.tittle + " por un valor total de $ " + producto3.precio * cantidadProducto);
+                totalCompra += producto3.precio * cantidadProducto;
+                totalCantidad += parseFloat(cantidadProducto);
+            }
+            break;
+        case "4":
+            if (producto4.stock == 0) {
+                alert("Actualmente no tenemos disponibilidad de este producto.");
+            } else if (cantidadProducto > producto4.stock) {
+                alert("No hay suficiente stock. Actualmente disponemos de " + producto4.stock + " unidad/es de este producto.");
+            } else {
+                producto4.vendido(cantidadProducto);
+                carrito.push(producto4);
+                alert("Usted seleccionó " + cantidadProducto + " Microprocesador/es AMD Ryzen 9 \nDeberá abonar un total de $ " + producto4.precio * cantidadProducto);
+                console.log("Se vendió un total de " + cantidadProducto + " Microprocesador/es " + producto4.tittle + " por un valor total de $ " + producto4.precio * cantidadProducto);
+                totalCompra += producto4.precio * cantidadProducto;
+                totalCantidad += parseFloat(cantidadProducto);
+            }
+            break;
         default:
             alert("Usted no ingresó un producto válido.\nPor favor intente nuevamente");
             break;
@@ -103,49 +116,11 @@ for (const {} of carrito) {
     console.log("En el carrito hay un total de " + totalCantidad + " productos y suman un total de $ " + totalCompra);
 }
 console.log("La compra realizada suma un total de $ " + totalCompra)
-console.log(producto1.stock);
-
+console.log(listaProductos);
 
 /*
-    let totalCompra = 0;
-    while (comprarProducto != "EXIT") {
-        switch (comprarProducto) {
-            case "1":
-                producto1.precio;
-                alert("Usted seleccionó un Microprocesador Intel i7 \nTiene un valor de $ " + producto1.precio);
-                console.log(producto1.tittle + " fue vendido por un valor de $ " + producto1.precio);
-                producto1.vendido(5);
-                console.log(producto1.stock);
-                totalCompra += producto1.precio;
-                break;
-
-            case "2":
-                producto2.precio;
-                alert("Usted seleccionó un Microprocesador Intel i9 \nTiene un valor de $" + producto2.precio);
-                producto2.vendido(5);
-                console.log(producto2.tittle + " fue vendido por un valor de $ " + producto2.precio + " (IVA incl.)")
-                console.log(producto2.vendido)
-                totalCompra += producto2.precio;
-                break;
-
-            case "R7":
-                producto3.sumaIVA();
-                alert("Usted seleccionó un Microprocesador AMD Ryzen 7 \nTiene un valor de $" + producto3.precio + " con IVA incluído");
-                producto3.vender();
-                console.log(producto3.tittle + " fue vendido por un valor de $ " + producto3.precio + " (IVA incl.)")
-                console.log(producto3.vendido)
-                totalCompra += producto3.precio;
-                break;
-
-            case "R9":
-                producto4.sumaIVA();
-                alert("Usted seleccionó un Microprocesador AMD Ryzen 9 \nTiene un valor de $" + producto4.precio + " con IVA incluído");
-                producto4.vender();
-                console.log(producto4.tittle + " fue vendido por un valor de $ " + producto4.precio + " (IVA incl.)")
-                console.log(producto4.vendido)
-                totalCompra += producto4.precio;
-                break;
-
+   
+          
             case "3080":
                 producto5.sumaIVA();
                 alert("Usted seleccionó una Placa de Video RTX3080 \nTiene un valor de $" + producto5.precio + " con IVA incluído");
@@ -182,14 +157,12 @@ console.log(producto1.stock);
                 totalCompra += producto8.precio;
                 break;
 
-            default:
-                alert("Usted no ingresó un producto válido.\nPor favor intente nuevamente");
-                break;
+          
         }
-        comprarProducto = prompt("Ingresa el nombre del producto que quieras agregar. \nO ingresa EXIT para salir. \n(Info para tutor... Opciones: i7, i9, R7, R9, 3080, 3090, 6800, 6900 o EXIT)");
+        
     }
 
-    console.log("La compra realizada suma un total de $ " + totalCompra)
+    
 
     // objeto planes
     /*
