@@ -20,6 +20,24 @@ body {
     cursor: pointer;
 }
 
+.carritoIcon {
+    position: relative;
+}
+
+#cart_menu_num {
+    position: absolute;
+    top: 0;
+    left: 80%;
+    background: #000;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: greenyellow;
+    padding: 9px;
+}
+
 .bi-cart4 {
     font-size: 2rem;
     cursor: pointer;
