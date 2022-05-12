@@ -237,7 +237,3 @@ console.log(carrito);
 
 console.log("La compra realizada suma un total de $ " + totalCompra)
 console.log(listaProductos);
-
-let totalCarrito = carrito.reduce((acc, iterador) => acc + (iterador.precio * iterador.cantidadProducto), 0);
-
-console.log(`El importe total a pagar es de $ ${totalCarrito}`);
