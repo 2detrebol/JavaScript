@@ -107,7 +107,11 @@ body {
 
 
 .card-title,
-.botonAgregar {
+.botonAgregar,
+.botonAgregar1,
+.botonAgregar2,
+.botonAgregar3,
+.botonAgregar4 {
     display: flex;
     justify-content: center;
     color: #fff;
@@ -128,7 +132,11 @@ body {
     justify-content: center;
 }
 
-.botonAgregar {
+.botonAgregar,
+.botonAgregar1,
+.botonAgregar2,
+.botonAgregar3,
+.botonAgregar4 {
     background-color: greenyellow;
     color: #000;
     border: none;
@@ -185,7 +193,11 @@ body {
         font-size: .95rem;
     }
 
-    .botonAgregar {
+    .botonAgregar,
+    .botonAgregar1,
+    .botonAgregar2,
+    .botonAgregar3,
+    .botonAgregar4 {
         font-size: .65rem;
     }
 

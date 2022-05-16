@@ -24,9 +24,9 @@
                 <i class="bi bi-house-door d-inline-block ms-1 mb-1"></i>
             </a>
             <h1 class="titulo animate__animated animate__bounceInRight"> ET-Soluciones</h1>
-            <a class="carritoIcon" href="">
+            <a class="carritoIcon">
                 <i class="bi bi-cart4 d-inline-block ms-1 mb-1"></i>
-                <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle">3</span>
+                <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle">0</span>
             </a>
         </div>
     </nav>
@@ -51,46 +51,7 @@
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center">
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/i7.png" class="card-img-top fotoItem" alt="Intel i7">
-                            <div class="card-body product" id="1">
-                                <h5 class="card-title productTittle">Intel i7</h5>
-                                <p class="card-text">Intel Core i7-9700K 8 núcleos y 4.9 GHz de frecuencia, gráfica
-                                    int.</p>
-                                <span class="productPrice"> $ 60.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/i9.png" class="card-img-top fotoItem" alt="Intel i9">
-                            <div class="card-body product" id="2">
-                                <h5 class="card-title productTittle">Intel i9</h5>
-                                <p class="card-text">Intel Core i9-10900F 10 núcleos y 5.2 GHz de frecuencia, gráfica
-                                    int.</p>
-                                <span class="productPrice"> $ 80.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/R7.png" class="card-img-top fotoItem" alt="AMD R7">
-                            <div class="card-body product" id="3">
-                                <h5 class="card-title productTittle">AMD Ryzen 7</h5>
-                                <p class="card-text">AMD Ryzen 7 5700G 8 núcleos y 4.6 GHz con gráfica integrada</p>
-                                <span class="productPrice"> $ 55.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/R9.png" class="card-img-top fotoItem" alt="AMD R9">
-                            <div class="card-body product" id="4">
-                                <h5 class="card-title productTittle">AMD Ryzen 9</h5>
-                                <p class="card-text">AMD Ryzen 9 5900X 12 núcleos 4.8 GHz y 24 hilos</p>
-                                <span class="productPrice"> $ 75.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="accordion-body d-flex row justify-content-center" id="contenedorMicros"></div>
                 </div>
             </div>
             <div class="accordion-item mb-2">
@@ -103,44 +64,7 @@
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center">
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/RTX3080.png" class="card-img-top fotoItem" alt="RTX 3080">
-                            <div class="card-body product" id="5">
-                                <h5 class="card-title productTittle">RTX 3080 MSI</h5>
-                                <p class="card-text">MSI NVIDIA GeForce RTX3080 Gaming X Trio 10Gb GDDR6X</p>
-                                <span class="productPrice"> $ 300.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/RTX3090.png" class="card-img-top fotoItem" alt="RTX 3090">
-                            <div class="card-body product" id="6">
-                                <h5 class="card-title productTittle">RTX 3090 TUF</h5>
-                                <p class="card-text">ASUS NVIDIA GeForce RTX3090 TUF GAMING 24GB GDDR6X</p>
-                                <span class="productPrice"> $ 600.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/RX6800.png" class="card-img-top fotoItem" alt="RX 6800">
-                            <div class="card-body product" id="7">
-                                <h5 class="card-title productTittle">RX 6800</h5>
-                                <p class="card-text">Sapphire Radeon RX 6800 NITRO+ 16Gb GDDR6</p>
-                                <span class="productPrice"> $ 260.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/RX6900.png" class="card-img-top fotoItem" alt="RX 6900">
-                            <div class="card-body product" id="8">
-                                <h5 class="card-title productTittle">RX 6900</h5>
-                                <p class="card-text"> MSI Radeon RX 6900 XT GAMING Z TRIO 16Gb GDDR6</p>
-                                <span class="productPrice"> $ 320.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="accordion-body d-flex row justify-content-center" id="contenedorPlacasV"></div>
                 </div>
             </div>
 
@@ -154,57 +78,7 @@
                 </h2>
                 <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center">
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/mothers/Z690.png" class="card-img-top fotoItem" alt="ASUS Z690">
-                            <div class="card-body product" id="9">
-                                <h5 class="card-title productTittle text-center">ASUS ROG MAXIMUS Z690 HERO
-                                </h5>
-                                <p class="card-text">Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2,
-                                    USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi
-                                    6E & Aura Sync RGB</p>
-                                <span class="productPrice"> $ 100.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/mothers/X570S.png" class="card-img-top fotoItem"
-                                alt="AORUS X570S">
-                            <div class="card-body product" id="10">
-                                <h5 class="card-title productTittle text-center">AORUS X570S ELITE</h5>
-                                <p class="card-text">GIGABYTE X570S AORUS ELITE - AMD Ryzen™, Twin 12+2 Phases Digital
-                                    VRM Solution with 60A DrMOS, DDR4, SuperSpeed USB 3.2 Gen 2x2 TYPE-C® delivers up to
-                                    20Gb/s transfer speeds</p>
-                                <span class="productPrice"> $ 65.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/mothers/Z690PLUS.png" class="card-img-top fotoItem"
-                                alt="ASUS Z690-PLUS TUF GAMING">
-                            <div class="card-body product" id="11">
-                                <h5 class="card-title productTittle text-center">ASUS Z690PLUS TUF GAMING</h5>
-                                <p class="card-text">Intel® Z690 (LGA 1700) ATX gaming motherboard, PCIe® 5.0, DDR4,
-                                    four M.2 slots, WiFi 6 and Intel 2.5 Gb Ethernet, Thunderbolt™ 4 support and Aura
-                                    Sync RGB</p>
-                                <span class="productPrice"> $ 50.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                        <div class="card mb-3" style="width: 18rem; background-color: #000;">
-                            <img src="./IMAGENES/Items/mothers/B550.png" class="card-img-top fotoItem"
-                                alt="GIGABYTE B550 AORUS PRO">
-                            <div class="card-body product" id="12">
-                                <h5 class="card-title productTittle text-center">GIGABYTE B550 AORUS PRO AC 5 PCIE</h5>
-                                <p class="card-text"> Supports AMD Ryzen™, DDR4, Ultra Durable™ PCIe 4.0, AMP-UP Audio,
-                                    USB 3.2 Gen2 Type-C™ & HDMI Support, RGB FUSION 2.0 Supports Addressable LED & RGB
-                                    LED
-                                    Strips</p>
-                                <span class="productPrice"> $ 35.000</span>
-                                <a href="#" class="btn btn-primary botonAgregar">Agregar al carrito</a>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="accordion-body d-flex row justify-content-center" id="contenedorMothers"></div>
                 </div>
             </div>
 
@@ -218,11 +92,7 @@
                 </h2>
                 <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                        demonstrate
-                        the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's
-                        imagine
-                        this being filled with some actual content.</div>
+                    <div class="accordion-body d-flex row justify-content-center" id="contenedorRam"></div>
                 </div>
             </div>
 
@@ -236,19 +106,12 @@
                 </h2>
                 <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                        demonstrate
-                        the <code>.accordion-flush</code> class. This is the third item's accordion body.
-                        Nothing
-                        more
-                        exciting happening here in terms of content, but just filling up the space to make it
-                        look,
-                        at
-                        least at first glance, a bit more representative of how this would look in a real-world
-                        application.</div>
+                    <div class="accordion-body d-flex row justify-content-center" id="contenedorDiscos">
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="slickBrands">
             <div><img src="./IMAGENES/Brands/1.jpg"></div>
             <div><img src="./IMAGENES/Brands/2.jpg"></div>
@@ -274,7 +137,7 @@
     <script src="./JS/slickJs.js"></script>
 
     <!-- SCRIPT PERSONAL -->
-    <script src="./JS/clase4.js"></script>
+    <script src="./JS/clase5.js"></script>
 </body>
 
 </html>
