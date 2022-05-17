@@ -319,8 +319,12 @@ for (let i = 0; i < botonAgregarCarro4.length; i++) {
 }
 
 
-let totalCarrito = carrito.reduce((acc, iterador) => acc + ([iterador.precio]), 0);
-console.log(`El importe total a pagar es de $ ${totalCarrito}`);
+
 
 
 console.log(carrito);
+
+let totalCarrito = carrito.reduce((acc, iterador) => acc + (iterador.precio), 0);
+console.log(`El importe total a pagar es de $ ${totalCarrito}`);
+
+console.log(`El importe total a pagar es de $ ${totalCompra}`);
