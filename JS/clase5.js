@@ -121,6 +121,7 @@ let contador = 0;
 let totalCompra = 0;
 let numeroCarrito = document.getElementById("cart_menu_num");
 
+
 microprocesador.forEach((producto, index) => {
     document
         .querySelector(`.botonAgregar${index + 1}`)
@@ -141,5 +142,6 @@ microprocesador.forEach((producto, index) => {
             }
         });
 });
+
 
 console.log(carrito);
