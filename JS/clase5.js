@@ -150,7 +150,7 @@ microprocesador.forEach((producto, index) => {
                 <th>1</th>
                 <th>$${element.precio}</th>`
                 });
-                document.querySelector("#listaProdcutos").appendChild(listaCarrito);
+                document.querySelector("#listaProductos").appendChild(listaCarrito);
                 subtotal.innerHTML = `$${totalCarrito}`;
             }
         });
