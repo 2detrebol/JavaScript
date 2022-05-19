@@ -48,10 +48,11 @@ const memoriasRam = [];
 memoriasRam.push(listaProductos[12], listaProductos[13], listaProductos[14], listaProductos[15]);
 
 //MOSTRAR EN EL HTML//
-let contenedorCards1 = document.createElement("div");
-contenedorCards1.className = "accordion-body d-flex row justify-content-center"
-microprocesador.forEach((element) => {
-    contenedorCards1.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
+function agregarHtml(listaProductos) {
+    let contenedorCards1 = document.createElement("div");
+    contenedorCards1.className = "accordion-body d-flex row justify-content-center"
+    listaProductos.forEach((element) => {
+        contenedorCards1.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
       <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.tittle}">
       <div class="card-body product" id=${element.id}>
           <h5 class="card-title productTittle text-center">${element.tittle}
@@ -61,58 +62,23 @@ microprocesador.forEach((element) => {
           <a class="btn btn-primary botonAgregar${element.id}" href="#">Agregar al carrito</a>
       </div>                            
   </div>`;
-});
-document.querySelector("#contenedorMicros").appendChild(contenedorCards1);
+    });
+    return contenedorCards1;
+}
 
+//USO FUNCION agregarHTML Y MUESTROS LOS PRODUCTOS SEGÚN CADA RUBRO - VER LINEAS 38 A 48//
+let micros = agregarHtml(microprocesador);
+document.querySelector("#contenedorMicros").appendChild(micros);
 
-let contenedorCards2 = document.createElement("div");
-contenedorCards2.className = "accordion-body d-flex row justify-content-center"
-placaVideo.forEach((element) => {
-    contenedorCards2.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
-      <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.tittle}">
-      <div class="card-body product" id=${element.id}>
-          <h5 class="card-title productTittle text-center">${element.tittle}
-          </h5>
-          <p class="card-text">${element.descripcion}</p>
-          <span class="productPrice"> $ ${element.precio}</span>
-          <a class="btn btn-primary botonAgregar${element.id}" href="#">Agregar al carrito</a>
-      </div>                            
-  </div>`;
-});
-document.querySelector("#contenedorPlacasV").appendChild(contenedorCards2);
+let placasVideo = agregarHtml(placaVideo);
+document.querySelector("#contenedorPlacasV").appendChild(placasVideo);
 
-let contenedorCards3 = document.createElement("div");
-contenedorCards3.className = "accordion-body d-flex row justify-content-center"
-motherboards.forEach((element) => {
-    contenedorCards3.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
-      <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.tittle}">
-      <div class="card-body product" id=${element.id}>
-          <h5 class="card-title productTittle text-center">${element.tittle}
-          </h5>
-          <p class="card-text">${element.descripcion}</p>
-          <span class="productPrice"> $ ${element.precio}</span>
-          <a class="btn btn-primary botonAgregar${element.id}" href="#">Agregar al carrito</a>
-      </div>                            
-  </div>`;
-});
-document.querySelector("#contenedorMothers").appendChild(contenedorCards3);
+let mothers = agregarHtml(motherboards);
+document.querySelector("#contenedorMothers").appendChild(mothers);
 
+let rams = agregarHtml(memoriasRam);
+document.querySelector("#contenedorRam").appendChild(rams);
 
-let contenedorCards4 = document.createElement("div");
-contenedorCards4.className = "accordion-body d-flex row justify-content-center"
-memoriasRam.forEach((element) => {
-    contenedorCards4.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
-      <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.tittle}">
-      <div class="card-body product" id=${element.id}>
-          <h5 class="card-title productTittle text-center">${element.tittle}
-          </h5>
-          <p class="card-text">${element.descripcion}</p>
-          <span class="productPrice"> $ ${element.precio}</span>
-          <a class="btn btn-primary botonAgregar${element.id}" href="#">Agregar al carrito</a>
-      </div>                            
-  </div>`;
-});
-document.querySelector("#contenedorRam").appendChild(contenedorCards4);
 
 
 //PARA AGREGAR AL CARRITO CON CLICKS//
