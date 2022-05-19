@@ -139,9 +139,9 @@ listaProductos.forEach((producto, index) => {
                     0
                 );
                 let listaCarrito = document.createElement("tr");
-                listaCarrito.className = "text-center align-middle"
+                listaCarrito.className = "text-center align-middle";
                 carrito.forEach((element) => {
-                    listaCarrito.innerHTML += `
+                    listaCarrito.innerHTML = `
                     <th>${element.id}</th>
                     <th>
                     ${element.tittle}
