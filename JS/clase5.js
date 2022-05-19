@@ -118,8 +118,8 @@ document.querySelector("#contenedorRam").appendChild(contenedorCards4);
 
 const carrito = []
 let contador = 0;
-let totalCompra = 0;
 let numeroCarrito = document.getElementById("cart_menu_num");
+let subtotal = document.getElementById("aPagar");
 
 
 microprocesador.forEach((producto, index) => {
@@ -138,10 +138,22 @@ microprocesador.forEach((producto, index) => {
                     (acc, iterador) => acc + iterador.precio,
                     0
                 );
-                console.log(`El importe total a pagar es de $ ${totalCarrito}`);
+                let listaCarrito = document.createElement("tr");
+                listaCarrito.className = "text-center align-middle"
+                listaCarrito.innerHTML = "";
+                carrito.forEach((element) => {
+                    listaCarrito.innerHTML += `
+                    <th>${element.id}</th>
+                    <th>
+                    ${element.tittle}
+                </th>
+                <th>1</th>
+                <th>$${element.precio}</th>`
+                });
+                document.querySelector("#listaProdcutos").appendChild(listaCarrito);
+                subtotal.innerHTML = `$${totalCarrito}`;
             }
         });
 });
-
 
 console.log(carrito);
