@@ -82,12 +82,13 @@ document.querySelector("#contenedorRam").appendChild(rams);
 
 
 //PARA AGREGAR AL CARRITO CON CLICKS//
-const carrito = []
+let carrito = []
 let contador = 0;
+/*let cantidadCarrito = 0;*/
 let numeroCarrito = document.getElementById("cart_menu_num");
-let subtotal = document.getElementById("aPagar");
+let totalCarrito = document.getElementById("aPagar");
 
-
+//SE AGREGAN CON CLICKS EN BOTOTNES//
 listaProductos.forEach((producto, index) => {
     document
         .querySelector(`.botonAgregar${index + 1}`)
@@ -98,27 +99,41 @@ listaProductos.forEach((producto, index) => {
                 carrito.push(producto);
                 producto.vendido(1);
                 contador++;
+                /*cantidadCarrito++;*/
                 numeroCarrito.innerHTML = contador;
-                alert("Este producto fue agregado al carrito");
-                let totalCarrito = carrito.reduce(
+                let enCarrito = carrito.reduce(
                     (acc, iterador) => acc + iterador.precio,
                     0
                 );
-                let listaCarrito = document.createElement("tr");
-                listaCarrito.className = "text-center align-middle";
-                carrito.forEach((element) => {
-                    listaCarrito.innerHTML = `
+                mostrarCarroHTML(enCarrito);
+            }
+        });
+});
+
+
+//SE MUESTRAN EN EL HTML LO QUE SE AGREGÓ Y LA SUMA TOTAL//
+function mostrarCarroHTML(enCarrito) {
+    let listaCarrito = document.createElement("tr");
+    listaCarrito.className = "text-center align-middle";
+    carrito.forEach((element) => {
+        listaCarrito.innerHTML = `
                     <th>${element.id}</th>
                     <th>
                     ${element.tittle}
                 </th>
                 <th>1</th>
-                <th>$${element.precio}</th>`
-                });
-                document.querySelector("#listaProductos").appendChild(listaCarrito);
-                subtotal.innerHTML = `$${totalCarrito}`;
-            }
-        });
-});
+                <th>$${element.precio}</th>`;
+    });
+    document.querySelector("#listaProductos").appendChild(listaCarrito);
+    totalCarrito.innerHTML = `$${enCarrito}`;
+}
+
+
+/*let borrarTodo = document.getElementById("vaciarCarrito")
+borrarTodo.addEventListener("click", () => {
+    carrito.length = 0;
+    producto.vendido(-1);
+    alert("se borró")
+});*/
 
 console.log(carrito);
