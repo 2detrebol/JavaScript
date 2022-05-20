@@ -81,10 +81,5 @@ function verCarrito(array) {
 for (const {} of carrito) {
     console.log("En el carrito hay un total de " + totalCantidad + " productos y suman un total de $ " + totalCompra);
 }
-carrito.forEach((productosCarrito) => {
-    console.log(productosCarrito)
-});
 
 console.log(carrito);
-
-console.log("La compra realizada suma un total de $ " + totalCompra)
