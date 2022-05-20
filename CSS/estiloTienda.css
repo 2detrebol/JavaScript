@@ -24,6 +24,16 @@ body {
     position: relative;
 }
 
+.suma,
+.resta {
+    background: none;
+    border: none;
+    vertical-align: inherit;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.05rem
+}
+
 #cart_menu_num {
     position: absolute;
     top: 0;

@@ -49,10 +49,10 @@ memoriasRam.push(listaProductos[12], listaProductos[13], listaProductos[14], lis
 
 //MOSTRAR EN EL HTML//
 function agregarHtml(listaProductos) {
-    let contenedorCards1 = document.createElement("div");
-    contenedorCards1.className = "accordion-body d-flex row justify-content-center"
+    let contenedorCards = document.createElement("div");
+    contenedorCards.className = "accordion-body d-flex row justify-content-center"
     listaProductos.forEach((element) => {
-        contenedorCards1.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
+        contenedorCards.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
       <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.tittle}">
       <div class="card-body product" id=${element.id}>
           <h5 class="card-title productTittle text-center">${element.tittle}
@@ -63,7 +63,7 @@ function agregarHtml(listaProductos) {
       </div>                            
   </div>`;
     });
-    return contenedorCards1;
+    return contenedorCards;
 }
 
 //USO FUNCION agregarHTML Y MUESTROS LOS PRODUCTOS SEGÚN CADA RUBRO - VER LINEAS 38 A 48//
@@ -121,8 +121,9 @@ function mostrarCarroHTML(enCarrito) {
                     <th>
                     ${element.tittle}
                 </th>
-                <th>1</th>
-                <th>$${element.precio}</th>`;
+                <th><button class="bi bi-dash-circle-fill resta"></button>1<button class="bi bi-plus-circle-fill suma"></button></th>
+                <th>$${element.precio}</th>
+                <a class="bi bi-x-circle-fill" style="display: table-cell; vertical-align: inherit; color: #000; cursor:pointer; font-size: 1.05rem"></a>`;
     });
     document.querySelector("#listaProductos").appendChild(listaCarrito);
     totalCarrito.innerHTML = `$${enCarrito}`;
