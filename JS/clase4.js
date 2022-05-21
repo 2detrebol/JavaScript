@@ -1,3 +1,4 @@
+//FUNCION CONSTRUCTORA DE PRODUCTOS//
 function Producto(id, tittle, precio, stock) {
     this.id = id;
     this.tittle = tittle;
@@ -16,6 +17,7 @@ const carrito = []
 let totalCompra = 0;
 let totalCantidad = 0;
 
+//LISTA DE PRODUCTOS//
 const productosGenerales = [
     new Producto(1, "i7", 60000, 5),
     new Producto(2, "i9", 80000, 20),
@@ -31,55 +33,63 @@ const productosGenerales = [
     new Producto(12, "B550", 35000, 20),
 ];
 
-function mostrarProductos(array) {
+//FUNCION PARA MOSTRAR PRODUCTOS EN UN PROMPT//
+function mostrarProductos(listadoProductos) {
     let productos = "";
-    array.forEach((element) => {
+    listadoProductos.forEach((element) => {
         productos += `${element.id} - ${element.tittle} - $ ${element.precio} \n`;
     });
     productos += "0 - para salir";
     return productos;
 }
 
+//FUNCION PARA SELECCIONAR PRODCUTOS CON UN FIND EN EL ARRAY DE prdocutosGenerales//
 function elegirProducto(variable) {
     let producto = productosGenerales.find((el) => el.id === variable);
     return producto;
 }
 
+//PROMPT//
 let comprarProducto = parseFloat(prompt("Ingresa el número del producto que quieres comprar.\nOpciones:\n" + mostrarProductos(productosGenerales)));
 
+let cantidadProducto = 0;
+
+//ITERACION CON CONDICIONALES//
 while (comprarProducto != 0) {
     let p = elegirProducto(comprarProducto);
     if (p.stock === 0) {
-        alert("No hay stock");
+        alert("Actualmente no tenemos disponibilidad de este producto.");
     }
-    let cantidadProducto = parseFloat(
+    cantidadProducto = parseFloat(
         prompt(
             "Ingresa la cantidad de unidades del producto seleccionado que quieres agregar a tu compra"
         ));
     if (cantidadProducto > p.stock) {
-        alert("No hay suficiente stock, solo quedan " + p.stock)
+        alert("No hay suficiente stock. Actualmente disponemos de " + p.stock + " unidad/es de este producto.")
     } else {
         p.vendido(cantidadProducto);
-        p.stock = cantidadProducto;
         carrito.push(p);
         totalCantidad += parseFloat(cantidadProducto);
+        totalCompra += p.precio * cantidadProducto;
+        let mensaje = verCarrito(carrito);
+        alert(mensaje);
+        comprarProducto = parseFloat(prompt("Ahora ingresa el número del producto que quieres agregar a la seleccion anterior.\nOpciones:\n" + mostrarProductos(productosGenerales)));
     }
-    totalCompra += p.precio * cantidadProducto;
-    let mensaje = verCarrito(carrito);
-    alert(mensaje);
-    comprarProducto = parseFloat(prompt("Ahora ingresa el número del producto que quieres agregar a la seleccion anterior.\nOpciones:\n" + mostrarProductos(productosGenerales)));
 }
 
-function verCarrito(array) {
+//FUNCION PARA MOSTRAR MENSAJE DE LA COMPRA HECHA - ALERT LINEAS 74 Y 75//
+function verCarrito(agregadosCarrito) {
     let mensaje = "";
-    array.forEach((el) => {
-        mensaje = `Usted seleccionó ${totalCantidad} unidad/es del producto ${el.tittle}`
+    agregadosCarrito.forEach((el) => {
+        mensaje = `Usted seleccionó ${cantidadProducto} unidad/es del producto ${el.tittle}\nTiene un valor total ${el.precio* cantidadProducto}`
     })
     return mensaje
 }
 
+//PARA RECORRER EL CARRITO Y MOSTRAR LA CANTIDAD TOTAL DE PRODUCTOS Y LA SUMA DE LOS IMPORTES CON RESULTADO A PAGAR//
 for (const {} of carrito) {
-    console.log("En el carrito hay un total de " + totalCantidad + " productos y suman un total de $ " + totalCompra);
+    console.log("En el carrito hay un total de " + totalCantidad + " productos que suman un importe a pagar de $ " + totalCompra);
 }
 
+//SE VEN TODOS LOS OBJETOS COMPLETOS QUE SE AGREGARON AL CARRITO//
 console.log(carrito);
