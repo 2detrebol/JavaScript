@@ -121,7 +121,7 @@ function mostrarCarroHTML(enCarrito) {
                     <th>
                     ${element.tittle}
                 </th>
-                <th><button class="bi bi-dash-circle-fill resta"></button>1<button class="bi bi-plus-circle-fill suma"></button></th>
+                <th><button class="bi bi-dash-circle-fill menos"></button>1<button class="bi bi-plus-circle-fill mas"></button></th>
                 <th>$${element.precio}</th>
                 <a class="bi bi-x-circle-fill" style="display: table-cell; vertical-align: inherit; color: #000; cursor:pointer; font-size: 1.05rem"></a>`;
     });
@@ -129,12 +129,7 @@ function mostrarCarroHTML(enCarrito) {
     totalCarrito.innerHTML = `$${enCarrito}`;
 }
 
-
-/*let borrarTodo = document.getElementById("vaciarCarrito")
-borrarTodo.addEventListener("click", () => {
-    carrito.length = 0;
-    producto.vendido(-1);
-    alert("se borró")
-});*/
-
+//SE MUESTRA EL CONTENIDO DE CARRITO//
 console.log(carrito);
+
+//PENDIENTE: NO DUPLICAR ITEMS EN CARRITO Y HACER FUNCIONAR LOS BOTONES DE SUBIR Y BAJAR CANTIDADES, ELIMINAR ITEM, VACIAR CARRITO Y PROCESAR COMPRA//
