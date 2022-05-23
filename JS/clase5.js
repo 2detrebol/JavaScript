@@ -82,13 +82,13 @@ document.querySelector("#contenedorRam").appendChild(rams);
 
 
 //PARA AGREGAR AL CARRITO CON CLICKS//
-let carrito = []
+let carrito = [];
 let contador = 0;
-/*let cantidadCarrito = 0;*/
+let cantidadCarrito = 0;
 let numeroCarrito = document.getElementById("cart_menu_num");
 let totalCarrito = document.getElementById("aPagar");
 
-//SE AGREGAN CON CLICKS EN BOTOTNES//
+//SE AGREGAN CON CLICKS EN BOTONES//
 listaProductos.forEach((producto, index) => {
     document
         .querySelector(`.botonAgregar${index + 1}`)
@@ -97,9 +97,10 @@ listaProductos.forEach((producto, index) => {
                 alert("Actualmente no tenemos disponibilidad de este producto.");
             } else {
                 carrito.push(producto);
+                guardarLocal(producto);
                 producto.vendido(1);
                 contador++;
-                /*cantidadCarrito++;*/
+                cantidadCarrito = 1;
                 numeroCarrito.innerHTML = contador;
                 let enCarrito = carrito.reduce(
                     (acc, iterador) => acc + iterador.precio,
@@ -121,7 +122,7 @@ function mostrarCarroHTML(enCarrito) {
                     <th>
                     ${element.tittle}
                 </th>
-                <th><button class="bi bi-dash-circle-fill menos"></button>1<button class="bi bi-plus-circle-fill mas"></button></th>
+                <th><button class="bi bi-dash-circle-fill menos"></button>${cantidadCarrito}<button class="bi bi-plus-circle-fill mas"></button></th>
                 <th>$${element.precio}</th>
                 <a class="bi bi-x-circle-fill" style="display: table-cell; vertical-align: inherit; color: #000; cursor:pointer; font-size: 1.05rem"></a>`;
     });
@@ -133,3 +134,8 @@ function mostrarCarroHTML(enCarrito) {
 console.log(carrito);
 
 //PENDIENTE: NO DUPLICAR ITEMS EN CARRITO Y HACER FUNCIONAR LOS BOTONES DE SUBIR Y BAJAR CANTIDADES, ELIMINAR ITEM, VACIAR CARRITO Y PROCESAR COMPRA//
+
+function guardarLocal() {
+    const CarritoJSON = JSON.stringify(carrito)
+    localStorage.setItem("Productos agregados al carrito:", CarritoJSON)
+}
