@@ -66,7 +66,7 @@ function agregarHtml(listaProductos) {
     listaProductos.forEach((element) => {
         contenedorCards.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
       <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.titulo}">
-      <div class="card-body product" id=${element.id}>
+      <div class="card-body product" id="${element.id}">
           <h5 class="card-title productTittle text-center">${element.titulo}</h5>
           <p class="card-text">${element.descripcion}</p>
           <span class="productPrice">$ ${element.precio}</span>
@@ -115,7 +115,7 @@ function cargarEventListeners() {
         limpiarHTML(); // Eliminamos todo el  HTML
         console.clear();
         console.log(articulosCarrito);
-        numeroCarrito.innerHTML = `0`;
+        numeroCarrito.innerHTML = totalCantidad();
     });
 }
 
@@ -160,7 +160,7 @@ function leerDatosProducto(producto) {
     const infoProducto = new Producto(id, imagen, titulo, descripcion, precio);
     //console.log(infoProducto);
 
-    infoProducto.subtotal = Number(infoProducto.precio.replace('$', '')) * infoProducto.cantidad;
+    infoProducto.subtotal = Number(infoProducto.precio.replace('$', "")) * infoProducto.cantidad;
 
 
     // Revisa si un elemento ya existe en el carrito
@@ -170,7 +170,7 @@ function leerDatosProducto(producto) {
         const productos = articulosCarrito.map(producto => {
             if (producto.id === infoProducto.id) {
                 producto.cantidad++;
-                producto.subtotal = Number(infoProducto.precio.replace('$', '')) * producto.cantidad;
+                producto.subtotal = Number(infoProducto.precio.replace('$', "")) * producto.cantidad;
                 return producto; // retorna el objeto actualizado
             } else {
                 return producto; // retorna los objetos que no son los duplicados
@@ -214,7 +214,7 @@ function carritoHTML() {
                 <img src="${imagen}" width="100">
             </th>
             <th>${titulo}</th>            
-            <th><button class="bi bi-dash-circle-fill menos"></button>${cantidad}<button class="bi bi-plus-circle-fill mas"></button></th>
+            <th><i type="button" class="bi bi-dash-circle-fill menos" data-id="${id}"></i>${cantidad}<i type="button" class="bi bi-plus-circle-fill mas" data-id="${id}"></i></th>
             <th>${precio}</th>
             <th>$${subtotal}</th>
             <th>
@@ -227,12 +227,6 @@ function carritoHTML() {
 
     numeroCarrito.innerHTML = totalCantidad();
 
-    function totalCantidad() {
-        let cantidadFinal = 0;
-        cantidadFinal = articulosCarrito.reduce((total, producto) => total + producto.cantidad, 0);
-        return cantidadFinal;
-    }
-
     // Agregar el carrito de compras al storage
     sincronizarStorage();
 
@@ -242,6 +236,14 @@ function carritoHTML() {
 function sincronizarStorage() {
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
 }
+
+
+function totalCantidad() {
+    let cantidadFinal = 0;
+    cantidadFinal = articulosCarrito.reduce((total, producto) => total + producto.cantidad, 0);
+    return cantidadFinal;
+}
+
 
 // Elimina los productos del tbody
 function limpiarHTML() {
@@ -261,16 +263,37 @@ function totalGeneral() {
     return productoTotal;
 }
 
-function quitarCant(e) {
+
+function eliminarUnidad(e) {
+    let productoMenos;
     if (e.target.matches(".menos")) {
-        const p = articulosCarrito.find(
-            (el) => el.id === Number(e.target.dataset.id)
+        productoMenos = articulosCarrito.find(
+            (el) => Number(el.id) === Number(e.target.dataset.id)
         );
-        if (p.cantidad <= 1) {
+        if (productoMenos.cantidad <= 1) {
+            articulosCarrito.splice(productoMenos, 1);
             carritoHTML();
         } else {
-            p.cantidad--;
+            productoMenos.cantidad--;
             sincronizarStorage();
         }
     }
 }
+
+function sumarUnidad(e) {
+    let productoMas;
+    if (e.target.matches(".mas")) {
+        productoMas = articulosCarrito.find(
+            (el) => Number(el.id) === Number(e.target.dataset.id)
+        );
+        productoMas.cantidad++;
+    }
+
+    sincronizarStorage();
+    carritoHTML();
+}
+
+document.addEventListener("click", (e) => {
+    eliminarUnidad(e);
+    sumarUnidad(e);
+});
