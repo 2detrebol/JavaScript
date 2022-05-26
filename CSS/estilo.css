@@ -653,6 +653,10 @@ body {
 }
 
 @media (min-width: 1366px) {
+    body {
+        overflow-x: hidden;
+    }
+
     .dibujo {
         width: 70%;
         margin-top: -1rem;
@@ -669,6 +673,8 @@ body {
     }
 
     .tienda {
+        margin-top: .5rem;
+        margin-bottom: .5rem;
         height: 5.5rem;
     }
 
@@ -685,6 +691,11 @@ body {
     .popup h3 {
         margin-top: 0rem;
     }
+
+    .slickBrands {
+        margin-top: 0;
+    }
+
 
     .slickBrands div img {
         width: 38%;
