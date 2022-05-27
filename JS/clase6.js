@@ -126,8 +126,8 @@ function agregarProducto(e) {
         const productoSelecionado = e.target.parentElement.parentElement;
         leerDatosProducto(productoSelecionado);
         document.documentElement.scrollTop = 0;
-        document.querySelector(".dropdown-menu").classList.add("show");
-        document.querySelector(".dropdown").setAttribute("aria-expanded", "true");
+        //document.querySelector(".dropdown-menu").classList.add("show");
+        //document.querySelector(".dropdown").setAttribute("aria-expanded", "true");
     }
 }
 
