@@ -90,6 +90,7 @@ document.querySelector("#contenedorMothers").appendChild(mothers);
 let rams = agregarHtml(memoriasRam);
 document.querySelector("#contenedorRam").appendChild(rams);
 
+
 //EVENTOS SEGUN CLICKS EN BOTONES//
 cargarEventListeners();
 
@@ -125,6 +126,8 @@ function agregarProducto(e) {
         const productoSelecionado = e.target.parentElement.parentElement;
         leerDatosProducto(productoSelecionado);
         document.documentElement.scrollTop = 0;
+        document.querySelector(".dropdown-menu").classList.add("show");
+        document.querySelector(".dropdown").setAttribute("aria-expanded", "true");
     }
 }
 
