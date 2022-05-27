@@ -135,9 +135,7 @@ function agregarProducto(e) {
 // Elimina un producto del carrito
 function eliminarProducto(e) {
     if (e.target.classList.contains('borrarProducto')) {
-        // console.log(e.target.getAttribute('data-id'));
         const productoId = e.target.getAttribute('data-id');
-
 
         // Elimina del arreglo de articulosCarrito por el data-id
         articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
@@ -159,7 +157,6 @@ function leerDatosProducto(producto) {
 
     // Creo el nuevo producto
     const infoProducto = new Producto(id, imagen, titulo, descripcion, precio);
-    //console.log(infoProducto);
 
     infoProducto.subtotal = Number(infoProducto.precio.replace('$', "")) * infoProducto.cantidad;
 
@@ -276,22 +273,25 @@ function eliminarUnidad(e) {
             carritoHTML();
         } else {
             productoMenos.cantidad--;
+            productoMenos.subtotal = Number(productoMenos.precio.replace('$', "")) * productoMenos.cantidad;
             sincronizarStorage();
+            carritoHTML();
         }
     }
 }
 
+
+
 function sumarUnidad(e) {
-    let productoMas;
     if (e.target.matches(".mas")) {
-        productoMas = articulosCarrito.find(
+        const productoMas = articulosCarrito.find(
             (el) => Number(el.id) === Number(e.target.dataset.id)
         );
         productoMas.cantidad++;
+        productoMas.subtotal = Number(productoMas.precio.replace('$', "")) * productoMas.cantidad;
+        sincronizarStorage();
+        carritoHTML();
     }
-
-    sincronizarStorage();
-    carritoHTML();
 }
 
 document.addEventListener("click", (e) => {
