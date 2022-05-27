@@ -121,7 +121,6 @@ function cargarEventListeners() {
 
 // FUNCIONES //
 function agregarProducto(e) {
-    e.preventDefault();
     if (e.target.classList.contains("botonAgregar")) {
         const productoSelecionado = e.target.parentElement.parentElement;
         leerDatosProducto(productoSelecionado);
@@ -132,7 +131,6 @@ function agregarProducto(e) {
 
 // Elimina un producto del carrito
 function eliminarProducto(e) {
-    // console.log(e.target.classList);
     if (e.target.classList.contains('borrarProducto')) {
         // console.log(e.target.getAttribute('data-id'));
         const productoId = e.target.getAttribute('data-id');
@@ -142,7 +140,7 @@ function eliminarProducto(e) {
         articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
         console.clear();
         console.log(articulosCarrito); // Muestra el arreglo actualizado. Sin el producto que fue eliminado
-        carritoHTML(); // Iterar sobre el carrito y mostrar su HTML
+        carritoHTML(); // Iterar sobre el carrito y mostrar su HTML        
     }
 }
 
