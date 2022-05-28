@@ -161,6 +161,11 @@ body {
 
 .navbar {
     background-color: greenyellow;
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
+    top: 0;
+    box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 1);
 }
 
 .bi-house-door {
@@ -187,13 +192,11 @@ body {
     position: absolute;
     top: 0;
     left: 80%;
-    background: #000;
     width: 15px;
     height: 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: greenyellow;
     padding: 9px;
 }
 
@@ -206,10 +209,11 @@ body {
 .dropdown-menu {
     background-color: greenyellow;
     color: #000;
+    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .6);
 }
 
 .dibujo {
-    margin-top: 1.5rem;
+    margin-top: 6.5rem;
     max-width: 35%;
     filter: drop-shadow(-0.1rem -0.2rem .4rem greenyellow);
     animation-duration: 2s infinite;
@@ -222,7 +226,18 @@ body {
     font-size: 2rem;
     margin: 0;
     align-self: center;
+}
 
+.titulosCarrito {
+    font-size: .9rem;
+}
+
+.contenidoCarro {
+    font-size: .8rem;
+}
+
+.titulosTotal {
+    font-size: .85rem;
 }
 
 .accordion {
@@ -388,6 +403,6 @@ body {
     }
 
     .slickBrands div img {
-        width: 30%;
+        width: 40%;
     }
 }

@@ -1,10 +1,13 @@
-// variables
+// DECLARO VARIABLES //
 const carrito = document.querySelector('#carrito');
-const contenedorCarrito = document.querySelector('#listaCarrito tbody')
+const microprocesadores = document.querySelector("#contenedorMicros");
+const placasDeVideo = document.querySelector("#contenedorPlacasV");
+const motherboard = document.querySelector("#contenedorMothers");
+const memosRam = document.querySelector("#contenedorRam");
+const contenedorCarrito = document.querySelector('#listaCarrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciarCarrito');
 const listadoGeneral = document.querySelector('#listadoGeneral');
 const numeroCarrito = document.getElementById("cart_menu_num");
-let contador = 0;
 let total = document.querySelector('#total');
 let articulosCarrito = [];
 
@@ -36,14 +39,14 @@ const listaProductos = [
     new Producto(6, "./IMAGENES/Items/placasv/RTX3090.png", "RTX 3090 TUF", "ASUS NVIDIA GeForce RTX3090 TUF GAMING 24GB GDDR6X", 600000, 20),
     new Producto(7, "./IMAGENES/Items/placasv/RX6800.png", "RX 6800", "Sapphire Radeon RX 6800 NITRO+ 16Gb GDDR6", 260000, 5),
     new Producto(8, "./IMAGENES/Items/placasv/RX6900.png", "RX 6900", "MSI Radeon RX 6900 XT GAMING Z TRIO 16Gb GDDR6", 320000, 15),
-    new Producto(9, "./IMAGENES/Items/mothers/Z690.png", "ASUS ROG MAXIMUS Z690 HERO", "Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2, USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi 6E & Aura Sync RGB", 100000, 10),
-    new Producto(10, "./IMAGENES/Items/mothers/X570S.png", "AORUS X570S ELITE", "GIGABYTE X570S AORUS ELITE - AMD Ryzen™, Twin 12+2 Phases Digital VRM Solution with 60A DrMOS, DDR4, SuperSpeed USB 3.2 Gen 2x2 TYPE-C® delivers up to 20Gb/s transfer speeds", 65000, 20),
-    new Producto(11, "./IMAGENES/Items/mothers/Z690PLUS.png", "ASUS Z690PLUS TUF GAMING", "Intel® Z690 (LGA 1700) ATX gaming motherboard, PCIe® 5.0, DDR4, four M.2 slots, WiFi 6 and Intel 2.5 Gb Ethernet, Thunderbolt™ 4 support and Aura Sync RGB", 50000, 10),
-    new Producto(12, "./IMAGENES/Items/mothers/B550.png", "GIGABYTE B550 AORUS PRO AC 5 PCIE", "Supports AMD Ryzen™, DDR4, Ultra Durable™ PCIe 4.0, AMP-UP Audio, USB 3.2 Gen2 Type-C™ & HDMI Support, RGB FUSION 2.0 Supports Addressable LED & RGB LED Strips", 35000, 20),
-    new Producto(13, "./IMAGENES/Items/ram/ballistix16gb.png", "DDR4 - 16Gb BALLISTIX", "Memoria Ram DDR4 - 16Gb 3200 Mhz Ballistix Rgb Negro", 13500, 25),
-    new Producto(14, "./IMAGENES/Items/ram/renegade16gb.png", "DDR4 - 16Gb KINGSTON RENEGADE", "Memoria Ram DDR4 - 16Gb 3600 Mhz Renegade Kingston Fury Rgb", 15000, 15),
-    new Producto(15, "./IMAGENES/Items/ram/fury8gb.png", "DDR5 - 8Gb KINGSTON FURY", "Memoria Ram DDR5 - 8Gb 5600 Mhz Beast Kingston Fury", 16500, 25),
-    new Producto(16, "./IMAGENES/Items/ram/fury16gb.png", "DDR5 - 16Gb KINGSTON FURY", "Memoria Ram DDR5 - 16Gb 5600 Mhz Beast Kingston Fury", 29000, 15),
+    new Producto(9, "./IMAGENES/Items/mothers/Z690.png", "Asus Rog Maximus Z690 Hero", "Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2, USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi 6E & Aura Sync RGB", 100000, 10),
+    new Producto(10, "./IMAGENES/Items/mothers/X570S.png", "Aorus X570S Elite", "GIGABYTE X570S AORUS ELITE - AMD Ryzen™, Twin 12+2 Phases Digital VRM Solution with 60A DrMOS, DDR4, SuperSpeed USB 3.2 Gen 2x2 TYPE-C® delivers up to 20Gb/s transfer speeds", 65000, 20),
+    new Producto(11, "./IMAGENES/Items/mothers/Z690PLUS.png", "Asus Z690Plus TUF Gaming", "Intel® Z690 (LGA 1700) ATX gaming motherboard, PCIe® 5.0, DDR4, four M.2 slots, WiFi 6 and Intel 2.5 Gb Ethernet, Thunderbolt™ 4 support and Aura Sync RGB", 50000, 10),
+    new Producto(12, "./IMAGENES/Items/mothers/B550.png", "Gigabyte B550 Aorus Pro", "Supports AMD Ryzen™, DDR4, Ultra Durable™ PCIe 4.0, AMP-UP Audio, USB 3.2 Gen2 Type-C™ & HDMI Support, RGB FUSION 2.0 Supports Addressable LED & RGB LED Strips", 35000, 20),
+    new Producto(13, "./IMAGENES/Items/ram/ballistix16gb.png", "DDR4 - 16Gb Ballistix", "Memoria Ram DDR4 - 16Gb 3200 Mhz Ballistix Rgb Negro", 13500, 25),
+    new Producto(14, "./IMAGENES/Items/ram/renegade16gb.png", "DDR4 - 16Gb Kingston Renegade", "Memoria Ram DDR4 - 16Gb 3600 Mhz Renegade Kingston Fury Rgb", 15000, 15),
+    new Producto(15, "./IMAGENES/Items/ram/fury8gb.png", "DDR5 - 8Gb Kingston Fury", "Memoria Ram DDR5 - 8Gb 5600 Mhz Beast Kingston Fury", 16500, 25),
+    new Producto(16, "./IMAGENES/Items/ram/fury16gb.png", "DDR5 - 16Gb Kingston Fury", "Memoria Ram DDR5 - 16Gb 5600 Mhz Beast Kingston Fury", 29000, 15),
 ]
 
 //ARRAYS PARA HTML//
@@ -58,6 +61,43 @@ motherboards.push(listaProductos[8], listaProductos[9], listaProductos[10], list
 
 const memoriasRam = [];
 memoriasRam.push(listaProductos[12], listaProductos[13], listaProductos[14], listaProductos[15]);
+
+//EVENTOS SEGUN CLICKS EN BOTONES//
+cargarEventListeners();
+
+function cargarEventListeners() {
+    // AGREGAR PRODUCTO A CARRITO CON BOTON //
+    listadoGeneral.addEventListener('click', agregarProducto);
+
+    // BORRAR PRODUCTO ENTERO DEL CARRITO //
+    carrito.addEventListener('click', eliminarProducto);
+
+    // BOTONES + Y - //
+    document.addEventListener("click", (e) => {
+        eliminarUnidad(e);
+        sumarUnidad(e);
+    });
+
+    // MUESTRA PRODUCTOS LOCALSTORAGE //
+    document.addEventListener('DOMContentLoaded', () => {
+        articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        carritoHTML();
+    })
+
+    // VACIAR EL CARRITO //
+    vaciarCarritoBtn.addEventListener('click', () => {
+
+        articulosCarrito = []; // RESETEA //
+        localStorage.removeItem('carrito');
+        limpiarHTML(); // ELIMINA TODO EL HTML //
+        console.clear();
+        changeColor()
+        numeroCarrito.innerHTML = totalCantidad();
+    });
+}
+
+// FUNCIONES //
 
 //MOSTRAR EN EL HTML//
 function agregarHtml(listaProductos) {
@@ -79,123 +119,80 @@ function agregarHtml(listaProductos) {
 
 //USO FUNCION agregarHTML Y MUESTROS LOS PRODUCTOS SEGÚN CADA RUBRO - VER LINEAS "ARRAYS PARA HTML"//
 let micros = agregarHtml(microprocesador);
-document.querySelector("#contenedorMicros").appendChild(micros);
+microprocesadores.appendChild(micros);
 
 let placasVideo = agregarHtml(placaVideo);
-document.querySelector("#contenedorPlacasV").appendChild(placasVideo);
+placasDeVideo.appendChild(placasVideo);
 
 let mothers = agregarHtml(motherboards);
-document.querySelector("#contenedorMothers").appendChild(mothers);
+motherboard.appendChild(mothers);
 
 let rams = agregarHtml(memoriasRam);
-document.querySelector("#contenedorRam").appendChild(rams);
+memosRam.appendChild(rams);
 
-
-//EVENTOS SEGUN CLICKS EN BOTONES//
-cargarEventListeners();
-
-function cargarEventListeners() {
-    // Agregamos un producto presionando "Agregar al Carrito"
-    listadoGeneral.addEventListener('click', agregarProducto);
-
-    // Elimina productos del carrito
-    carrito.addEventListener('click', eliminarProducto);
-
-    // Muestra los productos de Local Storage
-    document.addEventListener('DOMContentLoaded', () => {
-        articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-        carritoHTML();
-    })
-
-    // Vaciar el carrito
-    vaciarCarritoBtn.addEventListener('click', () => {
-
-        articulosCarrito = []; // reseteamos el arreglo
-        localStorage.removeItem('carrito');
-        limpiarHTML(); // Eliminamos todo el  HTML
-        console.clear();
-        console.log(articulosCarrito);
-        numeroCarrito.innerHTML = totalCantidad();
-    });
-}
-
-// FUNCIONES //
 function agregarProducto(e) {
     if (e.target.classList.contains("botonAgregar")) {
         const productoSelecionado = e.target.parentElement.parentElement;
         leerDatosProducto(productoSelecionado);
         document.documentElement.scrollTop = 0;
-        //document.querySelector(".dropdown-menu").classList.add("show");
-        //document.querySelector(".dropdown").setAttribute("aria-expanded", "true");
     }
 }
 
-
-// Elimina un producto del carrito
+// ELIMINAR PRODUCTO ENTERO DEL CARRITO (NO POR UNIDAD) //
 function eliminarProducto(e) {
     if (e.target.classList.contains('borrarProducto')) {
         const productoId = e.target.getAttribute('data-id');
 
-        // Elimina del arreglo de articulosCarrito por el data-id
+        // BORRA DE "articulosCarrito" SEGUN EL DATA ID //
         articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
         console.clear();
-        console.log(articulosCarrito); // Muestra el arreglo actualizado. Sin el producto que fue eliminado
-        carritoHTML(); // Iterar sobre el carrito y mostrar su HTML        
+        console.log(articulosCarrito); // POR CONSOLA ACTUALIZADO, SIN EL PRODUCTO QUE SE ELIMINÓ //
+        carritoHTML(); // ITERA SOBRE carrito Y MUESTRA HTML //
     }
 }
 
-
-// Lee el contenido del HTML al que le dimos click y extrae la información del producto//
+// LEE EL HTML QUE TIENE UN CLICK Y SACA LA INFO DEL PRODCUTO //
 function leerDatosProducto(producto) {
-
     const id = producto.querySelector('.botonAgregar').getAttribute('data-id');
     const imagen = producto.querySelector('img').src;
     const titulo = producto.querySelector('.product h5').textContent;
     const descripcion = producto.querySelector('.product p').textContent;
     const precio = producto.querySelector('.product span').textContent;
 
-    // Creo el nuevo producto
+    // CREA NUEVO PRODUCTO CON LOS DATOS QUE SACAMOS //
     const infoProducto = new Producto(id, imagen, titulo, descripcion, precio);
 
     infoProducto.subtotal = Number(infoProducto.precio.replace('$', "")) * infoProducto.cantidad;
 
-
-    // Revisa si un elemento ya existe en el carrito
+    // VERIFICA SI YA EXISTE EL PRODUCTO EN EL CARRITO //
     const existe = articulosCarrito.some(producto => producto.id === infoProducto.id);
     if (existe) {
-        // Actualizamos la cantidad
+        // ACTUALIZAR SOLO LA CANTIDAD Y NO DUPLICAR//
         const productos = articulosCarrito.map(producto => {
             if (producto.id === infoProducto.id) {
                 producto.cantidad++;
                 producto.subtotal = Number(infoProducto.precio.replace('$', "")) * producto.cantidad;
-                return producto; // retorna el objeto actualizado
+                return producto; // DEVUELVE OBJETO ACTUALIZADO SUMANDO CANTIDAD Y SUBTOTAL//
             } else {
-                return producto; // retorna los objetos que no son los duplicados
+                return producto; // DEVUELVE LOS OBJETOS QUE NO SE DUPLICAN, HACE UNA LINEA MÁS //
             }
         });
 
-
-        // spread operator
+        // SPREAD OPERATOR - COPIA TODO O PARTE DE ARRAY U OBJETO EXISTENTE EN OTRO ARRAY U OBJETO //
         articulosCarrito = [...productos];
 
     } else {
-        // Agrega elementos al arreglo de carrito
+        // SE AGREGAN AL ARRAY carrito //
         articulosCarrito = [...articulosCarrito, infoProducto];
-        // articulosCarrito.push(infoProducto);
     }
-
-    // console.clear();
-    console.log(articulosCarrito);
     carritoHTML();
 }
 
 function carritoHTML() {
-
-    // Limpiar el HTML
+    // LIMPIA HTML //
     limpiarHTML();
 
-    // Recorre el carrito y genera el HTML
+    // RECORRE EL ARRAY CARRITO Y MUESTRA EN HTML //
     articulosCarrito.forEach(producto => {
         const {
             imagen,
@@ -206,10 +203,10 @@ function carritoHTML() {
             id
         } = producto;
         const row = document.createElement('tr');
-        row.className = "text-center align-middle";
+        row.className = "text-center align-middle contenidoCarro";
         row.innerHTML = `
             <th>
-                <img src="${imagen}" width="100">
+                <img src="${imagen}" width="50">
             </th>
             <th>${titulo}</th>            
             <th><i type="button" class="bi bi-dash-circle-fill menos" data-id="${id}"></i>${cantidad}<i type="button" class="bi bi-plus-circle-fill mas" data-id="${id}"></i></th>
@@ -219,49 +216,21 @@ function carritoHTML() {
             <a class="bi bi-x-circle-fill borrarProducto" data-id="${id}" style="display: table-cell; vertical-align: inherit; color: #000; cursor:pointer; font-size: 1.05rem"></a>
             </th>
         `;
-        // Agregamos el HTML del carrito en el tbody
+        // HTML DEL carrito EN EL tbody //
         contenedorCarrito.appendChild(row);
     });
-
     numeroCarrito.innerHTML = totalCantidad();
+    changeColor();
 
-    // Agregar el carrito de compras al storage
+    // PASA EL carrito AL LOCALSTORAGE //
     sincronizarStorage();
-
 }
-
 
 function sincronizarStorage() {
     localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
 }
 
-
-function totalCantidad() {
-    let cantidadFinal = 0;
-    cantidadFinal = articulosCarrito.reduce((total, producto) => total + producto.cantidad, 0);
-    return cantidadFinal;
-}
-
-
-// Elimina los productos del tbody
-function limpiarHTML() {
-    // forma lenta de limpiar el HTML
-    // contenedorCarrito.innerHTML = '';
-
-    // mejor performance para limpiar nuestro HTML
-    while (contenedorCarrito.firstChild) {
-        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
-    }
-
-    total.innerHTML = `$${totalGeneral()}`;
-}
-
-function totalGeneral() {
-    let productoTotal = articulosCarrito.reduce((total, producto) => total + producto.subtotal, 0);
-    return productoTotal;
-}
-
-
+// BORRA UNA UNIDAD DEL PRODUCTO CON EL - //
 function eliminarUnidad(e) {
     let productoMenos;
     if (e.target.matches(".menos")) {
@@ -280,8 +249,7 @@ function eliminarUnidad(e) {
     }
 }
 
-
-
+// SUMA UNA UNIDAD DEL PRODUCTO CON EL + //
 function sumarUnidad(e) {
     if (e.target.matches(".mas")) {
         const productoMas = articulosCarrito.find(
@@ -294,7 +262,33 @@ function sumarUnidad(e) {
     }
 }
 
-document.addEventListener("click", (e) => {
-    eliminarUnidad(e);
-    sumarUnidad(e);
-});
+function totalCantidad() {
+    let cantidadFinal = 0;
+    cantidadFinal = articulosCarrito.reduce((total, producto) => total + producto.cantidad, 0);
+    return cantidadFinal;
+}
+
+//CAMBIA LOS COLORES DE CIRCULO Y NUMERO DEL CONTADOR DE CANTIDADES SI HAY AL MENOS 1 PRODUCTO EN EL CARRITO //
+function changeColor() {
+    if (totalCantidad() > 0) {
+        numeroCarrito.style.color = "white";
+        numeroCarrito.style.background = "red";
+    } else {
+        numeroCarrito.style.color = "greenyellow";
+        numeroCarrito.style.background = "#000";
+    }
+}
+
+// BORRA LOS PRODUCTOS DEL tbody //
+function limpiarHTML() {
+    // LIMPIA EL HTML - FUNCIONARÍA IGUAL CON = contenedorCarrito.innerHTML = '';
+    while (contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    }
+    total.innerHTML = `$${totalGeneral()}`;
+}
+
+function totalGeneral() {
+    let productoTotal = articulosCarrito.reduce((total, producto) => total + producto.subtotal, 0);
+    return productoTotal;
+}

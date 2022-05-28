@@ -33,9 +33,10 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li class=" nav-item dropdown">
                         <div id="carrito">
-                            <table id="listaCarrito" class="table border-dark">
+                            <table id="listaCarrito" class="table border-dark"
+                                style="white-space: nowrap; overflow-x: auto;">
                                 <thead>
-                                    <tr>
+                                    <tr class="titulosCarrito text-center align-middle">
                                         <th>Imagen</th>
                                         <th>Nombre</th>
                                         <th>Cantidad</th>
@@ -45,7 +46,7 @@
                                 </thead>
                                 <tbody></tbody>
                                 <tfoot>
-                                    <tr>
+                                    <tr class="titulosTotal">
                                         <th colspan="4" scope="row">TOTAL A PAGAR</th>
                                         <th colspan="2" id="total"></th>
                                     </tr>
