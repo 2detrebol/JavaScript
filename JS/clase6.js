@@ -87,8 +87,7 @@ function cargarEventListeners() {
 
         articulosCarrito = []; // RESETEA //
         localStorage.removeItem('carrito');
-        limpiarHTML(); // ELIMINA TODO EL HTML //
-        console.clear();
+        limpiarHTML(); // ELIMINA TODO EL HTML //        
         changeColor()
         numeroCarrito.innerHTML = totalCantidad();
     });
@@ -321,7 +320,12 @@ procesarCompraBtn.addEventListener('click', () => {
                         title: "¡Gracias por tu compra!",
                         text: "Próximamente nos contactaremos para acordar el envío",
                         icon: "success",
-                    });
+                    })
+                    articulosCarrito = [];
+                    localStorage.removeItem('carrito');
+                    limpiarHTML();
+                    changeColor()
+                    numeroCarrito.innerHTML = totalCantidad();;
                 } else {
                     swal({
                         title: "Compra cancelada",
