@@ -327,7 +327,7 @@ procesarCompraBtn.addEventListener('click', () => {
                 } else {
                     swal({
                         title: "Compra cancelada",
-                        text: "Guardamos tus productos en el carrito, podrás completar tu compra más tarde",
+                        text: "Guardamos tus productos en el carrito.\nPodrás completar tu compra más tarde.",
                     });
                 }
             });
