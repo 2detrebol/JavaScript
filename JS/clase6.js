@@ -37,14 +37,14 @@ const listaProductos = [
     new Producto(6, "./IMAGENES/Items/placasv/RTX3090.png", "RTX 3090 TUF", "ASUS NVIDIA GeForce RTX3090 TUF GAMING 24GB GDDR6X", 600000),
     new Producto(7, "./IMAGENES/Items/placasv/RX6800.png", "RX 6800", "Sapphire Radeon RX 6800 NITRO+ 16Gb GDDR6", 260000),
     new Producto(8, "./IMAGENES/Items/placasv/RX6900.png", "RX 6900", "MSI Radeon RX 6900 XT GAMING Z TRIO 16Gb GDDR6", 320000),
-    new Producto(9, "./IMAGENES/Items/mothers/Z690.png", "Asus Rog Maximus Z690 Hero", "Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2, USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi 6E & Aura Sync RGB", 100000),
-    new Producto(10, "./IMAGENES/Items/mothers/X570S.png", "Aorus X570S Elite", "GIGABYTE X570S AORUS ELITE - AMD Ryzen™, Twin 12+2 Phases Digital VRM Solution with 60A DrMOS, DDR4, SuperSpeed USB 3.2 Gen 2x2 TYPE-C® delivers up to 20Gb/s transfer speeds", 65000),
-    new Producto(11, "./IMAGENES/Items/mothers/Z690PLUS.png", "Asus Z690Plus TUF Gaming", "Intel® Z690 (LGA 1700) ATX gaming motherboard, PCIe® 5.0, DDR4, four M.2 slots, WiFi 6 and Intel 2.5 Gb Ethernet, Thunderbolt™ 4 support and Aura Sync RGB", 50000),
-    new Producto(12, "./IMAGENES/Items/mothers/B550.png", "Gigabyte B550 Aorus Pro", "Supports AMD Ryzen™, DDR4, Ultra Durable™ PCIe 4.0, AMP-UP Audio, USB 3.2 Gen2 Type-C™ & HDMI Support, RGB FUSION 2.0 Supports Addressable LED & RGB LED Strips", 35000),
-    new Producto(13, "./IMAGENES/Items/ram/ballistix16gb.png", "DDR4 - 16Gb Ballistix", "Memoria Ram DDR4 - 16Gb 3200 Mhz Ballistix Rgb Negro", 13500),
-    new Producto(14, "./IMAGENES/Items/ram/renegade16gb.png", "DDR4 - 16Gb Kingston Renegade", "Memoria Ram DDR4 - 16Gb 3600 Mhz Renegade Kingston Fury Rgb", 15000),
-    new Producto(15, "./IMAGENES/Items/ram/fury8gb.png", "DDR5 - 8Gb Kingston Fury", "Memoria Ram DDR5 - 8Gb 5600 Mhz Beast Kingston Fury", 16500),
-    new Producto(16, "./IMAGENES/Items/ram/fury16gb.png", "DDR5 - 16Gb Kingston Fury", "Memoria Ram DDR5 - 16Gb 5600 Mhz Beast Kingston Fury", 29000),
+    new Producto(9, "./IMAGENES/Items/mothers/Z690.png", "Asus Z690", "Asus Rog Maximus Z690 Hero - Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2, USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi 6E & Aura Sync RGB", 100000),
+    new Producto(10, "./IMAGENES/Items/mothers/X570S.png", "Aorus X570S", "GIGABYTE X570S AORUS ELITE - AMD Ryzen™, Twin 12+2 Phases Digital VRM Solution with 60A DrMOS, DDR4, SuperSpeed USB 3.2 Gen 2x2 TYPE-C® delivers up to 20Gb/s transfer speeds", 65000),
+    new Producto(11, "./IMAGENES/Items/mothers/Z690PLUS.png", "Z690Plus TUF", "Asus Z690Plus TUF Gaming - Intel® Z690 (LGA 1700) ATX gaming motherboard, PCIe® 5.0, DDR4, four M.2 slots, WiFi 6 and Intel 2.5 Gb Ethernet, Thunderbolt™ 4 support and Aura Sync RGB", 50000),
+    new Producto(12, "./IMAGENES/Items/mothers/B550.png", "Gigabyte B550", "Gigabyte B550 Aorus Pro - Supports AMD Ryzen™, DDR4, Ultra Durable™ PCIe 4.0, AMP-UP Audio, USB 3.2 Gen2 Type-C™ & HDMI Support, RGB FUSION 2.0 Supports Addressable LED & RGB LED Strips", 35000),
+    new Producto(13, "./IMAGENES/Items/ram/ballistix16gb.png", "16Gb-3200Mhz", "Memoria Ram DDR4 - Ballistix - 16Gb 3200 Mhz Ballistix Rgb Negro", 13500),
+    new Producto(14, "./IMAGENES/Items/ram/renegade16gb.png", "16Gb-3600Mhz", "Memoria Ram DDR4 - Kingston Renegade - 16Gb 3600 Mhz Renegade Kingston Fury Rgb", 15000),
+    new Producto(15, "./IMAGENES/Items/ram/fury8gb.png", "8Gb-5600Mhz", "Memoria Ram DDR5 - Kingston Fury - 8Gb 5600 Mhz Beast Kingston Fury", 16500),
+    new Producto(16, "./IMAGENES/Items/ram/fury16gb.png", "16Gb-5600Mhz", "Memoria Ram DDR5 - Kingston Fury - 16Gb 5600 Mhz Beast Kingston Fury", 29000),
 ]
 
 //ARRAYS PARA HTML//
@@ -211,16 +211,16 @@ function carritoHTML() {
         const row = document.createElement('tr');
         row.className = "text-center align-middle contenidoCarro";
         row.innerHTML = `
-            <th>
+            <th class="imgProducto">
                 <img src="${imagen}" width="50">
             </th>
             <th>${titulo}</th>            
             <th><i type="button" class="bi bi-dash-circle-fill menos" data-id="${id}"></i>${cantidad}<i type="button" class="bi bi-plus-circle-fill mas" data-id="${id}"></i></th>
             <th>${precio}</th>
             <th>$ ${subtotal}</th>
-            <th>
+            
             <a class="bi bi-x-circle-fill borrarProducto" data-id="${id}" style="display: table-cell; vertical-align: inherit; color: #000; cursor:pointer; font-size: 1.05rem"></a>
-            </th>
+            
         `;
         // HTML DEL carrito EN EL tbody //
         contenedorCarrito.appendChild(row);
