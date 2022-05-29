@@ -250,6 +250,22 @@ body {
     font-size: .8rem;
 }
 
+#vaciarCarrito:hover,
+#vaciarCarrito:focus {
+    background-color: red !important;
+    color: #fff !important;
+    outline: #fff .125rem solid !important;
+    box-shadow: 0 0 .5rem 0.3em #fff;
+}
+
+#procesar-pedido:hover,
+#procesar-pedido:focus {
+    color: #000 !important;
+    background-color: greenyellow !important;
+    outline: #000 .125rem solid !important;
+    box-shadow: 0 0 .5rem 0.3em #000;
+}
+
 .titulosTotal {
     font-size: .85rem;
 }
