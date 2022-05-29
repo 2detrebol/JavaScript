@@ -153,8 +153,6 @@ function eliminarProducto(e) {
 
         // BORRA DE "articulosCarrito" SEGUN EL DATA ID //
         articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
-        console.clear();
-        console.log(articulosCarrito); // POR CONSOLA ACTUALIZADO, SIN EL PRODUCTO QUE SE ELIMINÓ //
         carritoHTML(); // ITERA SOBRE carrito Y MUESTRA HTML //
     }
 }
@@ -245,15 +243,15 @@ function eliminarUnidad(e) {
         productoMenos = articulosCarrito.find(
             (el) => Number(el.id) === Number(e.target.dataset.id)
         );
-        if (productoMenos.cantidad <= 1) {
-            articulosCarrito.splice(productoMenos, 1);
+        if (productoMenos.cantidad == 1) {
+            articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoMenos.id);
             carritoHTML();
         } else {
             productoMenos.cantidad--;
             productoMenos.subtotal = Number(productoMenos.precio.replace('$', "")) * productoMenos.cantidad;
-            sincronizarStorage();
             carritoHTML();
         }
+        sincronizarStorage();
     }
 }
 

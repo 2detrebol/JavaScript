@@ -1,6 +1,10 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     position: relative;
     background-color: #000;
@@ -166,6 +170,11 @@ body {
     z-index: 100;
     top: 0;
     box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+#carrito {
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .bi-house-door {
