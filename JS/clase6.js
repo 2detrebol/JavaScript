@@ -8,45 +8,43 @@ const contenedorCarrito = document.querySelector('#listaCarrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciarCarrito');
 const listadoGeneral = document.querySelector('#listadoGeneral');
 const numeroCarrito = document.getElementById("cart_menu_num");
+const formatoMoneda = new Intl.NumberFormat('es-ar', {
+    style: 'currency',
+    currency: 'ARS',
+});
+const procesarCompraBtn = document.querySelector('#procesar-pedido');
 let total = document.querySelector('#total');
 let articulosCarrito = [];
 
 //FUNCION CONSTRUCTORA DE PRODUCTOS//
-function Producto(id, imagen, titulo, descripcion, precio, stock) {
+function Producto(id, imagen, titulo, descripcion, precio) {
     this.id = id;
     this.imagen = imagen;
     this.titulo = titulo;
     this.descripcion = descripcion;
     this.precio = precio;
-    this.stock = stock;
     this.cantidad = 1;
     this.subtotal = 0;
-
-    this.vendido = function (cantidadStock) {
-        if (cantidadStock <= this.stock) {
-            return this.stock -= cantidadStock;
-        }
-    };
 }
 
 //CREACION DE PRODUCTOS//
 const listaProductos = [
-    new Producto(1, "./IMAGENES/Items/micros/i7.png", "Intel i7", "Intel Core i7-9700K 8 núcleos y 4.9 GHz de frecuencia gráfica int.", 60000, 5),
-    new Producto(2, "./IMAGENES/Items/micros/i9.png", "Intel i9", "Intel Core i9-10900F 10 núcleos y 5.2 GHz de frecuencia, gráfica int.", 80000, 20),
-    new Producto(3, "./IMAGENES/Items/micros/R7.png", "AMD Ryzen 7", "AMD Ryzen 7 5700G 8 núcleos y 4.6 GHz con gráfica integrada", 55000, 15),
-    new Producto(4, "./IMAGENES/Items/micros/R9.png", "AMD Ryzen 9", "AMD Ryzen 9 5900X 12 núcleos 4.8 GHz y 24 hilos con gráfica integrada", 75000, 30),
-    new Producto(5, "./IMAGENES/Items/placasv/RTX3080.png", "RTX 3080 MSI", "MSI NVIDIA GeForce RTX3080 Gaming X Trio 10Gb GDDR6X", 300000, 10),
-    new Producto(6, "./IMAGENES/Items/placasv/RTX3090.png", "RTX 3090 TUF", "ASUS NVIDIA GeForce RTX3090 TUF GAMING 24GB GDDR6X", 600000, 20),
-    new Producto(7, "./IMAGENES/Items/placasv/RX6800.png", "RX 6800", "Sapphire Radeon RX 6800 NITRO+ 16Gb GDDR6", 260000, 5),
-    new Producto(8, "./IMAGENES/Items/placasv/RX6900.png", "RX 6900", "MSI Radeon RX 6900 XT GAMING Z TRIO 16Gb GDDR6", 320000, 15),
-    new Producto(9, "./IMAGENES/Items/mothers/Z690.png", "Asus Rog Maximus Z690 Hero", "Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2, USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi 6E & Aura Sync RGB", 100000, 10),
-    new Producto(10, "./IMAGENES/Items/mothers/X570S.png", "Aorus X570S Elite", "GIGABYTE X570S AORUS ELITE - AMD Ryzen™, Twin 12+2 Phases Digital VRM Solution with 60A DrMOS, DDR4, SuperSpeed USB 3.2 Gen 2x2 TYPE-C® delivers up to 20Gb/s transfer speeds", 65000, 20),
-    new Producto(11, "./IMAGENES/Items/mothers/Z690PLUS.png", "Asus Z690Plus TUF Gaming", "Intel® Z690 (LGA 1700) ATX gaming motherboard, PCIe® 5.0, DDR4, four M.2 slots, WiFi 6 and Intel 2.5 Gb Ethernet, Thunderbolt™ 4 support and Aura Sync RGB", 50000, 10),
-    new Producto(12, "./IMAGENES/Items/mothers/B550.png", "Gigabyte B550 Aorus Pro", "Supports AMD Ryzen™, DDR4, Ultra Durable™ PCIe 4.0, AMP-UP Audio, USB 3.2 Gen2 Type-C™ & HDMI Support, RGB FUSION 2.0 Supports Addressable LED & RGB LED Strips", 35000, 20),
-    new Producto(13, "./IMAGENES/Items/ram/ballistix16gb.png", "DDR4 - 16Gb Ballistix", "Memoria Ram DDR4 - 16Gb 3200 Mhz Ballistix Rgb Negro", 13500, 25),
-    new Producto(14, "./IMAGENES/Items/ram/renegade16gb.png", "DDR4 - 16Gb Kingston Renegade", "Memoria Ram DDR4 - 16Gb 3600 Mhz Renegade Kingston Fury Rgb", 15000, 15),
-    new Producto(15, "./IMAGENES/Items/ram/fury8gb.png", "DDR5 - 8Gb Kingston Fury", "Memoria Ram DDR5 - 8Gb 5600 Mhz Beast Kingston Fury", 16500, 25),
-    new Producto(16, "./IMAGENES/Items/ram/fury16gb.png", "DDR5 - 16Gb Kingston Fury", "Memoria Ram DDR5 - 16Gb 5600 Mhz Beast Kingston Fury", 29000, 15),
+    new Producto(1, "./IMAGENES/Items/micros/i7.png", "Intel i7", "Intel Core i7-9700K 8 núcleos y 4.9 GHz de frecuencia gráfica int.", 60000),
+    new Producto(2, "./IMAGENES/Items/micros/i9.png", "Intel i9", "Intel Core i9-10900F 10 núcleos y 5.2 GHz de frecuencia, gráfica int.", 80000),
+    new Producto(3, "./IMAGENES/Items/micros/R7.png", "AMD Ryzen 7", "AMD Ryzen 7 5700G 8 núcleos y 4.6 GHz con gráfica integrada", 55000),
+    new Producto(4, "./IMAGENES/Items/micros/R9.png", "AMD Ryzen 9", "AMD Ryzen 9 5900X 12 núcleos 4.8 GHz y 24 hilos con gráfica integrada", 75000),
+    new Producto(5, "./IMAGENES/Items/placasv/RTX3080.png", "RTX 3080 MSI", "MSI NVIDIA GeForce RTX3080 Gaming X Trio 10Gb GDDR6X", 300000),
+    new Producto(6, "./IMAGENES/Items/placasv/RTX3090.png", "RTX 3090 TUF", "ASUS NVIDIA GeForce RTX3090 TUF GAMING 24GB GDDR6X", 600000),
+    new Producto(7, "./IMAGENES/Items/placasv/RX6800.png", "RX 6800", "Sapphire Radeon RX 6800 NITRO+ 16Gb GDDR6", 260000),
+    new Producto(8, "./IMAGENES/Items/placasv/RX6900.png", "RX 6900", "MSI Radeon RX 6900 XT GAMING Z TRIO 16Gb GDDR6", 320000),
+    new Producto(9, "./IMAGENES/Items/mothers/Z690.png", "Asus Rog Maximus Z690 Hero", "Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2, USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi 6E & Aura Sync RGB", 100000),
+    new Producto(10, "./IMAGENES/Items/mothers/X570S.png", "Aorus X570S Elite", "GIGABYTE X570S AORUS ELITE - AMD Ryzen™, Twin 12+2 Phases Digital VRM Solution with 60A DrMOS, DDR4, SuperSpeed USB 3.2 Gen 2x2 TYPE-C® delivers up to 20Gb/s transfer speeds", 65000),
+    new Producto(11, "./IMAGENES/Items/mothers/Z690PLUS.png", "Asus Z690Plus TUF Gaming", "Intel® Z690 (LGA 1700) ATX gaming motherboard, PCIe® 5.0, DDR4, four M.2 slots, WiFi 6 and Intel 2.5 Gb Ethernet, Thunderbolt™ 4 support and Aura Sync RGB", 50000),
+    new Producto(12, "./IMAGENES/Items/mothers/B550.png", "Gigabyte B550 Aorus Pro", "Supports AMD Ryzen™, DDR4, Ultra Durable™ PCIe 4.0, AMP-UP Audio, USB 3.2 Gen2 Type-C™ & HDMI Support, RGB FUSION 2.0 Supports Addressable LED & RGB LED Strips", 35000),
+    new Producto(13, "./IMAGENES/Items/ram/ballistix16gb.png", "DDR4 - 16Gb Ballistix", "Memoria Ram DDR4 - 16Gb 3200 Mhz Ballistix Rgb Negro", 13500),
+    new Producto(14, "./IMAGENES/Items/ram/renegade16gb.png", "DDR4 - 16Gb Kingston Renegade", "Memoria Ram DDR4 - 16Gb 3600 Mhz Renegade Kingston Fury Rgb", 15000),
+    new Producto(15, "./IMAGENES/Items/ram/fury8gb.png", "DDR5 - 8Gb Kingston Fury", "Memoria Ram DDR5 - 8Gb 5600 Mhz Beast Kingston Fury", 16500),
+    new Producto(16, "./IMAGENES/Items/ram/fury16gb.png", "DDR5 - 16Gb Kingston Fury", "Memoria Ram DDR5 - 16Gb 5600 Mhz Beast Kingston Fury", 29000),
 ]
 
 //ARRAYS PARA HTML//
@@ -81,7 +79,6 @@ function cargarEventListeners() {
     // MUESTRA PRODUCTOS LOCALSTORAGE //
     document.addEventListener('DOMContentLoaded', () => {
         articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
         carritoHTML();
     })
 
@@ -134,7 +131,18 @@ function agregarProducto(e) {
     if (e.target.classList.contains("botonAgregar")) {
         const productoSelecionado = e.target.parentElement.parentElement;
         leerDatosProducto(productoSelecionado);
-        document.documentElement.scrollTop = 0;
+        Toastify({
+            text: "Producto agregado",
+            duration: 2700,
+            newWindow: true,
+            gravity: "bottom", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "#000",
+                color: "greenyellow",
+            },
+        }).showToast();
     }
 }
 
@@ -178,11 +186,11 @@ function leerDatosProducto(producto) {
             }
         });
 
-        // SPREAD OPERATOR - COPIA TODO O PARTE DE ARRAY U OBJETO EXISTENTE EN OTRO ARRAY U OBJETO //
+        // SPREAD OPERATOR - COPIA TODO O PARTE DE ARRAY U OBJETO EXISTENTE EN OTRO ARRAY U OBJETO - ENVÍA LOS PRODUCTOS DEL ARRAY COMO PARAMETROS INDIVIDUALES //
         articulosCarrito = [...productos];
 
     } else {
-        // SE AGREGAN AL ARRAY carrito //
+        // SE AGREGAN AL ARRAY //
         articulosCarrito = [...articulosCarrito, infoProducto];
     }
     carritoHTML();
@@ -211,7 +219,7 @@ function carritoHTML() {
             <th>${titulo}</th>            
             <th><i type="button" class="bi bi-dash-circle-fill menos" data-id="${id}"></i>${cantidad}<i type="button" class="bi bi-plus-circle-fill mas" data-id="${id}"></i></th>
             <th>${precio}</th>
-            <th>$${subtotal}</th>
+            <th>$ ${subtotal}</th>
             <th>
             <a class="bi bi-x-circle-fill borrarProducto" data-id="${id}" style="display: table-cell; vertical-align: inherit; color: #000; cursor:pointer; font-size: 1.05rem"></a>
             </th>
@@ -285,10 +293,43 @@ function limpiarHTML() {
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
-    total.innerHTML = `$${totalGeneral()}`;
+    total.innerHTML = formatoMoneda.format(totalGeneral());
 }
 
 function totalGeneral() {
     let productoTotal = articulosCarrito.reduce((total, producto) => total + producto.subtotal, 0);
     return productoTotal;
 }
+
+// PROCESAR COMPRA - CONFIRMAR //
+procesarCompraBtn.addEventListener('click', () => {
+    if (totalCantidad() === 0) {
+        swal({
+            title: "¡El carrito esta vacio!",
+            text: "Agrega algunos productos al carrito",
+            icon: "error",
+        });
+    } else {
+        swal({
+                title: "¿Estás seguro de que deseas realizar la compra?",
+                text: "Una vez confirmada no podrás modificarla",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((confirma) => {
+                if (confirma) {
+                    swal({
+                        title: "¡Gracias por tu compra!",
+                        text: "Próximamente nos contactaremos para acordar el envío",
+                        icon: "success",
+                    });
+                } else {
+                    swal({
+                        title: "Compra cancelada",
+                        text: "Guardamos tus productos en el carrito, podrás completar tu compra más tarde",
+                    });
+                }
+            });
+    }
+})
