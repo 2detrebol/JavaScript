@@ -95,6 +95,32 @@ function cargarEventListeners() {
 function agregarHtml(listaProductos) {
     let contenedorCards = document.createElement("div");
     contenedorCards.className = "accordion-body d-flex row justify-content-center"
+    listaProductos.forEach(element => {
+        //DESTRUCTURING//        
+        const {
+            id,
+            imagen,
+            titulo,
+            descripcion,
+            precio
+        } = element;
+        contenedorCards.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
+      <img src=${imagen} class="card-img-top fotoItem" alt="${titulo}">
+      <div class="card-body product" id="${id}">
+          <h5 class="card-title productTittle text-center">${titulo}</h5>
+          <p class="card-text">${descripcion}</p>
+          <span class="productPrice">${formatoMoneda(precio)}</span>
+          <a class="btn btn-primary botonAgregar" data-id="${id}">Agregar al carrito</a>
+      </div>                            
+  </div>`;
+    });
+    return contenedorCards;
+}
+
+// SIN USAR DESTRUCTURING ERA ASÍ...//
+/*function agregarHtml(listaProductos) {
+    let contenedorCards = document.createElement("div");
+    contenedorCards.className = "accordion-body d-flex row justify-content-center"
     listaProductos.forEach((element) => {
         contenedorCards.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
       <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.titulo}">
@@ -107,7 +133,7 @@ function agregarHtml(listaProductos) {
   </div>`;
     });
     return contenedorCards;
-}
+}*/
 
 //USO FUNCION agregarHTML Y MUESTROS LOS PRODUCTOS SEGÚN CADA RUBRO - VER LINEAS "ARRAYS PARA HTML"//
 let micros = agregarHtml(microprocesador);
