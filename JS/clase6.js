@@ -8,10 +8,6 @@ const contenedorCarrito = document.querySelector('#listaCarrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciarCarrito');
 const listadoGeneral = document.querySelector('#listadoGeneral');
 const numeroCarrito = document.getElementById("cart_menu_num");
-const formatoMoneda = new Intl.NumberFormat('es-ar', {
-    style: 'currency',
-    currency: 'ARS',
-});
 const procesarCompraBtn = document.querySelector('#procesar-pedido');
 let total = document.querySelector('#total');
 let articulosCarrito = [];
@@ -105,7 +101,7 @@ function agregarHtml(listaProductos) {
       <div class="card-body product" id="${element.id}">
           <h5 class="card-title productTittle text-center">${element.titulo}</h5>
           <p class="card-text">${element.descripcion}</p>
-          <span class="productPrice">$ ${element.precio}</span>
+          <span class="productPrice">${formatoMoneda(element.precio)}</span>
           <a class="btn btn-primary botonAgregar" data-id="${element.id}">Agregar al carrito</a>
       </div>                            
   </div>`;
@@ -167,7 +163,7 @@ function leerDatosProducto(producto) {
     // CREA NUEVO PRODUCTO CON LOS DATOS QUE SACAMOS //
     const infoProducto = new Producto(id, imagen, titulo, descripcion, precio);
 
-    infoProducto.subtotal = Number(infoProducto.precio.replace('$', "")) * infoProducto.cantidad;
+    infoProducto.subtotal = Number((infoProducto.precio.replace('$', "")) * 1000) * infoProducto.cantidad;
 
     // VERIFICA SI YA EXISTE EL PRODUCTO EN EL CARRITO //
     const existe = articulosCarrito.some(producto => producto.id === infoProducto.id);
@@ -176,7 +172,7 @@ function leerDatosProducto(producto) {
         const productos = articulosCarrito.map(producto => {
             if (producto.id === infoProducto.id) {
                 producto.cantidad++;
-                producto.subtotal = Number(infoProducto.precio.replace('$', "")) * producto.cantidad;
+                producto.subtotal = Number(((producto.precio.replace('$', "")) * 1000) * producto.cantidad);
                 return producto; // DEVUELVE OBJETO ACTUALIZADO SUMANDO CANTIDAD Y SUBTOTAL//
             } else {
                 return producto; // DEVUELVE LOS OBJETOS QUE NO SE DUPLICAN, HACE UNA LINEA MÁS //
@@ -216,7 +212,7 @@ function carritoHTML() {
             <th>${titulo}</th>            
             <th><i type="button" class="bi bi-dash-circle-fill menos" data-id="${id}"></i>${cantidad}<i type="button" class="bi bi-plus-circle-fill mas" data-id="${id}"></i></th>
             <th>${precio}</th>
-            <th>$ ${subtotal}</th>
+            <th>${formatoMoneda(subtotal)}</th>
             
             <a class="bi bi-x-circle-fill borrarProducto" data-id="${id}" style="display: table-cell; vertical-align: inherit; color: #000; cursor:pointer; font-size: 1.05rem"></a>
             
@@ -247,7 +243,7 @@ function eliminarUnidad(e) {
             carritoHTML();
         } else {
             productoMenos.cantidad--;
-            productoMenos.subtotal = Number(productoMenos.precio.replace('$', "")) * productoMenos.cantidad;
+            productoMenos.subtotal = Number((productoMenos.precio.replace('$', "")) * 1000) * productoMenos.cantidad;
             carritoHTML();
         }
         sincronizarStorage();
@@ -261,7 +257,7 @@ function sumarUnidad(e) {
             (el) => Number(el.id) === Number(e.target.dataset.id)
         );
         productoMas.cantidad++;
-        productoMas.subtotal = Number(productoMas.precio.replace('$', "")) * productoMas.cantidad;
+        productoMas.subtotal = Number((productoMas.precio.replace('$', "")) * 1000) * productoMas.cantidad;
         sincronizarStorage();
         carritoHTML();
     }
@@ -290,7 +286,15 @@ function limpiarHTML() {
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
-    total.innerHTML = formatoMoneda.format(totalGeneral());
+    total.innerHTML = formatoMoneda(totalGeneral());
+}
+
+function formatoMoneda(e) {
+    return new Intl.NumberFormat('es-ar', {
+        style: 'currency',
+        currency: 'ARS',
+        minimumFractionDigits: 0,
+    }).format(e);
 }
 
 function totalGeneral() {
