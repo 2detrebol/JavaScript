@@ -77,17 +77,39 @@ function cargarEventListeners() {
         articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
         carritoHTML();
     })
-
-    // VACIAR EL CARRITO //
-    vaciarCarritoBtn.addEventListener('click', () => {
-
-        articulosCarrito = []; // RESETEA //
-        localStorage.removeItem('carrito');
-        limpiarHTML(); // ELIMINA TODO EL HTML //        
-        changeColor()
-        numeroCarrito.innerHTML = totalCantidad();
-    });
 }
+
+// VACIAR EL CARRITO //
+vaciarCarritoBtn.addEventListener('click', () => {
+    if (totalCantidad() === 0) {
+        swal({
+            title: "¡El carrito esta vacio!",
+            text: "Agrega algunos productos al carrito",
+            icon: "error",
+        });
+    } else {
+        swal({
+                title: "¿Estás seguro que deseas vaciar tu carrito?",
+                text: "Si confirmas, eliminarás todos los productos que tienes agregados",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((confirma) => {
+                if (confirma) {
+                    swal({
+                        title: "¡Carrito vacío!",
+                    });
+                    articulosCarrito = []; // RESETEA //
+                    localStorage.removeItem('carrito');
+                    limpiarHTML(); // ELIMINA TODO EL HTML //        
+                    changeColor()
+                    numeroCarrito.innerHTML = totalCantidad();
+                }
+            });
+    }
+});
+
 
 // FUNCIONES //
 
@@ -152,27 +174,13 @@ function agregarProducto(e) {
 // ELIMINAR PRODUCTO ENTERO DEL CARRITO (NO POR UNIDAD) //
 function eliminarProducto(e) {
     if (e.target.classList.contains('borrarProducto')) {
-        swal({
-                title: "¿Estás seguro que deseas borrar este producto?",
-                text: "Si confirmas, lo eliminaras por completo de tu carrito",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((confirma) => {
-                if (confirma) {
-                    swal({
-                        title: "¡Producto eliminado!",
-                    });
-                    const productoId = e.target.getAttribute('data-id');
-                    // BORRA DE "articulosCarrito" SEGUN EL DATA ID //
-                    articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
-                    carritoHTML(); // ITERA SOBRE carrito Y MUESTRA HTML //                   
-                }
-            });
-    }
-}
+        const productoId = e.target.getAttribute('data-id');
 
+        // BORRA DE "articulosCarrito" SEGUN EL DATA ID //
+        articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
+        carritoHTML(); // ITERA SOBRE carrito Y MUESTRA HTML //
+    };
+}
 
 // LEE EL HTML QUE TIENE UN CLICK Y SACA LA INFO DEL PRODCUTO //
 function leerDatosProducto(producto) {
