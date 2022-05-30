@@ -117,24 +117,6 @@ function agregarHtml(listaProductos) {
     return contenedorCards;
 }
 
-// SIN USAR DESTRUCTURING ERA ASÍ...//
-/*function agregarHtml(listaProductos) {
-    let contenedorCards = document.createElement("div");
-    contenedorCards.className = "accordion-body d-flex row justify-content-center"
-    listaProductos.forEach((element) => {
-        contenedorCards.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
-      <img src=${element.imagen} class="card-img-top fotoItem" alt="${element.titulo}">
-      <div class="card-body product" id="${element.id}">
-          <h5 class="card-title productTittle text-center">${element.titulo}</h5>
-          <p class="card-text">${element.descripcion}</p>
-          <span class="productPrice">${formatoMoneda(element.precio)}</span>
-          <a class="btn btn-primary botonAgregar" data-id="${element.id}">Agregar al carrito</a>
-      </div>                            
-  </div>`;
-    });
-    return contenedorCards;
-}*/
-
 //USO FUNCION agregarHTML Y MUESTROS LOS PRODUCTOS SEGÚN CADA RUBRO - VER LINEAS "ARRAYS PARA HTML"//
 let micros = agregarHtml(microprocesador);
 microprocesadores.appendChild(micros);
@@ -170,13 +152,27 @@ function agregarProducto(e) {
 // ELIMINAR PRODUCTO ENTERO DEL CARRITO (NO POR UNIDAD) //
 function eliminarProducto(e) {
     if (e.target.classList.contains('borrarProducto')) {
-        const productoId = e.target.getAttribute('data-id');
-
-        // BORRA DE "articulosCarrito" SEGUN EL DATA ID //
-        articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
-        carritoHTML(); // ITERA SOBRE carrito Y MUESTRA HTML //
+        swal({
+                title: "¿Estás seguro que deseas borrar este producto?",
+                text: "Si confirmas, lo eliminaras por completo de tu carrito",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((confirma) => {
+                if (confirma) {
+                    swal({
+                        title: "¡Producto eliminado!",
+                    });
+                    const productoId = e.target.getAttribute('data-id');
+                    // BORRA DE "articulosCarrito" SEGUN EL DATA ID //
+                    articulosCarrito = articulosCarrito.filter(producto => producto.id !== productoId);
+                    carritoHTML(); // ITERA SOBRE carrito Y MUESTRA HTML //                   
+                }
+            });
     }
 }
+
 
 // LEE EL HTML QUE TIENE UN CLICK Y SACA LA INFO DEL PRODCUTO //
 function leerDatosProducto(producto) {
