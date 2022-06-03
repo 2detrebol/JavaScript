@@ -72,7 +72,7 @@ $('#card-exp').on('input', function () {
 $(function () {
     $("#btnFinalizar").click(function (event) {
         event.preventDefault();
-        if ($("#nombre").val() === "" || $("#documento").val() === "" || $("#domicilio").val() === "" || $("#numeracion").val() === "" || $("#localidad").val() === "" || $("#numeroTel").val() === "") {
+        if ($("#nombre").val() === "" || $("#documento").val() === "" || $("#domicilio").val() === "" || $("#numeracion").val() === "" || $("#localidad").val() === "" || $("#numeroTel").val() === "" || $("#email").val() === "") {
             Toastify({
                 text: "Complete todos los datos del envío",
                 duration: 3500,

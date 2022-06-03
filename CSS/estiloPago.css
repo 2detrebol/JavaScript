@@ -240,6 +240,84 @@ body {
     }
 }
 
+.ancho h2,
+.ancho h4 {
+    font-family: 'Audiowide';
+    font-weight: 600;
+    margin-top: .5rem;
+}
+
+#nombre,
+#documento,
+#domicilio,
+#numeracion,
+#pisoDpto,
+#localidad,
+#numeroTel,
+#email {
+    font-family: 'Audiowide';
+    color: #000;
+    border: none;
+    border-radius: 0;
+    background: none;
+    border-bottom: 2px solid rgb(130, 130, 130);
+    font-size: 1.2rem;
+    box-shadow: none;
+    height: 2rem;
+}
+
+#nombre {
+    margin-top: 1.5rem;
+}
+
+#domicilio {
+    margin-top: 1.5rem;
+}
+
+#numeracion,
+#pisoDpto,
+#localidad {
+    margin-top: .5rem;
+}
+
+#numeroTel {
+    margin-top: 1.5rem;
+}
+
+#nombre::placeholder,
+#documento::placeholder,
+#domicilio::placeholder,
+#numeracion::placeholder,
+#pisoDpto::placeholder,
+#localidad::placeholder,
+#numeroTel::placeholder,
+#email::placeholder {
+    font-family: 'Audiowide';
+    height: 2rem;
+}
+
+#nombre:hover,
+#nombre:focus,
+#documento:hover,
+#documento:focus,
+#domicilio:hover,
+#domicilio:focus,
+#numeracion:hover,
+#numeracion:focus,
+#pisoDpto:hover,
+#pisoDpto:focus,
+#localidad:hover,
+#localidad:focus,
+#numeroTel:hover,
+#numeroTel:focus,
+#email:hover,
+#email:focus {
+    border-bottom: 2px solid #000;
+    box-shadow: none;
+    height: 2rem;
+}
+
+
 .tituloPago {
     color: greenyellow;
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
@@ -359,19 +437,40 @@ body {
 }
 
 .containerPagoEnvio {
-    width: 100vw;
+    width: auto;
     margin: 0;
     padding: 0;
+    max-width: 100vw;
+    margin-top: 2rem;
 }
 
 .ancho {
-    max-width: 90%;
     background: greenyellow;
     border-radius: 30px;
+    width: auto;
+}
+
+.envio {
+    height: auto;
+    width: auto;
+}
+
+.instructivo {
+    height: auto;
+    width: 48%;
+}
+
+.lineaTiempo {
+    background: #000;
+    color: greenyellow;
+    border: greenyellow .125rem solid;
+    box-shadow: inset 0 0 0.5em 0 greenyellow, 0 0 0.5em 0 greenyellow;
 }
 
 .pago {
     margin-top: 1.5rem;
+    height: auto;
+    width: auto;
 }
 
 .metodoPago {
@@ -396,8 +495,8 @@ input[type=number] {
 
 /*CREDIT CARD*/
 .card {
-    height: 250px;
-    width: 420px;
+    height: auto;
+    max-width: 420px;
     border-radius: 20px;
     background: rgba(0, 0, 0, 1);
     backdrop-filter: blur(35px);
@@ -691,6 +790,97 @@ label {
 }
 
 /*CREDIT CARD*/
+
+/*TIMELINE ENVIOS*/
+.timeline {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4.5rem;
+}
+
+.li {
+    transition: all 200ms ease-in;
+}
+
+.timestamp {
+    margin-bottom: 20px;
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 100;
+}
+
+.status {
+    padding: 0px 8px;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid #D6DCE0;
+    position: relative;
+    transition: all 200ms ease-in;
+}
+
+.status h4 {
+    font-weight: 600;
+    font-size: .9rem;
+    color: greenyellow;
+    margin-top: 2rem;
+}
+
+h4:before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    background-color: #000;
+    border-radius: 25px;
+    border: 1px solid greenyellow;
+    position: absolute;
+    top: -15px;
+    left: 42%;
+    transition: all 200ms ease-in;
+}
+
+.li.complete .status {
+    border-top: 2px solid greenyellow;
+}
+
+.li.complete .status:before {
+    background-color: greenyellow;
+    border: none;
+    transition: all 200ms ease-in
+}
+
+.li.complete .status h4 {
+    color: greenyellow;
+    font-size: .9rem;
+    margin-top: 2rem;
+}
+
+
+@media (min-device-width: 320px) and (max-device-width: 700px) {
+    .timeline {
+        list-style-type: none;
+        display: block;
+    }
+
+    .timeline .li {
+        transition: all 200ms ease-in;
+        display: flex;
+        width: inherit;
+    }
+
+    .timestamp {
+        width: 100px;
+    }
+
+    .status:before {
+        left: -8%;
+        top: 30%;
+        transition: all 200ms ease-in;
+    }
+}
 
 .containerBtn {
     margin-top: 2rem;

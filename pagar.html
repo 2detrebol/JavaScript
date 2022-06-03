@@ -63,7 +63,7 @@
             </tfoot>
         </table>
     </div>
-    <div class="containerPagoEnvio row d-flex justify-content-center">
+    <div class="containerPagoEnvio row d-flex justify-content-evenly">
         <div class="envio row col-md-6 d-flex justify-content-center">
             <div class="ancho">
                 <h2 class="text-center">Envío</h2>
@@ -71,25 +71,75 @@
                 <form id="datosEnvio">
                     <div class="mb-3">
                         <input type="text" class="form-control" id="nombre" placeholder="Nombre"
-                            aria-describedby="nombreHelp" required>
+                            aria-describedby="nombreHelp">
                     </div>
                     <div class="mb-3">
                         <input type="number" maxlength="8"
                             oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            class="form-control" id="documento" placeholder="Documento" required>
+                            class="form-control" id="documento" placeholder="Documento">
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="domicilio" placeholder="Calle" required>
-                        <input type="number" class="form-control" id="numeracion" placeholder="Numeración" required>
+                        <input type="text" class="form-control" id="domicilio" placeholder="Calle">
+                        <input type="number" class="form-control" id="numeracion" placeholder="Numeración">
                         <input type="text" class="form-control" id="pisoDpto" placeholder="Piso/Dpto.">
-                        <input type="text" class="form-control" id="localidad" placeholder="Localidad" required>
+                        <input type="text" class="form-control" id="localidad" placeholder="Localidad">
                     </div>
                     <div class="mb-3">
-                        <input type="number" class="form-control" id="numeroTel" placeholder="Número de Teléfono"
-                            required>
+                        <input type="number" class="form-control" id="numeroTel" placeholder="Número de Teléfono">
                     </div>
-
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="email" placeholder="Correo electrónico">
+                    </div>
                 </form>
+            </div>
+        </div>
+        <div class="instructivo row col-md-6 d-flex justify-content-center">
+            <div class="ancho lineaTiempo">
+                <h2 class="text-center">Tiempo de Envío</h2>
+                <h4 class="text-center mt-5">Dentro de los 10 días de confirmar tu compra recibiras tus productos</h4>
+                <ul class="timeline" id="timeline">
+                    <li class="li complete">
+                        <div class="timestamp">
+                            <span class="author">Abhi Sharma</span>
+                        </div>
+                        <div class="status">
+                            <h4> Pago Aprobado </h4>
+                        </div>
+                    </li>
+                    <li class="li complete">
+                        <div class="timestamp">
+                            <span class="author">PAM Admin</span>
+                        </div>
+                        <div class="status">
+                            <h4> Nro. de Pedido </h4>
+                        </div>
+                    </li>
+                    <li class="li complete">
+                        <div class="timestamp">
+                            <span class="author">Aaron Rodgers</span>
+                        </div>
+                        <div class="status">
+                            <h4> Preparando </h4>
+                        </div>
+                    </li>
+                    <li class="li complete">
+                        <div class="timestamp">
+                            <span class="author">Aaron Rodgers</span>
+                        </div>
+                        <div class="status">
+                            <h4> Envío en camino </h4>
+                        </div>
+                    </li>
+                    <li class="li" style="margin-right: 1.5rem;">
+                        <div class="timestamp">
+                            <span class="author">PAM Admin</span>
+
+                        </div>
+                        <div class="status">
+                            <h4> Entregado </h4>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="pago row col-md-6 d-flex justify-content-center">
@@ -98,12 +148,12 @@
                 <h4 class="text-center">Seleccioná una opción</h4>
                 <form id="CreateForm seleccion" class="d-flex flex-column align-items-center justify-content-center">
                     <div class="d-flex justify-content-center">
-                        <input id="cash" type="radio" name="metodoPago" class="metodoPago" required /> $ - Efectivo
+                        <input id="cash" type="radio" name="metodoPago" class="metodoPago" /> $ - Efectivo
                         contra entrega
                     </div>
                     <br />
                     <div class="d-flex justify-content-center">
-                        <input id="creditCard" type="radio" name="metodoPago" class="metodoPago" required /> Tarjeta de
+                        <input id="creditCard" type="radio" name="metodoPago" class="metodoPago" /> Tarjeta de
                         Crédito
                     </div>
                     <!-- CREDIT CARD-->
@@ -118,24 +168,23 @@
                             </div>
                             <div class="card-number">
                                 <label>Número de Tarjeta</label>
-                                <input id="card-number" placeholder="**** **** **** ****" type="text" required
-                                    maxlength="19">
+                                <input id="card-number" placeholder="**** **** **** ****" type="text" maxlength="19">
                                 <span class="underline"></span>
                             </div>
                             <div class="group">
                                 <div class="card-name">
                                     <label>Nombre</label>
-                                    <input id="card-name" placeholder="****** *******" type="text" required>
+                                    <input id="card-name" placeholder="****** *******" type="text">
                                     <span class="underline"></span>
                                 </div>
                                 <div class="expiration-date">
                                     <label>Fecha Vto.</label>
-                                    <input id="card-exp" placeholder="**/**" type="text" maxlength="5" required>
+                                    <input id="card-exp" placeholder="**/**" type="text" maxlength="5">
                                     <span class="underline"></span>
                                 </div>
                                 <div class="ccv">
                                     <label>CCV</label>
-                                    <input id="card-ccv" placeholder="***" type="text" maxlength="3" required>
+                                    <input id="card-ccv" placeholder="***" type="text" maxlength="3">
                                     <span class="underline"></span>
                                 </div>
                             </div>
