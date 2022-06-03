@@ -72,20 +72,96 @@ $('#card-exp').on('input', function () {
 $(function () {
     $("#btnFinalizar").click(function (event) {
         event.preventDefault();
-        if ($("#nombre").val() === "" || $("#documento").val() === "" || $("#domicilio").val() === "" || $("#numeracion").val() === "" || $("#localidad").val() === "" || $("#numeroTel").val() === "" || $("#email").val() === "") {
-            alert("Complete todos los campos para el envío");
+        if ($("#nombre").val() === "" || $("#documento").val() === "" || $("#domicilio").val() === "" || $("#numeracion").val() === "" || $("#localidad").val() === "" || $("#numeroTel").val() === "") {
+            Toastify({
+                text: "Complete todos los datos del envío",
+                duration: 3500,
+                newWindow: true,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "red",
+                    color: "#fff",
+                },
+            }).showToast();
         } else {
             if ($("#creditCard").is(":checked")) {
                 if ($("#card-number").val() === "" || $("#card-name").val() === "" || $("#card-exp").val() === "" || $("#card-cvc").val() === "") {
-                    alert("Complete los datos de la tarjeta");
+                    Toastify({
+                        text: "Complete todos los datos de la tarjeta",
+                        duration: 3500,
+                        newWindow: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "center", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "red",
+                            color: "#fff",
+                        },
+                    }).showToast();
                 } else {
-                    alert("Gracias por su compra");
+                    localStorage.removeItem('carrito');
+                    swal({
+                            title: "¡Gracias por tu compra!",
+                            text: `Tu número de pedido es el: #${numeroPedido(1, 9999)}\n\nLo recibiras en los próximos 10 días\n\nAhora te llevaremos de nuevo a nuestra tienda`,
+                            icon: "success",
+                        })
+                        .then(() => {
+                            irTienda();
+                        });
                 }
             } else if ($("#cash" || "#creditCard").is(":checked")) {
-                alert("Gracias por su compra!");
+                localStorage.removeItem('carrito');
+                swal({
+                        title: "¡Gracias por tu compra!",
+                        text: `Tu número de pedido es el: #${numeroPedido(1, 9999)}\n\nLo recibiras en los próximos 10 días\n\nAhora te llevaremos de nuevo a nuestra tienda`,
+                        icon: "success",
+                    })
+                    .then(() => {
+                        irTienda();
+                    });
+
             } else {
-                alert("Seleccione forma de pago");
+                Toastify({
+                    text: "Seleccione medio de pago",
+                    duration: 3500,
+                    newWindow: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "red",
+                        color: "#fff",
+                    },
+                }).showToast();
             }
         }
     });
 });
+
+$(function () {
+    $("#btnCancela").click(function (event) {
+        event.preventDefault();
+        swal({
+                title: "¿Estás seguro que deseas volver a la tienda?",
+                text: "Si confirmas, guardaremos tus productos, pero se borraran los datos ingresados",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((confirma) => {
+                if (confirma) {
+                    irTienda()
+                }
+            });
+    });
+});
+
+function irTienda() {
+    window.location.href = "./tienda.html";
+}
+
+function numeroPedido(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}

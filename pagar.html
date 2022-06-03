@@ -8,7 +8,8 @@
     <!-- CSS BS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- CREDIT CARD -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -36,8 +37,7 @@
         </div>
     </nav>
     <div class="d-flex justify-content-center">
-        <h1
-            style="background: greenyellow; font-family: 'Audiowide'; margin-top: 6rem; padding: .5rem .5rem; border-radius: 30px;">
+        <h1 class="tituloPago">
             Productos
             confirmados
         </h1>
@@ -71,25 +71,24 @@
                 <form id="datosEnvio">
                     <div class="mb-3">
                         <input type="text" class="form-control" id="nombre" placeholder="Nombre"
-                            aria-describedby="nombreHelp">
+                            aria-describedby="nombreHelp" required>
                     </div>
                     <div class="mb-3">
                         <input type="number" maxlength="8"
                             oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            class="form-control" id="documento" placeholder="Documento">
+                            class="form-control" id="documento" placeholder="Documento" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="domicilio" placeholder="Calle">
-                        <input type="number" class="form-control" id="numeracion" placeholder="Numeración">
+                        <input type="text" class="form-control" id="domicilio" placeholder="Calle" required>
+                        <input type="number" class="form-control" id="numeracion" placeholder="Numeración" required>
                         <input type="text" class="form-control" id="pisoDpto" placeholder="Piso/Dpto.">
-                        <input type="text" class="form-control" id="localidad" placeholder="Localidad">
+                        <input type="text" class="form-control" id="localidad" placeholder="Localidad" required>
                     </div>
                     <div class="mb-3">
-                        <input type="number" class="form-control" id="numeroTel" placeholder="Número de teléfono">
+                        <input type="number" class="form-control" id="numeroTel" placeholder="Número de Teléfono"
+                            required>
                     </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="email" placeholder="Correo electrónico">
-                    </div>
+
                 </form>
             </div>
         </div>
@@ -113,50 +112,45 @@
                             <div class="logo">
                                 <?xml version="1.0" encoding="UTF-8"?>
                                 <img src="./IMAGENES/Tarjetas/visa.png" alt="visa">
-                                <img src="./IMAGENES/Tarjetas/mastercard.png" alt="mastercard">
-                                <img src="./IMAGENES/Tarjetas/amx.png" alt="american-express">
-                                <img src="./IMAGENES/Tarjetas/maestro.png" alt="maestro">
+                                <img src="./IMAGENES/Tarjetas/mastercard.png" alt="mastercard" class="mt-2">
+                                <img src="./IMAGENES/Tarjetas/amx.png" alt="american-express" class="amx">
+                                <img src="./IMAGENES/Tarjetas/maestro.png" alt="maestro" class="mt-2">
                             </div>
                             <div class="card-number">
                                 <label>Número de Tarjeta</label>
                                 <input id="card-number" placeholder="**** **** **** ****" type="text" required
                                     maxlength="19">
                                 <span class="underline"></span>
-
                             </div>
-
                             <div class="group">
                                 <div class="card-name">
                                     <label>Nombre</label>
                                     <input id="card-name" placeholder="****** *******" type="text" required>
                                     <span class="underline"></span>
-
                                 </div>
                                 <div class="expiration-date">
                                     <label>Fecha Vto.</label>
                                     <input id="card-exp" placeholder="**/**" type="text" maxlength="5" required>
                                     <span class="underline"></span>
-
                                 </div>
                                 <div class="ccv">
                                     <label>CCV</label>
                                     <input id="card-ccv" placeholder="***" type="text" maxlength="3" required>
                                     <span class="underline"></span>
                                 </div>
-
                             </div>
                         </form>
                     </div>
             </div>
-
         </div>
-        <!-- CREDIT CARD-->
         </form>
-        <button id="btnFinalizar" type="submit" form="CreateForm">Comprar</button>
-    </div>
+        <div class="d-flex justify-content-center containerBtn">
+            <button id="btnCancela" type="submit">Volver a la Tienda</button>
+            <button id="btnFinalizar" type="submit" form="CreateForm">Comprar</button>
+        </div>
     </div>
 
-    </div>
+
 
     <div class="slickBrands">
         <div><img src="./IMAGENES/Brands/1.jpg"></div>
@@ -247,7 +241,11 @@
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script src="./JS/slickJs.js"></script>
 
-    <!-- CREDIT CARD -->
+    <!-- SWEETALERT CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Toastify CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <script src="./JS/pagar.js"></script>
 </body>

@@ -177,6 +177,13 @@ body {
     cursor: pointer;
 }
 
+.titulo {
+    font-family: 'Audiowide';
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-top: .5rem;
+}
+
 
 /* CAROUSEL PARA BRANDS */
 .slickBrands {
@@ -233,6 +240,16 @@ body {
     }
 }
 
+.tituloPago {
+    color: greenyellow;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+        0 0 0.45em currentColor;
+    background: #000;
+    font-family: 'Audiowide';
+    margin-top: 6rem;
+    padding: 0 .5rem;
+}
+
 /*SWEETALERT CUANDO SE PROCESA LA COMPRA*/
 
 .swal-button--confirm {
@@ -273,6 +290,7 @@ body {
     margin: 22px;
     text-align: center;
     color: #fff;
+    font-size: .95rem;
 }
 
 .swal-icon::after,
@@ -327,6 +345,17 @@ body {
 .swal-button--cancel:focus {
     background-color: red !important;
     color: #fff;
+}
+
+/* TOASTIFY CUANDO FALTA ALGUN DATO */
+
+.toastify {
+    font-family: 'Audiowide', sans-serif;
+    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .65);
+    border-radius: 25px;
+    width: auto;
+    text-align: center;
+    padding: 10px;
 }
 
 .containerPagoEnvio {
@@ -395,6 +424,9 @@ input[type=number] {
     margin: 0 .5rem 0 .5rem;
 }
 
+.amx {
+    margin-top: -.25rem !important;
+}
 
 input[id="card-number"] {
     font-size: 30px;
@@ -563,10 +595,6 @@ input:hover {
     height: 30px;
 }
 
-
-
-
-
 input[id="card-number"]:focus {
     border: none;
     border-bottom: 2px solid white;
@@ -586,9 +614,6 @@ input[id="card-number"]:hover {
     margin-bottom: -2px;
     width: 400px;
 }
-
-
-
 
 input[id="card-name"] {
     color: white;
@@ -663,8 +688,50 @@ label {
     pointer-events: none;
     display: block;
     padding-bottom: 2px;
-
 }
 
-
 /*CREDIT CARD*/
+
+.containerBtn {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+#btnFinalizar,
+#btnCancela {
+    font-size: 1.3rem;
+    font-family: 'Audiowide', sans-serif;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: greenyellow;
+    border: greenyellow .125rem solid;
+    padding: 0.25rem 1em;
+    border-radius: 0.25em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 greenyellow, 0 0 0.5em 0 greenyellow;
+    position: relative;
+    background: #000;
+}
+
+#btnCancela {
+    margin-right: 2rem;
+    margin-left: -7rem;
+}
+
+#btnFinalizar:hover,
+#btnFinalizar:focus {
+    color: #000;
+    background-color: greenyellow;
+    box-shadow: 0 0 1.5rem 0.2rem greenyellow;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+}
+
+#btnCancela:hover,
+#btnCancela:focus {
+    color: #fff;
+    background-color: red;
+    box-shadow: 0 0 1.5rem 0.2rem red;
+    border: red .125rem solid;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+}
