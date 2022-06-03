@@ -11,6 +11,7 @@ const numeroCarrito = document.getElementById("cart_menu_num");
 const procesarCompraBtn = document.querySelector('#procesar-pedido');
 let total = document.querySelector('#total');
 let articulosCarrito = [];
+const procesaPedido = document.querySelector("#containerProcesando")
 
 //FUNCION CONSTRUCTORA DE PRODUCTOS//
 function Producto(id, imagen, titulo, descripcion, precio) {
@@ -351,16 +352,8 @@ procesarCompraBtn.addEventListener('click', () => {
             })
             .then((confirma) => {
                 if (confirma) {
-                    swal({
-                        title: "¡Gracias por tu compra!",
-                        text: "Próximamente nos contactaremos para acordar el envío",
-                        icon: "success",
-                    })
-                    articulosCarrito = [];
-                    localStorage.removeItem('carrito');
-                    limpiarHTML();
-                    changeColor()
-                    numeroCarrito.innerHTML = totalCantidad();;
+                    procesarCompra();
+                    irPagar();
                 } else {
                     swal({
                         title: "Compra cancelada",
@@ -370,3 +363,31 @@ procesarCompraBtn.addEventListener('click', () => {
             });
     }
 })
+
+function irPagar() {
+    setTimeout(() => {
+        window.location.href = "./pagar.html";
+    }, 4000);
+}
+
+
+function procesarCompra() {
+    let cargaProcesando = document.createElement('div');
+    cargaProcesando.className = "procesando";
+    cargaProcesando.innerHTML += `<div class="sk-circle">
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+    <div><h4 id="tituloProcesando" class="animate__animated animate__zoomIn animate__infinite	infinite">Procesando</h4></div>
+  </div>`;
+    procesaPedido.appendChild(cargaProcesando);
+}
