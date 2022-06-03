@@ -299,6 +299,7 @@ function totalCantidad() {
     return cantidadFinal;
 }
 
+
 //CAMBIA LOS COLORES DE CIRCULO Y NUMERO DEL CONTADOR DE CANTIDADES SI HAY AL MENOS 1 PRODUCTO EN EL CARRITO //
 function changeColor() {
     if (totalCantidad() > 0) {
@@ -350,16 +351,7 @@ procesarCompraBtn.addEventListener('click', () => {
             })
             .then((confirma) => {
                 if (confirma) {
-                    swal({
-                        title: "¡Gracias por tu compra!",
-                        text: "Próximamente nos contactaremos para acordar el envío",
-                        icon: "success",
-                    })
-                    articulosCarrito = [];
-                    localStorage.removeItem('carrito');
-                    limpiarHTML();
-                    changeColor()
-                    numeroCarrito.innerHTML = totalCantidad();;
+                    irPagar();
                 } else {
                     swal({
                         title: "Compra cancelada",
@@ -369,3 +361,7 @@ procesarCompraBtn.addEventListener('click', () => {
             });
     }
 })
+
+function irPagar() {
+    window.location.href = "./pagar.html";
+}
