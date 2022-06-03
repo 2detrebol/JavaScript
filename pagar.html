@@ -1,22 +1,29 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador Tienda - Mauro Brandi - Clase 6 JS</title>
     <!-- CSS BS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- CREDIT CARD -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- ANIMATE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- SLICK BRANDS CAROUSEL CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
-    <!-- Toastify CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!-- CSS PERSONAL MAU -->
-    <link rel="stylesheet" href="./CSS/estiloTienda.css">
+    <link rel="stylesheet" href="./CSS/estiloPago.css">
+    <title>Pago</title>
 </head>
 
 <body>
@@ -26,132 +33,130 @@
                 <i class="bi bi-house-door d-inline-block ms-1 mb-1"></i>
             </a>
             <h1 class="titulo animate__animated animate__bounceInRight"> ET-Soluciones</h1>
-            <div class="dropstart">
-                <a class="btn dropdown carritoIcon p-0" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                    aria-expanded="false" data-bs-auto-close="outside" style="border: none">
-                    <i class="bi bi-cart4 d-inline-block ms-1 mb-1"></i>
-                    <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle">0</span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li class=" nav-item dropdown">
-                        <div id="carrito" class="table-responsive">
-                            <table id="listaCarrito" class="table border-dark" style="white-space: nowrap;">
-                                <thead>
-                                    <tr class="titulosCarrito text-center align-middle">
-                                        <th class="imgProducto">Imagen</th>
-                                        <th>Nombre</th>
-                                        <th>Cantidad</th>
-                                        <th>Precio</th>
-                                        <th>Subtotal</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                                <tfoot>
-                                    <tr class=" titulosTotal">
-                                        <th colspan="3" scope="row" style="text-align: center;">TOTAL A PAGAR</th>
-                                        <th colspan="2" id="total" style="text-align: center;"></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-
-                            <div class="d-flex justify-content-around">
-                                <a id="vaciarCarrito"
-                                    class="btn btn-primary btn-sm  btn-block m-2 text-center align-middle"
-                                    style="background-color: #000; color: greenyellow; border:none">Vaciar
-                                    Carrito</a>
-                                <a id="procesar-pedido"
-                                    class="btn btn-primary btn-sm btn-block m-2 text-center align-middle"
-                                    style="background-color: #000; color: greenyellow; border:none">Procesar Compra</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </div>
     </nav>
-    <main id="listadoGeneral">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="d-flex justify-content-center">
-                    <img class="dibujo animate__animated animate__pulse animate__infinite	infinite"
-                        src="./IMAGENES/dibu.png" alt="">
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion accordion-flush mt-4 d-flex row justify-content-center" id="accordionFlushExample">
-            <div class="accordion-item mb-2">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        <i class="bi bi-cpu-fill"></i>
-                        <p>Microprocesadores</p>
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center" id="contenedorMicros"></div>
-                </div>
-            </div>
-            <div class="accordion-item mb-2">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                        <i class="bi bi-gpu-card"></i>
-                        <p>Placas de Video</p>
-                    </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center" id="contenedorPlacasV"></div>
-                </div>
-            </div>
-
-            <div class="accordion-item mb-2">
-                <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                        <i class="bi bi-motherboard-fill"></i>
-                        <p>Motherboards</p>
-                    </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center" id="contenedorMothers"></div>
-                </div>
-            </div>
-
-            <div class="accordion-item mb-2">
-                <h2 class="accordion-header" id="flush-headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                        <i class="bi bi-memory"></i>
-                        <p>Memorias RAM</p>
-                    </button>
-                </h2>
-                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center" id="contenedorRam"></div>
-                </div>
-            </div>
-
-            <div class="accordion-item mb-2">
-                <h2 class="accordion-header" id="flush-headingFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                        <i class="bi bi-device-ssd-fill"></i>
-                        <p>Discos SSD</p>
-                    </button>
-                </h2>
-                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
-                    data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body d-flex row justify-content-center" id="contenedorDiscos">
+    <div class="d-flex justify-content-center">
+        <h1
+            style="background: greenyellow; font-family: 'Audiowide'; margin-top: 6rem; padding: .5rem .5rem; border-radius: 30px;">
+            Productos
+            confirmados
+        </h1>
+    </div>
+    <div id="muestraCarro" class="table-responsive d-flex justify-content-center">
+        <table id="listaCarrito" class="table border-dark"
+            style="white-space: nowrap; max-width: 60vw; background: greenyellow; margin-top: 1rem; border-radius: 30px;">
+            <thead>
+                <tr class="titulosCarrito text-center align-middle">
+                    <th class="imgProducto">Imagen</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr class=" titulosTotal">
+                    <th colspan="2" scope="row" style="text-align: center;">TOTAL A PAGAR</th>
+                    <th colspan="2" id="total" style="text-align: center;"></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="containerPagoEnvio row d-flex justify-content-center">
+        <div class="envio row col-md-6 d-flex justify-content-center">
+            <div class="ancho">
+                <h2 class="text-center">Envío</h2>
+                <h4 class="text-center">Completa tus datos</h4>
+                <form id="datosEnvio">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="nombre" placeholder="Nombre"
+                            aria-describedby="nombreHelp">
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <input type="number" maxlength="8"
+                            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            class="form-control" id="documento" placeholder="Documento">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="domicilio" placeholder="Calle">
+                        <input type="number" class="form-control" id="numeracion" placeholder="Numeración">
+                        <input type="text" class="form-control" id="pisoDpto" placeholder="Piso/Dpto.">
+                        <input type="text" class="form-control" id="localidad" placeholder="Localidad">
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" class="form-control" id="numeroTel" placeholder="Número de teléfono">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="email" placeholder="Correo electrónico">
+                    </div>
+                </form>
             </div>
         </div>
-    </main>
-    <div><a href="http:./pagar.html" rel="noopener noreferrer">ir a otra pag</a></div>
+        <div class="pago row col-md-6 d-flex justify-content-center">
+            <div class="ancho">
+                <h2 class="text-center">Pago</h2>
+                <h4 class="text-center">Seleccioná una opción</h4>
+                <form id="CreateForm seleccion" class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="d-flex justify-content-center">
+                        <input id="cash" type="radio" name="metodoPago" class="metodoPago" required /> $ - Efectivo
+                        contra entrega
+                    </div>
+                    <br />
+                    <div class="d-flex justify-content-center">
+                        <input id="creditCard" type="radio" name="metodoPago" class="metodoPago" required /> Tarjeta de
+                        Crédito
+                    </div>
+                    <!-- CREDIT CARD-->
+                    <div class="card d-block">
+                        <form id="CreateForm">
+                            <div class="logo">
+                                <?xml version="1.0" encoding="UTF-8"?>
+                                <img src="./IMAGENES/Tarjetas/visa.png" alt="visa">
+                                <img src="./IMAGENES/Tarjetas/mastercard.png" alt="mastercard">
+                                <img src="./IMAGENES/Tarjetas/amx.png" alt="american-express">
+                                <img src="./IMAGENES/Tarjetas/maestro.png" alt="maestro">
+                            </div>
+                            <div class="card-number">
+                                <label>Número de Tarjeta</label>
+                                <input id="card-number" placeholder="**** **** **** ****" type="text" required
+                                    maxlength="19">
+                                <span class="underline"></span>
+
+                            </div>
+
+                            <div class="group">
+                                <div class="card-name">
+                                    <label>Nombre</label>
+                                    <input id="card-name" placeholder="****** *******" type="text" required>
+                                    <span class="underline"></span>
+
+                                </div>
+                                <div class="expiration-date">
+                                    <label>Fecha Vto.</label>
+                                    <input id="card-exp" placeholder="**/**" type="text" maxlength="5" required>
+                                    <span class="underline"></span>
+
+                                </div>
+                                <div class="ccv">
+                                    <label>CCV</label>
+                                    <input id="card-ccv" placeholder="***" type="text" maxlength="3" required>
+                                    <span class="underline"></span>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+            </div>
+
+        </div>
+        <!-- CREDIT CARD-->
+        </form>
+        <button id="btnFinalizar" type="submit" form="CreateForm">Comprar</button>
+    </div>
+    </div>
+
+    </div>
 
     <div class="slickBrands">
         <div><img src="./IMAGENES/Brands/1.jpg"></div>
@@ -237,19 +242,14 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 
-    <!-- SWEETALERT CDN -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    <!-- Toastify CDN -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
     <!-- SLICK BRANDS CAROUSEL JS -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script src="./JS/slickJs.js"></script>
 
-    <!-- SCRIPT PERSONAL -->
-    <script src="./JS/clase6.js"></script>
+    <!-- CREDIT CARD -->
+
+    <script src="./JS/pagar.js"></script>
 </body>
 
 </html>

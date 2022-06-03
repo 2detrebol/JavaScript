@@ -299,6 +299,7 @@ function totalCantidad() {
     return cantidadFinal;
 }
 
+
 //CAMBIA LOS COLORES DE CIRCULO Y NUMERO DEL CONTADOR DE CANTIDADES SI HAY AL MENOS 1 PRODUCTO EN EL CARRITO //
 function changeColor() {
     if (totalCantidad() > 0) {
