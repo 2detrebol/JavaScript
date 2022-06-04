@@ -367,7 +367,7 @@ procesarCompraBtn.addEventListener('click', () => {
 function irPagar() {
     setTimeout(() => {
         window.location.href = "./pagar.html";
-    }, 44000);
+    }, 4000);
 }
 
 
