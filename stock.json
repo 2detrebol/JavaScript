@@ -4,7 +4,7 @@
     {"id": 3, "imagen": "./IMAGENES/Items/micros/R7.png", "titulo": "AMD Ryzen 7", "descripcion": "AMD Ryzen 7 5700G 8 núcleos y 4.6 GHz con gráfica integrada", "precio": 55000, "cantidad": 1},
     {"id": 4, "imagen": "./IMAGENES/Items/micros/R9.png", "titulo":"AMD Ryzen 9", "descripcion": "AMD Ryzen 9 5900X 12 núcleos 4.8 GHz y 24 hilos con gráfica integrada", "precio": 75000, "cantidad": 1},
     {"id": 5, "imagen":"./IMAGENES/Items/placasv/RTX3080.png", "titulo": "RTX 3080 MSI", "descripcion": "MSI NVIDIA GeForce RTX3080 Gaming X Trio 10Gb GDDR6X", "precio": 300000, "cantidad": 1},
-    { "id": 6, "imagen":"./IMAGENES/Items/placasv/RTX3090.png", "titulo": "RTX 3090 TUF", "descripcion": "ASUS NVIDIA GeForce RTX3090 TUF GAMING 24GB GDDR6X", "precio": 600000, "cantidad": 1},
+    {"id": 6, "imagen":"./IMAGENES/Items/placasv/RTX3090.png", "titulo": "RTX 3090 TUF", "descripcion": "ASUS NVIDIA GeForce RTX3090 TUF GAMING 24GB GDDR6X", "precio": 600000, "cantidad": 1},
     {"id": 7, "imagen":"./IMAGENES/Items/placasv/RX6800.png", "titulo":"RX 6800", "descripcion": "Sapphire Radeon RX 6800 NITRO+ 16Gb GDDR6", "precio": 260000, "cantidad": 1},
     {"id": 8, "imagen":"./IMAGENES/Items/placasv/RX6900.png", "titulo":"RX 6900", "descripcion": "MSI Radeon RX 6900 XT GAMING Z TRIO 16Gb GDDR6", "precio": 320000, "cantidad": 1},
     {"id": 9, "imagen":"./IMAGENES/Items/mothers/Z690.png", "titulo":"Asus Z690", "descripcion": "Asus Rog Maximus Z690 Hero - Intel® Z690 ATX motherboard with 20+1 power stages, DDR5, Five M.2, USB 3.2 Gen 2x2 front-panel connector, Dual Thunderbolt™, PCIe® 5.0, Onboard WiFi 6E & Aura Sync RGB", "precio": 100000, "cantidad": 1},
