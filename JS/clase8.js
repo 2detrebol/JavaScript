@@ -4,6 +4,7 @@ const microprocesadores = document.querySelector("#contenedorMicros");
 const placasDeVideo = document.querySelector("#contenedorPlacasV");
 const motherboard = document.querySelector("#contenedorMothers");
 const memosRam = document.querySelector("#contenedorRam");
+const discos = document.querySelector("#contenedorDiscos");
 const contenedorCarrito = document.querySelector('#listaCarrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciarCarrito');
 const listadoGeneral = document.querySelector('#listadoGeneral');
@@ -42,6 +43,10 @@ const listaProductos = [
     new Producto(14, "./IMAGENES/Items/ram/renegade16gb.png", "16Gb-3600Mhz", "Memoria Ram DDR4 - Kingston Renegade - 16Gb 3600 Mhz Renegade Kingston Fury Rgb", 15000),
     new Producto(15, "./IMAGENES/Items/ram/fury8gb.png", "8Gb-5600Mhz", "Memoria Ram DDR5 - Kingston Fury - 8Gb 5600 Mhz Beast Kingston Fury", 16500),
     new Producto(16, "./IMAGENES/Items/ram/fury16gb.png", "16Gb-5600Mhz", "Memoria Ram DDR5 - Kingston Fury - 16Gb 5600 Mhz Beast Kingston Fury", 29000),
+    new Producto(17, "./IMAGENES/Items/discos/Giga1tb.png", "SSD Gigabyte 1TB", "Disco Solido Ssd M2 Pci-E 1Tb Gigabyte GM21TB", 23000),
+    new Producto(18, "./IMAGENES/Items/discos/WD1tb.png", "SSD Western Digital 1TB", "Disco Solido Ssd M2 Pci-E 1Tb WD SN350 Green", 17500),
+    new Producto(19, "./IMAGENES/Items/discos/Giga512.png", "SSD Gigabyte 512GB", "Disco Solido Ssd M2 Pci-E 512Gb Gigabyte", 14000),
+    new Producto(20, "./IMAGENES/Items/discos/Kingston500.png", "SSD Kingsto 500GB", "Disco Solido Ssd M2 Pci-E Nvme 500Gb Kingston NV1", 10000),
 ]
 
 //ARRAYS PARA HTML//
@@ -56,6 +61,9 @@ motherboards.push(listaProductos[8], listaProductos[9], listaProductos[10], list
 
 const memoriasRam = [];
 memoriasRam.push(listaProductos[12], listaProductos[13], listaProductos[14], listaProductos[15]);
+
+const discosSSD = [];
+discosSSD.push(listaProductos[16], listaProductos[17], listaProductos[18], listaProductos[19]);
 
 //EVENTOS SEGUN CLICKS EN BOTONES//
 cargarEventListeners();
@@ -152,6 +160,9 @@ motherboard.appendChild(mothers);
 
 let rams = agregarHtml(memoriasRam);
 memosRam.appendChild(rams);
+
+let disks = agregarHtml(discosSSD);
+discos.appendChild(disks);
 
 function agregarProducto(e) {
     if (e.target.classList.contains("botonAgregar")) {
