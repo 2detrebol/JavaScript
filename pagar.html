@@ -43,8 +43,7 @@
         </h1>
     </div>
     <div id="muestraCarro" class="table-responsive d-flex justify-content-center">
-        <table id="listaCarrito" class="table border-dark"
-            style="white-space: nowrap; max-width: 60vw; background: greenyellow; margin-top: 1rem; border-radius: 30px;">
+        <table id="listaCarrito" class="table border-dark">
             <thead>
                 <tr class="titulosCarrito text-center align-middle">
                     <th class="imgProducto">Imagen</th>
@@ -56,8 +55,9 @@
             </thead>
             <tbody></tbody>
             <tfoot>
-                <tr class=" titulosTotal">
-                    <th colspan="2" scope="row" style="text-align: center;">TOTAL A PAGAR</th>
+                <tr class="titulosTotal">
+                    <th colspan="2" scope="row" style="text-align: center;">TOTAL A PAGAR
+                    </th>
                     <th colspan="2" id="total" style="text-align: center;"></th>
                 </tr>
             </tfoot>
@@ -167,7 +167,11 @@
                                 <img src="./IMAGENES/Tarjetas/maestro.png" alt="maestro" class="mt-2">
                             </div>
                             <div class="card-number">
-                                <label>Número de Tarjeta</label>
+
+                                <label class="numeroTarjeta"><img src="./IMAGENES/Tarjetas/chip.png"
+                                        alt="chip y contactless">
+                                    <p>Número de Tarjeta</p>
+                                </label>
                                 <input id="card-number" placeholder="**** **** **** ****" type="text" maxlength="19">
                                 <span class="underline"></span>
                             </div>

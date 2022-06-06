@@ -297,6 +297,7 @@ function totalGeneral() {
     return productoTotal;
 }
 
+
 // PROCESAR COMPRA - CONFIRMAR //
 procesarCompraBtn.addEventListener('click', () => {
     if (totalCantidad() === 0) {
