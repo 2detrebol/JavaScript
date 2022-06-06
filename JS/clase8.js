@@ -349,7 +349,7 @@ function procesarCompra() {
     <div class="sk-circle10 sk-child"></div>
     <div class="sk-circle11 sk-child"></div>
     <div class="sk-circle12 sk-child"></div>
-    <div><h4 id="tituloProcesando" class="animate__animated animate__zoomIn animate__infinite	infinite">Procesando</h4></div>
+    <div id="tituloProcesando"><h4 class="animate__animated animate__zoomIn animate__infinite	infinite">Procesando</h4></div>
     </div>`;
     procesaPedido.appendChild(cargaProcesando);
 }
