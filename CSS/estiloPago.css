@@ -333,7 +333,6 @@ body {
     height: 2rem;
 }
 
-
 .tituloPago {
     color: greenyellow;
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
@@ -474,13 +473,10 @@ body {
 .instructivo {
     height: auto;
     width: 48%;
+    display: none !important;
 }
 
 .lineaTiempo {
-    background: #000;
-    color: greenyellow;
-    border: greenyellow .125rem solid;
-    box-shadow: inset 0 0 0.5em 0 greenyellow, 0 0 0.5em 0 greenyellow;
     display: none;
 }
 
@@ -932,6 +928,15 @@ label {
 @media (min-width: 1300px) {
     .instructivo {
         width: 40vw;
+        display: inline !important;
+    }
+
+    .lineaTiempo {
+        display: inline-block;
+        background: #000;
+        color: greenyellow;
+        border: greenyellow .125rem solid;
+        box-shadow: inset 0 0 0.5em 0 greenyellow, 0 0 0.5em 0 greenyellow;
     }
 
     .lineaTiempo h4 {
