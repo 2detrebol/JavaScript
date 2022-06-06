@@ -2,7 +2,6 @@ let total = document.querySelector('#total');
 
 const carritoConfirmado = JSON.parse(localStorage.getItem("carrito"));
 
-//HACER UNA FUNCION//
 carritoConfirmado.forEach(producto => {
     const {
         imagen,
