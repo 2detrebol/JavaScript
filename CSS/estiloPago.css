@@ -848,6 +848,12 @@ label {
     font-weight: 100;
 }
 
+.timestamp span {
+    animation-name: color;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
 .status {
     padding: 0px 8px;
     display: flex;
@@ -855,6 +861,9 @@ label {
     border-top: 2px solid #D6DCE0;
     position: relative;
     transition: all 200ms ease-in;
+    animation-name: borde;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
 }
 
 .status h4 {
@@ -862,36 +871,28 @@ label {
     font-size: .9rem;
     color: greenyellow;
     margin-top: 2rem;
+    animation-name: color;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
 }
 
 .status h4:before {
     content: '';
     width: 25px;
     height: 25px;
-    background-color: greenyellow;
     border-radius: 25px;
-    border: 1px solid greenyellow;
     position: absolute;
     top: -15px;
     left: 42%;
-    transition: all 200ms ease-in;
-}
-
-.envioCirculo,
-.entregaCirculo,
-.preparandoCirculo {
-    border-top: 2px solid #D6DCE0 !important;
-}
-
-.envioCirculo h4::before,
-.entregaCirculo h4::before,
-.preparandoCirculo h4::before {
-    border: 1px solid #D6DCE0 !important;
+    animation-name: circulo;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    border: 1px solid #D6DCE0;
     background-color: #000;
 }
 
 .li.complete .status {
-    border-top: 2px solid greenyellow;
+    border-top: 2px solid #D6DCE0;
 }
 
 .li.complete .status:before {
@@ -904,6 +905,39 @@ label {
     color: greenyellow;
     font-size: .9rem;
     margin-top: 2rem;
+}
+
+@keyframes circulo {
+    0% {
+        border: 1px solid #D6DCE0;
+        background-color: #000;
+    }
+
+    80% {
+        border: 1px solid greenyellow;
+        background-color: greenyellow;
+
+    }
+}
+
+@keyframes borde {
+    0% {
+        border-top: 2px solid #D6DCE0;
+    }
+
+    80% {
+        border-top: 2px solid greenyellow;
+    }
+}
+
+@keyframes color {
+    0% {
+        color: #D6DCE0;
+    }
+
+    80% {
+        color: greenyellow;
+    }
 }
 
 
