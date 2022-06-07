@@ -107,7 +107,6 @@ $(function () {
                             icon: "success",
                         })
                         .then(() => {
-                            //agregado para enviar mail pero no funciona aun//
                             mandarMail();
                             irTienda();
                         });
@@ -116,11 +115,10 @@ $(function () {
                 localStorage.removeItem('carrito');
                 swal({
                         title: "¡Gracias por tu compra!",
-                        text: `Tu número de pedido es el: #${numeroPedido(1, 9999)}\n\nLo recibiras en los próximos 10 días\n\nAhora te llevaremos de nuevo a nuestra tienda`,
+                        text: `Tu número de pedido es el: # ${numeroPedido(1, 9999)}\n\nLo recibiras en los próximos 10 días\n\nAhora te llevaremos de nuevo a nuestra tienda`,
                         icon: "success",
                     })
                     .then(() => {
-                        //agregado para enviar mail pero no funciona aun//
                         mandarMail();
                         irTienda();
                     });
@@ -165,15 +163,23 @@ function irTienda() {
     window.location.href = "./tienda.html";
 }
 
+let nroPedido;
+
 function numeroPedido(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
+    return nroPedido = Math.floor(Math.random() * (max - min) + min);
 }
 
 function mandarMail() {
     emailjs.send("service_akw3h2a", "template_jra2zyn", {
         from_name: "ET-Soluciones",
         to_name: document.querySelector("#nombre").value,
-        message: "Hemos recibido tu pedido, te lo llevaremos a la dirección indicada dentro de los próximos 10 días\n Tu nro. de pedido es:" + numeroPedido().value + "\nGracias por tu compra!\n\nET-Soluciones",
+        message: `Hemos recibido tu pedido, te lo llevaremos a` + document.querySelector("#domicilio").value + `Nº` + document.querySelector("#numeracion").value + `,` + document.querySelector("#localidad").value + ` dentro de los próximos 10 días\n
+        Tu nro. de pedido es:` + nroPedido +
+            `\nEl contenido del pedido es:` + carritoConfirmado +
+            `\nEl valor total de tu compra es: ` + formatoMoneda(totalGeneral()) +
+
+
+            `\n\nGracias por tu compra!`,
         email: document.querySelector("#email").value,
     });
 }
