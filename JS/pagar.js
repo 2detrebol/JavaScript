@@ -107,6 +107,8 @@ $(function () {
                             icon: "success",
                         })
                         .then(() => {
+                            //agregado para enviar mail pero no funciona aun//
+                            mandarMail();
                             irTienda();
                         });
                 }
@@ -118,6 +120,8 @@ $(function () {
                         icon: "success",
                     })
                     .then(() => {
+                        //agregado para enviar mail pero no funciona aun//
+                        mandarMail();
                         irTienda();
                     });
 
@@ -163,4 +167,13 @@ function irTienda() {
 
 function numeroPedido(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
+}
+
+function mandarMail() {
+    emailjs.send("service_akw3h2a", "template_jra2zyn", {
+        from_name: "ET-Soluciones",
+        to_name: document.querySelector("#nombre").value,
+        message: "Hemos recibido tu pedido, te lo llevaremos a la dirección indicada dentro de los próximos 10 días\n Tu nro. de pedido es:" + numeroPedido().value + "\nGracias por tu compra!\n\nET-Soluciones",
+        email: document.querySelector("#email").value,
+    });
 }
