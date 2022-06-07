@@ -174,6 +174,6 @@ function mandarMail() {
         from_name: "ET-Soluciones",
         to_name: document.querySelector("#nombre").value,
         email: document.querySelector("#email").value,
-        message: `Hemos recibido el pedido! Tu número de seguimiento es: #` + nroPedido + `. Te lo enviaremos a ` + document.querySelector("#domicilio").value + ` Nº ` + document.querySelector("#numeracion").value + `, ` + document.querySelector("#localidad").value + ` .Lo estarás recibien dentro de los próximos 10 días y el importe total de tu compra es: ` + formatoMoneda(totalGeneral())
+        message: `Hemos recibido tu pedido! El número de seguimiento es: #` + nroPedido + `. Te lo enviaremos a ` + document.querySelector("#domicilio").value + ` Nº ` + document.querySelector("#numeracion").value + `, ` + document.querySelector("#localidad").value + `. Lo estarás recibiendo dentro de los próximos 10 días y el importe total de tu compra es: ` + formatoMoneda(totalGeneral())
     });
 }
