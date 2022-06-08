@@ -312,6 +312,7 @@ body {
     max-width: 50%;
     margin: 1rem auto;
     margin-bottom: 0;
+    cursor: pointer;
 }
 
 

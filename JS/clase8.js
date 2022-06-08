@@ -99,6 +99,7 @@ vaciarCarritoBtn.addEventListener('click', () => {
     }
 });
 
+
 //MOSTRAR EN EL HTML//
 function agregarHtml(listaProductos) {
     let contenedorCards = document.createElement("div");
@@ -113,14 +114,14 @@ function agregarHtml(listaProductos) {
             precio
         } = element;
         contenedorCards.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
-        <img src=${imagen} class="card-img-top fotoItem" alt="${titulo}">
+        <img src=${imagen} class="card-img-top fotoItem" alt="${titulo}">        
         <div class="card-body product" id="${id}">
             <h5 class="card-title productTittle text-center">${titulo}</h5>
             <p class="card-text">${descripcion}</p>
             <span class="productPrice">${formatoMoneda(precio)}</span>
             <a class="btn btn-primary botonAgregar" data-id="${id}">Agregar al carrito</a>
             </div>                            
-        </div>`;
+        </div>`
     });
     return contenedorCards;
 }
