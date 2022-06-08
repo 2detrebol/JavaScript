@@ -161,7 +161,6 @@ $(function () {
 
 function irTienda() {
     window.location.href = "./tienda.html";
-    location.reload();
 }
 
 let nroPedido;
@@ -178,3 +177,8 @@ function mandarMail() {
         message: `Hemos recibido tu pedido! El número de seguimiento es: #` + nroPedido + `. Te lo enviaremos a ` + document.querySelector("#domicilio").value + ` Nº ` + document.querySelector("#numeracion").value + `, ` + document.querySelector("#localidad").value + `. Lo estarás recibiendo dentro de los próximos 10 días y el importe total de tu compra es: ` + formatoMoneda(totalGeneral())
     });
 }
+
+
+window.addEventListener('hashchange', function () {
+    windows.reload();
+}, false);
