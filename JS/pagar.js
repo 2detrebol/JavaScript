@@ -179,7 +179,6 @@ function mandarMail() {
 }
 
 //si 
-window.history.pushState('', null, './');
-$(window).on('popstate', function () {
-    location.reload(true);
-});
+window.onbeforeunload = function () {
+    window.location.reload(true);
+}
