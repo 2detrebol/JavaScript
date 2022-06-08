@@ -177,13 +177,3 @@ function mandarMail() {
         message: `Hemos recibido tu pedido! El número de seguimiento es: #` + nroPedido + `. Te lo enviaremos a ` + document.querySelector("#domicilio").value + ` Nº ` + document.querySelector("#numeracion").value + `, ` + document.querySelector("#localidad").value + `. Lo estarás recibiendo dentro de los próximos 10 días y el importe total de tu compra es: ` + formatoMoneda(totalGeneral())
     });
 }
-
-//si 
-jQuery(document).ready(function ($) {
-
-    //Use this inside your document ready jQuery 
-    $(window).on('popstate', function () {
-        location.reload(true);
-    });
-
-});
