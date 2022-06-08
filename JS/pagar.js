@@ -179,9 +179,11 @@ function mandarMail() {
 }
 
 //si 
-window.addEventListener("pageshow", function (event) {
-    let perfEntries = performance.getEntriesByType("navigation");
-    if (perfEntries[0].type === "back_forward") {
-        location.reload();
-    }
+jQuery(document).ready(function ($) {
+
+    //Use this inside your document ready jQuery 
+    $(window).on('popstate', function () {
+        location.reload(true);
+    });
+
 });
