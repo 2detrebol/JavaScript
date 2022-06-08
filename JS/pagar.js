@@ -178,7 +178,7 @@ function mandarMail() {
     });
 }
 
-
-window.addEventListener('hashchange', function () {
-    windows.reload();
-}, false);
+//si 
+const [entry] = performance.getEntriesByType("navigation");
+if (entry["type"] === "back_forward")
+    location.reload();
