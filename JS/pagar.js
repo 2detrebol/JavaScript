@@ -161,6 +161,7 @@ $(function () {
 
 function irTienda() {
     window.location.href = "./tienda.html";
+    location.reload();
 }
 
 let nroPedido;
