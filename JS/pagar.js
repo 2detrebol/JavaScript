@@ -179,6 +179,7 @@ function mandarMail() {
 }
 
 //si 
-const [entry] = performance.getEntriesByType("navigation");
-if (entry["type"] === "back_forward")
-    location.reload();
+window.history.pushState('', null, './');
+$(window).on('popstate', function () {
+    location.reload(true);
+});
