@@ -179,6 +179,9 @@ function mandarMail() {
 }
 
 //si 
-window.onbeforeunload = function () {
-    window.location.reload(true);
-}
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    if (perfEntries[0].type === "back_forward") {
+        location.reload();
+    }
+});
