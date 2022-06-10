@@ -315,6 +315,16 @@ body {
     cursor: pointer;
 }
 
+.ampliar {
+    width: 1000px !important;
+    height: 1000px !important;
+    margin: 0 auto;
+    background: red !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
 
 .card-title,
 .btn-primary {

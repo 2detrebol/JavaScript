@@ -114,7 +114,7 @@ function agregarHtml(listaProductos) {
             precio
         } = element;
         contenedorCards.innerHTML += `<div class="card mb-3" style="width: 18rem; background-color: #000;">
-        <img src=${imagen} class="card-img-top fotoItem" alt="${titulo}">        
+        <img src=${imagen} class="card-img-top fotoItem" alt="${titulo} data-id="${id}">        
         <div class="card-body product" id="${id}">
             <h5 class="card-title productTittle text-center">${titulo}</h5>
             <p class="card-text">${descripcion}</p>
@@ -125,6 +125,27 @@ function agregarHtml(listaProductos) {
     });
     return contenedorCards;
 }
+
+/*
+abrirImagen = (e) => {
+    // una variable cualquiera
+    let i;
+    if (e.target.matches(".fotoItem")) {
+        console.log(listaProductos);
+        i = listaProductos.find((el) => (Number(el.id) = Number(e.target.dataset.id)));
+        console.log(e.target)
+        console.log(i)
+    }
+    // encuentro la clase
+    if (e.target.matches(`[data-id="${i.id}"`)) {
+        e.target.toggle(".ampliar");
+    }
+};
+
+document.addEventListener("click", (e) => {
+    abrirImagen(e);
+});*/
+
 
 function agregarProducto(e) {
     if (e.target.classList.contains("botonAgregar")) {
