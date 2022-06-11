@@ -126,25 +126,26 @@ function agregarHtml(listaProductos) {
     return contenedorCards;
 }
 
-/*
+
 abrirImagen = (e) => {
-    // una variable cualquiera
     let i;
     if (e.target.matches(".fotoItem")) {
-        console.log(listaProductos);
-        i = listaProductos.find((el) => (Number(el.id) = Number(e.target.dataset.id)));
-        console.log(e.target)
-        console.log(i)
+        i = e.target.src;
+        const divFondo = document.createElement('div');
+        divFondo.innerHTML = `<div class="fondoFoto">        
+        <img src=${i} class="ampliar" alt="imagen grande">        
+        </div>`;
+        document.body.appendChild(divFondo);
+        let x = document.querySelector('.fondoFoto');
+        x.addEventListener('click', () => {
+            document.body.removeChild(divFondo);
+        });
     }
-    // encuentro la clase
-    if (e.target.matches(`[data-id="${i.id}"`)) {
-        e.target.toggle(".ampliar");
-    }
-};
+}
 
 document.addEventListener("click", (e) => {
     abrirImagen(e);
-});*/
+});
 
 
 function agregarProducto(e) {
