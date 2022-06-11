@@ -157,8 +157,7 @@ body {
     }
 }
 
-/* FONDO BODY */
-
+/* TITULO */
 .titulo h1 {
     display: flex;
     justify-content: center;
@@ -170,6 +169,7 @@ body {
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.2), 0 0 0.8em currentColor;
 }
 
+/* LOGO */
 .containerDibu {
     display: flex;
     justify-content: center;
@@ -185,11 +185,11 @@ body {
     margin-left: 1rem;
 }
 
+/*CARROUSEL PRINCIPAL*/
 .containerCarousel {
     margin-top: 4.5rem;
     margin-bottom: 3rem;
 }
-
 
 .carousel-item img {
     border-radius: 15px;
@@ -206,8 +206,7 @@ body {
     background-color: greenyellow !important;
 }
 
-
-/*Boton de neon para ir a la tienda*/
+/*BOTON NEON PARA IR A LA TIENDA*/
 .tienda {
     display: flex;
     justify-content: center;
@@ -263,146 +262,7 @@ body {
     opacity: 1;
 }
 
-/* POPUP */
-/* ------------------------- */
-.popup {
-    background-color: greenyellow;
-    font-family: 'Audiowide', sans-serif;
-    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .6);
-    border-radius: 8px;
-    text-align: center;
-    transition: top 0ms ease-in-out 200ms,
-        opacity 200ms ease-in-out 0ms,
-        transform 200ms ease-in-out 0ms;
-    transform: translate(0, 15%);
-    position: absolute;
-    top: 8%;
-    display: flex;
-    flex-direction: column;
-    visibility: hidden;
-    width: 85%;
-    height: auto;
-    padding: 1rem;
-}
-
-.popup.active {
-    visibility: visible;
-    z-index: 50;
-    transform: translate(0, 15%);
-    transition: top 0ms ease-in-out 0ms,
-        opacity 200ms ease-in-out 0ms,
-        transform 200ms ease-in-out 0ms;
-}
-
-.popup .close-btn {
-    position: absolute;
-    right: 0;
-    margin-top: -.7rem;
-    margin-right: .2rem;
-    padding: 5px;
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: .7rem;
-    border-radius: 50%;
-    color: greenyellow;
-    background-color: #000;
-    cursor: pointer;
-}
-
-.popup h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1.3rem;
-    margin-top: .2rem;
-    color: #000;
-    opacity: 0;
-}
-
-.form-element {
-    display: flex;
-    flex-flow: column wrap;
-    align-content: center;
-}
-
-.form-element input {
-    margin-bottom: 1rem;
-    padding-left: .5rem;
-    border-radius: 4px;
-    border: none;
-    background-color: #000;
-    line-height: 2rem;
-    color: greenyellow;
-    outline: none;
-    font-size: .8rem;
-    opacity: 0;
-}
-
-.form-element input::placeholder {
-    color: rgba(255, 255, 255, .7);
-}
-
-.btn-submit {
-    margin-bottom: .5rem;
-    padding: 0 20px;
-    line-height: 2.5rem;
-    border: none;
-    color: greenyellow;
-    background: #000;
-    border-radius: 5px;
-    font-family: 'Audiowide', sans-serif;
-    letter-spacing: 0.5px;
-    font-size: 1rem;
-    cursor: pointer;
-    opacity: 0;
-}
-
-.btn-submit:hover,
-.btn-submit:focus {
-    background: greenyellow;
-    color: #000;
-    border: #000 .015rem solid;
-    box-shadow: 0 0 1.5rem 0.3rem #000;
-    outline: none;
-}
-
-/* ANIMACIONES */
-.popup.active h3 {
-    animation: entradaTitulo .8s ease 0s forwards;
-}
-
-.popup.active input,
-.popup.active .close-btn,
-.popup.active .btn-submit,
-.popup.active .form-check {
-    animation: entradaInputs 1.5s linear 0s forwards;
-}
-
-
-
-@keyframes entradaTitulo {
-    from {
-        opacity: 0;
-        transform: translateY(-25px);
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes entradaInputs {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-
-/* CAROUSEL PARA BRANDS */
+/* CAROUSEL FOOTER PARA BRANDS */
 .slickBrands {
     position: relative;
     bottom: 0;
@@ -416,6 +276,7 @@ body {
     border-radius: 10px;
 }
 
+/* MEDIA QUERIES */
 @media (min-width: 576px) {
     .titulo h1 {
         font-size: 1.5rem;
@@ -449,32 +310,6 @@ body {
 
     .circles li:nth-child(10) {
         visibility: visible;
-    }
-
-    .popup {
-        height: auto;
-        top: 4%;
-        width: 53%;
-        font-size: .7rem;
-    }
-
-    .popup h3 {
-        margin-top: -.4rem;
-        margin-bottom: 1rem;
-    }
-
-    .form-element input {
-        margin-bottom: .5rem;
-        line-height: 1.8rem;
-    }
-
-    .btn-submit {
-        margin-top: .5rem;
-        line-height: 2rem;
-        font-size: .7rem;
-        cursor: pointer;
-        transition: .3s ease all;
-        opacity: 0;
     }
 
     .carousel-inner {
@@ -532,41 +367,6 @@ body {
         width: 3rem !important;
     }
 
-    .popup {
-        top: 15%;
-        width: 70%;
-        font-size: 1.5rem;
-    }
-
-    .popup .close-btn {
-        padding: 8px;
-        font-size: 2.3rem;
-        line-height: .9rem;
-    }
-
-    .popup h3 {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        font-size: 2.5rem;
-    }
-
-    .form-element input {
-        margin-bottom: 1.8rem;
-        line-height: 3rem;
-        font-size: 1.5rem;
-    }
-
-    #recordame {
-        height: 1.2rem;
-        width: 1.2rem;
-    }
-
-    .btn-submit {
-        margin-top: 1.8rem;
-        line-height: 3.5rem;
-        font-size: 1.8rem;
-    }
-
     .tienda {
         height: 6.5rem
     }
@@ -605,15 +405,6 @@ body {
         margin-top: 1.5rem;
         margin-bottom: 2.5rem;
     }
-
-    .popup {
-        top: 4%;
-        width: 58%;
-    }
-
-    .btn-submit {
-        margin-top: 1.5rem;
-    }
 }
 
 @media (min-width: 1200px) {
@@ -629,19 +420,8 @@ body {
         height: 8.5rem;
     }
 
-
     .neon-button {
         font-size: 2rem;
-    }
-
-    .popup {
-        width: 47%;
-    }
-
-    .popup h3 {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        font-size: 3rem;
     }
 
     .slickBrands div img {
@@ -659,7 +439,6 @@ body {
         margin-top: -1rem;
         margin-left: 3rem;
     }
-
 
     .containerCarousel {
         margin-top: 1.8rem;
@@ -680,19 +459,9 @@ body {
         margin-bottom: 1.5rem;
     }
 
-    .popup {
-        width: 50%;
-        top: 1%;
-    }
-
-    .popup h3 {
-        margin-top: 0rem;
-    }
-
     .slickBrands {
         margin-top: 0;
     }
-
 
     .slickBrands div img {
         width: 38%;
@@ -700,15 +469,6 @@ body {
 }
 
 @media (min-width: 1600px) {
-    .popup {
-        width: 44%;
-        top: 3%;
-    }
-
-    .popup h3 {
-        margin-bottom: 2.1rem;
-    }
-
     .slickBrands div img {
         margin-top: 2rem;
         width: 38%;
@@ -737,41 +497,6 @@ body {
     .carousel-inner {
         max-width: 78%;
         margin-top: 1rem;
-    }
-
-    .popup {
-        top: 15%;
-        width: 40%;
-        font-size: 2rem;
-    }
-
-    .popup .close-btn {
-        padding: 8px;
-        font-size: 2.3rem;
-        line-height: .9rem;
-    }
-
-    .popup h3 {
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-        font-size: 3.8rem;
-    }
-
-    .form-element input {
-        margin-bottom: 1.8rem;
-        line-height: 3.5rem;
-        font-size: 2rem;
-    }
-
-    #recordame {
-        height: 1.8rem;
-        width: 1.8rem;
-    }
-
-    .btn-submit {
-        margin-top: 1.8rem;
-        line-height: 3.5rem;
-        font-size: 1.8rem;
     }
 
     .tienda {
