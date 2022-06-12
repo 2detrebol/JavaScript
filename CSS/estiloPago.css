@@ -54,7 +54,6 @@ body {
     animation-duration: 20s;
 }
 
-
 .circles li:nth-child(2) {
     left: 5%;
     width: 53px;
@@ -148,7 +147,6 @@ body {
 
 
 @keyframes animate {
-
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
@@ -161,8 +159,7 @@ body {
     }
 }
 
-/* FONDO BODY */
-
+/* GENERAL */
 .navbar {
     background-color: greenyellow;
     position: fixed;
@@ -184,6 +181,7 @@ body {
     margin-top: .5rem;
 }
 
+/*TABLA CON PRODUCTOS DEL CARRITO*/
 #listaCarrito {
     white-space: nowrap;
     max-width: 60vw;
@@ -191,6 +189,10 @@ body {
     margin-top: 1rem;
     border-radius: 30px;
     font-size: .85rem;
+}
+
+.titulosCarrito {
+    border-bottom: 1px solid #000;
 }
 
 .table>:not(caption)>*>* {
@@ -217,6 +219,10 @@ body {
 }
 
 @media (min-width: 576px) {
+    .tituloPago {
+        font-size: 3rem;
+    }
+
     .circles li:nth-child(1) {
         visibility: hidden;
     }
@@ -507,8 +513,17 @@ input[type=number] {
 }
 
 @media (min-width: 768px) {
+    .tituloPago {
+        font-size: 3rem;
+    }
+
+    .envio {
+        padding-right: 1.6rem;
+    }
+
     .pago {
         margin-top: 0;
+        padding-left: 1.6rem;
     }
 }
 
@@ -893,10 +908,23 @@ label {
 }
 
 @media (min-width: 1300px) {
+    .imgProducto img {
+        width: 4.5rem;
+    }
+
+    .envio {
+        padding-right: 2.5rem;
+    }
+
+    .pago {
+        padding-left: 2.5rem;
+    }
+
     .instructivo {
         width: 40vw;
         display: inline !important;
     }
+
 
     .lineaTiempo {
         display: inline-block;
@@ -950,11 +978,21 @@ label {
         text-align: center;
     }
 
+    .containerPagoEnvio {
+        margin-bottom: -4rem;
+    }
+
+    .containerBtn {
+        margin: 0;
+        max-width: 100vw;
+        position: relative;
+        top: -4.5rem;
+    }
 }
 
 .containerBtn {
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     max-width: 100vw;
 }
 
@@ -996,4 +1034,8 @@ label {
     box-shadow: 0 0 1.5rem 0.2rem red;
     border: red .125rem solid;
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+}
+
+.animate__animated {
+    --animate-duration: 2s;
 }

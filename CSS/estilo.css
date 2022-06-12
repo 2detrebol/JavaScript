@@ -276,6 +276,10 @@ body {
     border-radius: 10px;
 }
 
+.animate__animated {
+    --animate-duration: 1.5s;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
     .titulo h1 {

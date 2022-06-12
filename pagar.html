@@ -17,7 +17,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <!-- ANIMATE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- SLICK BRANDS CAROUSEL CSS -->
@@ -25,24 +24,27 @@
     <!-- CSS PERSONAL MAU -->
     <link rel="stylesheet" href="./CSS/estiloPago.css">
     <title>MAURO BRANDI - E Commerce ET-Soluciones - JS - CODERHOUSE</title>
+    <meta name="description"
+        content="Somos ET-Soluciones. Nos especializamos en HARDWARE de alta gama. Tu mejor opción para armar PC Gamer, con envío gratis a todo el país." />
+    <meta name="keywords"
+        content="ET-Soluciones, Pc, Gamer, Hardware, Placas de Video, Microprocesadores, AMD, Intel, Asus, TUF, Motherboards, Discos, SSD, Memorias RAM, Kingston, Ballistix, Gigabyte, Aorus, MSI, Sapphire, RADEON, Ge-Force, RTX, RX, Western Digital" />
 </head>
 
 <body>
     <nav class="navbar navbar-light">
-        <div class="container-fluid d-flex justify-content-around">
+        <div class="container-fluid d-flex justify-content-evenly">
             <a class="navbar-brand me-0" href="./index.html">
-                <i class="bi bi-house-door d-inline-block ms-1 mb-1"></i>
+                <i class="bi bi-house-door d-inline-block ms-1 mb-1 animate__animated animate__bounceInLeft"></i>
             </a>
             <h1 class="titulo animate__animated animate__bounceInRight"> ET-Soluciones</h1>
         </div>
     </nav>
     <div class="d-flex justify-content-center">
-        <h1 class="tituloPago">
-            Productos
-            confirmados
+        <h1 class="tituloPago animate__animated animate__fadeInDown">
+            Productos confirmados
         </h1>
     </div>
-    <div id="muestraCarro" class="table-responsive d-flex justify-content-center">
+    <div id="muestraCarro" class="table-responsive d-flex justify-content-center animate__animated animate__zoomIn">
         <table id="listaCarrito" class="table border-dark">
             <thead>
                 <tr class="titulosCarrito text-center align-middle">
@@ -63,9 +65,9 @@
             </tfoot>
         </table>
     </div>
-    <div class="containerPagoEnvio row d-flex justify-content-evenly">
+    <div class="containerPagoEnvio row d-flex justify-content-center">
         <div class="envio row col-md-6 d-flex justify-content-center">
-            <div class="ancho">
+            <div class="ancho animate__animated animate__fadeInLeft">
                 <h2 class="text-center">Envío</h2>
                 <h4 class="text-center">Completa tus datos</h4>
                 <form id="datosEnvio">
@@ -96,7 +98,7 @@
             </div>
         </div>
         <div class="instructivo row col-md-6 d-flex justify-content-center">
-            <div class="ancho lineaTiempo">
+            <div class="ancho lineaTiempo animate__animated animate__slideInUp">
                 <h2 class="text-center">Tiempo de Envío</h2>
                 <h4 class="text-center mt-5">Dentro de los 10 días de confirmar tu compra recibiras tus productos</h4>
                 <ul class="timeline" id="timeline">
@@ -145,7 +147,7 @@
             </div>
         </div>
         <div class="pago row col-md-6 d-flex justify-content-center">
-            <div class="ancho">
+            <div class="ancho animate__animated animate__fadeInRight">
                 <h2 class="text-center">Pago</h2>
                 <h4 class="text-center">Seleccioná una opción</h4>
                 <form id="CreateForm seleccion" class="d-flex flex-column align-items-center justify-content-center">
@@ -200,14 +202,14 @@
         </div>
         </form>
         <div class="d-flex justify-content-center containerBtn">
-            <button id="btnCancela" type="submit">Volver a la Tienda</button>
-            <button id="btnFinalizar" type="submit" form="CreateForm">Comprar</button>
+            <button id="btnCancela" type="submit" class="animate__animated animate__backInUp">Volver a la
+                Tienda</button>
+            <button id="btnFinalizar" type="submit" class="animate__animated animate__backInUp"
+                form="CreateForm">Comprar</button>
         </div>
     </div>
 
-
-
-    <div class="slickBrands">
+    <div class="slickBrands animate__animated animate__bounceInUp">
         <div><img src="./IMAGENES/Brands/1.jpg"></div>
         <div><img src="./IMAGENES/Brands/2.jpg"></div>
         <div><img src="./IMAGENES/Brands/3.jpg"></div>
