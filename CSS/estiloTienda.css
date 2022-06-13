@@ -817,3 +817,7 @@ body {
         transform: scale(1);
     }
 }
+
+.animate__animated {
+    --animate-duration: 2s;
+}
