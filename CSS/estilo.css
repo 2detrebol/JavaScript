@@ -280,6 +280,10 @@ body {
     --animate-duration: 1.5s;
 }
 
+.animate__animated.animate__zoomIn {
+    --animate-delay: 0.5s;
+}
+
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
     .titulo h1 {
