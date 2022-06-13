@@ -178,8 +178,13 @@ body {
 }
 
 .bi-house-door {
-    font-size: 2rem;
+    font-size: 1.6rem;
     cursor: pointer;
+    color: greenyellow;
+    background: #212529;
+    border-radius: 50%;
+    padding: 0 .65rem;
+    padding-bottom: .4rem;
 }
 
 .carritoIcon {
@@ -199,7 +204,7 @@ body {
 
 #cart_menu_num {
     position: absolute;
-    top: 0;
+    bottom: 30%;
     left: 80%;
     width: 15px;
     height: 15px;
@@ -210,7 +215,7 @@ body {
 }
 
 .bi-cart4 {
-    font-size: 2rem;
+    font-size: 1.9rem;
     cursor: pointer;
     color: #000;
 }
@@ -237,7 +242,7 @@ body {
     color: #000;
     font-family: 'Audiowide', sans-serif;
     font-weight: 900;
-    font-size: 2rem;
+    font-size: 1.9rem;
     margin: 0;
     align-self: center;
 }
