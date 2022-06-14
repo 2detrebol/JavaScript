@@ -103,7 +103,7 @@ $(function () {
                     localStorage.removeItem('carrito');
                     swal({
                             title: "¡Gracias por tu compra!",
-                            text: `Tu número de pedido es el: #${numeroPedido(1, 9999)}\n\nLo recibiras en los próximos 10 días\n\nAhora te llevaremos de nuevo a nuestra tienda`,
+                            text: `Tu número de pedido es el: #${numeroPedido(1, 9999)}\n\nTe estaremos enviado un email con los detalles de tu compra\n\nAhora te llevaremos de nuevo a nuestra tienda`,
                             icon: "success",
                         })
                         .then(() => {
@@ -115,7 +115,7 @@ $(function () {
                 localStorage.removeItem('carrito');
                 swal({
                         title: "¡Gracias por tu compra!",
-                        text: `Tu número de pedido es el: # ${numeroPedido(1, 9999)}\n\nLo recibiras en los próximos 10 días\n\nAhora te llevaremos de nuevo a nuestra tienda`,
+                        text: `Tu número de pedido es el: # ${numeroPedido(1, 9999)}\n\nTe estaremos enviado un email con los detalles de tu compra\n\nAhora te llevaremos de nuevo a nuestra tienda`,
                         icon: "success",
                     })
                     .then(() => {
