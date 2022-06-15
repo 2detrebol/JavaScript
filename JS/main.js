@@ -186,7 +186,7 @@ function leerDatosProducto(producto) {
     const precio = producto.querySelector('.product span').textContent;
     // CREA NUEVO PRODUCTO CON LOS DATOS QUE SACAMOS //
     const infoProducto = new Producto(id, imagen, titulo, descripcion, precio);
-    infoProducto.subtotal = Number((infoProducto.precio.replace('$', "")) * 1000) * infoProducto.cantidad;
+    infoProducto.subtotal = Number(infoProducto.precio.replace('.', "").replace("$", "")) * infoProducto.cantidad;
     // VERIFICA SI YA EXISTE EL PRODUCTO EN EL CARRITO //
     const existe = articulosCarrito.some(producto => producto.id === infoProducto.id);
     if (existe) {
@@ -194,7 +194,7 @@ function leerDatosProducto(producto) {
         const productos = articulosCarrito.map(producto => {
             if (producto.id === infoProducto.id) {
                 producto.cantidad++;
-                producto.subtotal = Number(((producto.precio.replace('$', "")) * 1000) * producto.cantidad);
+                producto.subtotal = Number(producto.precio.replace('.', "").replace('$', "")) * producto.cantidad;
                 return producto; // DEVUELVE OBJETO ACTUALIZADO SUMANDO CANTIDAD Y SUBTOTAL//
             } else {
                 return producto; // DEVUELVE LOS OBJETOS QUE NO SE DUPLICAN, HACE UNA LINEA MÁS //
@@ -261,7 +261,7 @@ function eliminarUnidad(e) {
             carritoHTML();
         } else {
             productoMenos.cantidad--;
-            productoMenos.subtotal = Number((productoMenos.precio.replace('$', "")) * 1000) * productoMenos.cantidad;
+            productoMenos.subtotal = Number(productoMenos.precio.replace('.', "").replace('$', "")) * productoMenos.cantidad;
             carritoHTML();
         }
         sincronizarStorage();
@@ -275,7 +275,7 @@ function sumarUnidad(e) {
             (el) => Number(el.id) === Number(e.target.dataset.id)
         );
         productoMas.cantidad++;
-        productoMas.subtotal = Number((productoMas.precio.replace('$', "")) * 1000) * productoMas.cantidad;
+        productoMas.subtotal = Number(productoMas.precio.replace('.', "").replace('$', "")) * productoMas.cantidad;
         sincronizarStorage();
         carritoHTML();
     }
