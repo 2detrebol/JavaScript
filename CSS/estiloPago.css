@@ -222,50 +222,6 @@ body {
     border-radius: 10px;
 }
 
-@media (min-width: 576px) {
-    .tituloPago {
-        font-size: 3rem;
-    }
-
-    .circles li:nth-child(1) {
-        visibility: hidden;
-    }
-
-    .circles li:nth-child(4) {
-        visibility: visible;
-    }
-
-    .circles li:nth-child(7) {
-        visibility: visible;
-    }
-
-    .circles li:nth-child(10) {
-        visibility: visible;
-    }
-}
-
-@media (min-width: 768px) {
-    .circles li:nth-child(1) {
-        visibility: visible;
-    }
-}
-
-@media (min-width: 1366px) {
-
-    body {
-        overflow-x: hidden;
-    }
-
-    .slickBrands {
-        margin-top: 1.5rem;
-        background: none;
-    }
-
-    .slickBrands div img {
-        width: 40%;
-    }
-}
-
 .ancho h2,
 .ancho h4 {
     font-family: 'Audiowide';
@@ -525,21 +481,6 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
-}
-
-@media (min-width: 768px) {
-    .tituloPago {
-        font-size: 3rem;
-    }
-
-    .envio {
-        padding-right: 1.6rem;
-    }
-
-    .pago {
-        margin-top: 0;
-        padding-left: 1.6rem;
-    }
 }
 
 /*CREDIT CARD*/
@@ -898,6 +839,55 @@ label {
     }
 }
 
+.containerBtn {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    max-width: 100vw;
+}
+
+#btnFinalizar,
+#btnCancela {
+    font-size: 1rem;
+    font-family: 'Audiowide', sans-serif;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: greenyellow;
+    border: greenyellow .125rem solid;
+    padding: .7rem 1em;
+    border-radius: 0.25em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 greenyellow, 0 0 0.5em 0 greenyellow;
+    position: relative;
+    background: #000;
+    margin-top: .5rem;
+}
+
+#btnCancela {
+    margin-right: 1.5rem;
+    margin-left: -1.5rem;
+}
+
+#btnFinalizar:hover,
+#btnFinalizar:focus {
+    color: #000;
+    background-color: greenyellow;
+    box-shadow: 0 0 1.5rem 0.2rem greenyellow;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+}
+
+#btnCancela:hover,
+#btnCancela:focus {
+    color: #fff;
+    background-color: red;
+    box-shadow: 0 0 1.5rem 0.2rem red;
+    border: red .125rem solid;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+}
+
+.animate__animated {
+    --animate-duration: 2s;
+}
 
 @media (min-device-width: 320px) and (max-device-width: 700px) {
     .timeline {
@@ -922,9 +912,72 @@ label {
     }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 576px) {
+    .tituloPago {
+        font-size: 3rem;
+    }
+
+    .circles li:nth-child(1) {
+        visibility: hidden;
+    }
+
+    .circles li:nth-child(4) {
+        visibility: visible;
+    }
+
+    .circles li:nth-child(7) {
+        visibility: visible;
+    }
+
+    .circles li:nth-child(10) {
+        visibility: visible;
+    }
+}
+
+@media (min-width: 768px) {
+    .circles li:nth-child(1) {
+        visibility: visible;
+    }
+
+    .titulosCarrito th,
+    .contenidoCarro th {
+        font-size: 1rem;
+    }
+
+    .tituloPago {
+        font-size: 3rem;
+    }
+
     .imgProducto img {
         width: 4.5rem;
+    }
+
+    .envio {
+        padding-right: 1.6rem;
+    }
+
+    .pago {
+        margin-top: 0;
+        padding-left: 1.6rem;
+    }
+}
+
+@media (min-width: 1300px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .slickBrands {
+        margin-top: 1.5rem;
+        background: none;
+    }
+
+    .slickBrands div img {
+        width: 40%;
+    }
+
+    .imgProducto img {
+        width: 5.5rem;
     }
 
     .envio {
@@ -939,7 +992,6 @@ label {
         width: 40vw;
         display: inline !important;
     }
-
 
     .lineaTiempo {
         display: inline-block;
@@ -999,59 +1051,8 @@ label {
 
     #btnFinalizar,
     #btnCancela {
-        margin: 0;
         max-width: 100vw;
         position: relative;
         top: -4.5rem;
     }
-}
-
-.containerBtn {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    max-width: 100vw;
-}
-
-#btnFinalizar,
-#btnCancela {
-    font-size: 1rem;
-    font-family: 'Audiowide', sans-serif;
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-    color: greenyellow;
-    border: greenyellow .125rem solid;
-    padding: .7rem 1em;
-    border-radius: 0.25em;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-    box-shadow: inset 0 0 0.5em 0 greenyellow, 0 0 0.5em 0 greenyellow;
-    position: relative;
-    background: #000;
-    margin-top: .5rem;
-}
-
-#btnCancela {
-    margin-right: 1.5rem;
-    margin-left: -1.5rem;
-}
-
-#btnFinalizar:hover,
-#btnFinalizar:focus {
-    color: #000;
-    background-color: greenyellow;
-    box-shadow: 0 0 1.5rem 0.2rem greenyellow;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-}
-
-#btnCancela:hover,
-#btnCancela:focus {
-    color: #fff;
-    background-color: red;
-    box-shadow: 0 0 1.5rem 0.2rem red;
-    border: red .125rem solid;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-}
-
-.animate__animated {
-    --animate-duration: 2s;
 }
